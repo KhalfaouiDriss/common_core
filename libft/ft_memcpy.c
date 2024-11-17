@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:28:26 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 18:43:08 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:46:27 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 	s = src;
 	d = dest;
 	i = 0;
-	if (len == 0 || dest == src)
+	if (dest == src)
 		return (dest);
 	while (i < len)
 	{
@@ -30,3 +30,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 	}
 	return (dest);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char d[5];
+	ft_memcpy(d, NULL, 1);
+	printf("%s", d);
+}
+*/

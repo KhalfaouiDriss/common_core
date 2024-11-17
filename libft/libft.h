@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 21:29:06 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/12 21:29:34 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:47:35 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}				t_list;
 
 int				ft_atoi(const char *str);
 

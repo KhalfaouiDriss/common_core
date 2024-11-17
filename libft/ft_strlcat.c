@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:40:36 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/10/31 18:40:40 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:08:50 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
 	unsigned int	i;
-	unsigned int	y;
+	unsigned int	k;
 	unsigned int	dl;
 
 	i = ft_strlen(dst);
-	dl = ft_strlen(dst);
-	y = 0;
-	if (n && ft_strlen(dst) <= n)
+	dl = i;
+	k = 0;
+	if (n && dl <= n)
 	{
-		while (src[y] != '\0' && i < (n - 1))
+		while (src[k] != '\0' && i < (n - 1))
 		{
-			dst[i] = src[y];
+			dst[i] = src[k];
 			i++;
-			y++;
+			k++;
 		}
 		dst[i] = '\0';
 	}

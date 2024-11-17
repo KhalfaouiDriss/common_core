@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:11 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 04:10:08 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:29:57 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!tmp)
 		return (NULL);
 	ft_bzero(tmp, count * size);
-	return ((void *)tmp);
+	return (void *)(tmp);
 }

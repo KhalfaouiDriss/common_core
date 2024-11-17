@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:42:36 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 13:59:33 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/17 11:27:35 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strnstr(const char *str, const char *TF, size_t len)
 
 	i = 0;
 	j = 0;
-	if (TF[i] == '\0' || len == 0)
+	if (TF[i] == '\0')
 		return ((char *)str);
-	while (str[i] && i < len)
+	while (i < len && str[i])
 	{
 		while (str[i + j] == TF[j] && i + j < len)
 		{

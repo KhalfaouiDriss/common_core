@@ -1,4 +1,5 @@
 NAME = libft.a
+
 CFLAGS = -Wall -Wextra -Werror
   
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -16,11 +17,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
   
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	ar crs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
@@ -30,4 +27,4 @@ fclean: clean
 
 re: fclean all 
 
-.PHONY: all fclean re
+.PHONY: all fclean re clean

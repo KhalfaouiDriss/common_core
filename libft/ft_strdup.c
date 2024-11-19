@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:39:44 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/17 11:35:26 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:09:52 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*ft_strdup(const char *str)
 
 int	main()
 {
-	printf("%p\n", strdup(NULL));
+	printf("%s\n", ft_strdup("hello"));
 }
 */

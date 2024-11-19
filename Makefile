@@ -1,5 +1,6 @@
 push:
 	git add .
 	git status
-	git commit -m"libft"
+	git commit -m"get_next_line"
 	git push
+

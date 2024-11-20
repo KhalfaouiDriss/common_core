@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return 0;
 	while (str[i])
 	{
 		i++;
@@ -29,6 +31,8 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == (unsigned char)c)
@@ -101,8 +105,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	lens2;
 	char	*res;
 
-	if (!s1 || !s2)
-		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
 	res = malloc(lens1 + lens2 + 1);

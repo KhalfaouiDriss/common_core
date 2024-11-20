@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:09:15 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/19 15:09:18 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2024/11/20 19:12:11 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,21 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
     size = 1;
-    while (size > 0 && ft_strchr(stock, '\n'))
+    while (size > 0 && !ft_strchr(stock, '\n'))
     {
 	    size = read(fd, buffer, BUFFER_SIZE);
-        if (size > 0)
+        printf("%zu\n", size);
+	if (size > 0)
         {
             buffer[size] = '\0';
+	//	    printf("%s",buffer);
             tmp = stock;
             if (!stock)
                 stock = ft_strdup(buffer);
             else
                 stock = ft_strjoin(stock, buffer);
+
+	   // printf("\n%s\n",stock);
             free(tmp);
         }
     }
@@ -59,17 +63,14 @@ char	*get_next_line(int fd)
     {
         line = ft_substr(stock, 0, (ft_strchr(stock, '\n') - stock) + 1);
         tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
+	free(stock);
         if (*tmp == '\0')
         {
             free(tmp);
-            free(stock);
             stock = NULL;
         }
         else
-        {
-            free(stock);
             stock = tmp;
-        }
     }
     else
     {
@@ -86,12 +87,28 @@ int main()
 
     char *line = get_next_line(fd);
 
-    while(line)
-    {
+    //while(line)
+   {
         printf("%s", line);
         free(line);
         line = get_next_line(fd);
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+        printf("%s", line);
     }
-    free(line);
+   // free(line);
     close(fd);
 }

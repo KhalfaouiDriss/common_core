@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 // char *_fill_line_buffer(int fd, char *left_c, char *buffer)
 // {
 
@@ -20,38 +19,39 @@
 // {
 
 // }
+#include <fcntl.h>
+#include <limits.h>
+#include <stdio.h>
+#include "get_next_line.h"
 
-char    *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-    static char *stock;
-    char    *buffer;
+	static char	*stock;
+	char		*buffer;
+	ssize_t		size;
+    int i = BUFFER_SIZE;
 
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return NULL;
-    buffer = (char *)malloc(BUFFER_SIZE + 1);
-    if(!buffer)
-        return (NULL);
-    ssize_t size = read(fd, buffer, BUFFER_SIZE);
-    if (size == -1 || size == 0)
-        return (NULL);
-    if(!ft_strchr(buffer, '/n'))
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buffer = (char *)malloc(BUFFER_SIZE);
+	if (!buffer)
+		return (NULL);
+    while (buffer[i] != '\n')
     {
+	    size += read(fd, buffer, BUFFER_SIZE);
         stock = ft_strjoin(stock, buffer);
+        i++;
     }
-    else
-    {
-        ft_strlcat(stock, buffer, ft_strchr(buffer, '/n') - &buffer);
-    }
-    
-
-
+    free(buffer);
+    // if (size == -1 || size == 0)
+	// 	return (NULL);
+    return stock;
 }
 
-# include <fcntl.h>
-# include <limits.h>
 
-int main()
+int	main(void)
 {
-    int fd = open("text.txt", O_RDONLY);
-
+	int fd = open("text.txt", O_RDONLY);
+    char    *bfr = get_next_line(fd);
+    printf("%s", bfr);
 }

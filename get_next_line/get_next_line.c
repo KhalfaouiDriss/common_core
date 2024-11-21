@@ -42,7 +42,7 @@ char	*get_next_line(int fd)
     while (size > 0 && !ft_strchr(stock, '\n'))
     {
 	    size = read(fd, buffer, BUFFER_SIZE);
-        printf("%zu\n", size);
+        // printf("%zu\n", size);
 	if (size > 0)
         {
             buffer[size] = '\0';
@@ -71,12 +71,18 @@ char	*get_next_line(int fd)
         }
         else
             stock = tmp;
-    }
+        }
     else
     {
         line = ft_strjoin(line, stock); 
         free(stock);
         stock = NULL;
+    }
+    if (size == 0 && !stock) 
+    {
+        free(stock);
+        stock = NULL;
+        return (NULL);
     }
     return line;
 }
@@ -87,28 +93,12 @@ int main()
 
     char *line = get_next_line(fd);
 
-    //while(line)
-   {
+    while(line)
+    {
         printf("%s", line);
         free(line);
         line = get_next_line(fd);
-        printf("%s", line);
-        free(line);
-        line = get_next_line(fd);
-        printf("%s", line);
-        free(line);
-        line = get_next_line(fd);
-        printf("%s", line);
-        free(line);
-        line = get_next_line(fd);
-        printf("%s", line);
-        free(line);
-        line = get_next_line(fd);
-        printf("%s", line);
-        free(line);
-        line = get_next_line(fd);
-        printf("%s", line);
     }
-   // free(line);
+    free(line);
     close(fd);
 }

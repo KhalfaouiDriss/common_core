@@ -61,29 +61,19 @@ char	*get_next_line(int fd)
         line = ft_substr(stock, 0, (ft_strchr(stock, '\n') - stock) + 1);
         tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
         free(stock);
-        stock = NULL;
-        if (*tmp == '\0')
-        {
-            free(tmp);
-            tmp = NULL;
-        }
-        else
-        {
-            stock = tmp;
-            tmp = NULL;
-        }
+        stock = tmp;
+        tmp = NULL;
     }
     else
     {
-        line = ft_strjoin(line, stock);
+        line = ft_strdup(stock);
         free(stock);
         stock = NULL;
     }
+
     if (size == 0 && !stock) 
     {
-        free(stock);
-        stock = NULL;
-        free(tmp);
+        free(tmp);  
         return (NULL);
     }
     return line;
@@ -92,10 +82,9 @@ char	*get_next_line(int fd)
 int main()
 {
     int fd = open("text.txt", O_RDONLY);
-
     char *line = get_next_line(fd);
 
-    while(line)
+    while (line)
     {
         printf("%s", line);
         free(line);  // تأكد من تحرير الذاكرة بعد الاستخدام
@@ -105,19 +94,3 @@ int main()
     close(fd);
 }
 
-// int main()
-// {
-//     int fd = open("text.txt", O_RDONLY);
-
-//     char *line = get_next_line(fd);
-
-//     while(line)
-//     {
-//         printf("%s", line);
-//         free(line);
-//         line = get_next_line(fd);
-//     }
-//     free(line);
-//     line = NULL;
-//     close(fd);
-// }

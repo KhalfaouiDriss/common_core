@@ -26,7 +26,7 @@ char	*ft_strchr(const char *str, int c);
 
 char	*ft_strdup(const char *str);
 
-char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strjoin(char *s1, const char *s2);
 
 char	*ft_substr(const char *str, unsigned int start, size_t n);
 

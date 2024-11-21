@@ -49,10 +49,11 @@ char	*get_next_line(int fd)
             if (!stock)
                 stock = ft_strdup(buffer);
             else
-                stock = ft_strjoin(stock, buffer);
+                stock = ft_strjoin(tmp, buffer);
             free(buffer);
             buffer = NULL;
             free(tmp);
+            tmp = NULL;
         }
     }
 
@@ -73,7 +74,9 @@ char	*get_next_line(int fd)
 
     if (size == 0 && !stock) 
     {
-        free(tmp);  
+        free(tmp);
+        free(line);
+        free(buffer);
         return (NULL);
     }
     return line;
@@ -86,11 +89,10 @@ int main()
 
     while (line)
     {
-        printf("%s", line);
-        free(line);  // تأكد من تحرير الذاكرة بعد الاستخدام
+        printf("%s", line);  // تأكد من تحرير الذاكرة بعد الاستخدام
+        free(line);
         line = get_next_line(fd);
     }
-    free(line);  // تأكد من تحرير الذاكرة في نهاية البرنامج
     close(fd);
 }
 

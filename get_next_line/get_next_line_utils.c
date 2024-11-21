@@ -97,7 +97,7 @@ char	*ft_strdup(const char *str)
 	return (dest);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char *s1, const char *s2)
 {
 	size_t	lens1;
 	size_t	lens2;

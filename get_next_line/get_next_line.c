@@ -42,16 +42,18 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	size = 1;
-	while (size > 0 && !ft_strchr(stock, '\n'))
+	if (size > 0 && !ft_strchr(stock, '\n'))
 	{
 		size = read(fd, buffer, BUFFER_SIZE);
 		if (size > 0)
 		{
 			buffer[size] = '\0';
 			tmp = stock;
-			if (!stock)
+			if (!tmp)
 				stock = ft_strdup(buffer);
-			else
+			else if(!buffer)
+                stock = ft_strdup(tmp);
+            else
 				stock = ft_strjoin(tmp, buffer);
 			free(buffer);
 			buffer = NULL;
@@ -64,7 +66,8 @@ char	*get_next_line(int fd)
 		line = ft_substr(stock, 0, (ft_strchr(stock, '\n') - stock) + 1);
 		tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
 		free(stock);
-		stock = tmp;
+		stock = ft_strdup(tmp);
+        free(tmp);
 		tmp = NULL;
 	}
 	else
@@ -73,14 +76,16 @@ char	*get_next_line(int fd)
 		free(stock);
 		stock = NULL;
 	}
-	if (size == 0 && !stock)
+    
+	if (size == 0 && !line)
 	{
 		free(tmp);
-		free(line);
+        free(stock);
+		// free(line);
 		free(buffer);
 		return (NULL);
 	}
-	return (line);
+    return (line);
 }
 
 int	main(void)
@@ -92,7 +97,7 @@ int	main(void)
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("%s", line); // تأكد من تحرير الذاكرة بعد الاستخدام
+		printf("%s", line);
 		free(line);
 		line = get_next_line(fd);
 	}

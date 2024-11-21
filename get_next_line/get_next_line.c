@@ -27,10 +27,10 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*stock;
-	char		*buffer;
-    char        *line;
-    char        *tmp;
+	static char	*stock = NULL;
+	char		*buffer = NULL;
+    char        *line = NULL;
+    char        *tmp = NULL;
 	ssize_t		size;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -42,39 +42,40 @@ char	*get_next_line(int fd)
     while (size > 0 && !ft_strchr(stock, '\n'))
     {
 	    size = read(fd, buffer, BUFFER_SIZE);
-        // printf("%zu\n", size);
-	if (size > 0)
+        if (size > 0)
         {
             buffer[size] = '\0';
-	//	    printf("%s",buffer);
             tmp = stock;
             if (!stock)
                 stock = ft_strdup(buffer);
             else
                 stock = ft_strjoin(stock, buffer);
-
-	   // printf("\n%s\n",stock);
+            free(buffer);
+            buffer = NULL;
             free(tmp);
         }
     }
-    
-    free(buffer);
-    if(ft_strchr(stock, '\n'))
+
+    if (ft_strchr(stock, '\n'))
     {
         line = ft_substr(stock, 0, (ft_strchr(stock, '\n') - stock) + 1);
         tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
-	free(stock);
+        free(stock);
+        stock = NULL;
         if (*tmp == '\0')
         {
             free(tmp);
-            stock = NULL;
+            tmp = NULL;
         }
         else
+        {
             stock = tmp;
+            tmp = NULL;
         }
+    }
     else
     {
-        line = ft_strjoin(line, stock); 
+        line = ft_strjoin(line, stock);
         free(stock);
         stock = NULL;
     }
@@ -82,6 +83,7 @@ char	*get_next_line(int fd)
     {
         free(stock);
         stock = NULL;
+        free(tmp);
         return (NULL);
     }
     return line;
@@ -96,9 +98,26 @@ int main()
     while(line)
     {
         printf("%s", line);
-        free(line);
+        free(line);  // تأكد من تحرير الذاكرة بعد الاستخدام
         line = get_next_line(fd);
     }
-    free(line);
+    free(line);  // تأكد من تحرير الذاكرة في نهاية البرنامج
     close(fd);
 }
+
+// int main()
+// {
+//     int fd = open("text.txt", O_RDONLY);
+
+//     char *line = get_next_line(fd);
+
+//     while(line)
+//     {
+//         printf("%s", line);
+//         free(line);
+//         line = get_next_line(fd);
+//     }
+//     free(line);
+//     line = NULL;
+//     close(fd);
+// }

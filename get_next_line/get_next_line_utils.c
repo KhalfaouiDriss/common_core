@@ -120,7 +120,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 char	*ft_substr(const char *str, unsigned int start, size_t n)
 {
 	size_t	i;
-	char	*dest;
+	char	*dest = NULL;
 	size_t	size;
 
 	if (!str)

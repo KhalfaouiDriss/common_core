@@ -5,95 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:09:15 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/20 19:12:11 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/11/21 12:25:22 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/21 12:25:26 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// char *_fill_line_buffer(int fd, char *left_c, char *buffer)
-// {
-
-// }
-
-// char *_set_line(char *line_buffer)
-// {
-
-// }
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 char	*get_next_line(int fd)
 {
-	static char	*stock = NULL;
+	static char	*stock;
 	char		*buffer;
-	char		*line;
 	char		*tmp;
-	ssize_t		size;
+	char		*line;
+	int			size;
 
-	buffer = NULL;
-	line = NULL;
-	tmp = NULL;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-
+	size = 1;
+	stock = NULL;
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
+	tmp = NULL;
+	line = NULL;
 	if (!buffer)
 		return (NULL);
-
-	size = 1; 
-	while (size > 0 && !ft_strchr(stock, '\n'))
-	{
-		size = read(fd, buffer, BUFFER_SIZE);
-		if (size < 0)
-		{
-			free(buffer);
-			return (NULL); 
-		}
-		buffer[size] = '\0';
-		tmp = stock;
-		if (!stock)
-			stock = ft_strdup(buffer);
-		else
-			stock = ft_strjoin(stock, buffer);
-		free(tmp);
-	}
-
-	
-	if (ft_strchr(stock, '\n'))
-	{
-		line = ft_substr(stock, 0, ft_strchr(stock, '\n') - stock + 1);
-		tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
-		free(stock);
-		stock = tmp;
-	}
-	else if (stock && *stock) 
-	{
-		line = ft_strdup(stock);
-		free(stock);
-		stock = NULL;
-	}
-
-	
-	free(buffer);
-	return (line);
+    if(size > 0 && !ft_strchr(stock, '\n'))
+    {
+        size = read(fd, buffer, BUFFER_SIZE);
+        if(!buffer)
+        {
+            free(buffer)
+            buffer = NULL; 
+        }
+        buffer[size] = '\0';
+        if()
+    }
 }
 
-
-// int main()
-// {
-//     int fd = open("text.txt", O_RDONLY);
-//     char *line = get_next_line(fd);
-
-//     while (line)
-//     {
-//         printf("%s", line);
-//         free(line); 
-//         line = get_next_line(fd);
-//     }
-//     free(line);  
-//     close(fd);
-// }
+int	main(void)
+{
+	int fd = open("text.txt", O_RDONLY);
+	char *line;
+	line = get_next_line(fd);
+	while (line)
+	{
+		prinf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	close(fd);
+}

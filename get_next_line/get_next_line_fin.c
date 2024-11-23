@@ -62,15 +62,20 @@ char	*get_next_line(int fd)
 		free(tmp);
 	}
 
-	
 	if (ft_strchr(stock, '\n'))
 	{
 		line = ft_substr(stock, 0, ft_strchr(stock, '\n') - stock + 1);
 		tmp = ft_strdup(ft_strchr(stock, '\n') + 1);
 		free(stock);
-		stock = tmp;
+		if (tmp[0] == '\0')
+		{
+			free(tmp);
+			stock = NULL;
+		}
+		else
+			stock = tmp;
 	}
-	else if (stock && *stock) 
+	else if (stock != NULL && *stock != '\0') 
 	{
 		line = ft_strdup(stock);
 		free(stock);

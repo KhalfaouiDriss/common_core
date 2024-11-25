@@ -34,7 +34,7 @@ char	*fill_stock(char *stock, char *buffer, int fd)
 		if (!stock)
 			stock = ft_strdup(buffer);
 		else
-			stock = ft_strjoin(stock, buffer);
+			stock = ft_strjoin(tmp, buffer);
 		free(tmp);
 	}
 	return (stock);
@@ -80,10 +80,10 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	stock = fill_stock(stock, buffer, fd);
-	free(buffer);
 	if (!stock)
 		return (NULL);
 	line = split_stock(&stock);
+	free(buffer);
 	return (line);
 }
 

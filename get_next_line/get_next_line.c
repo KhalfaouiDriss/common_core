@@ -15,11 +15,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-char	*_fill_stock(char *stock, char *buffer, int fd)
+char	*fill_stock(char *stock, char *buffer, int fd)
 {
-	char		*tmp;
-	ssize_t		size;
+	char	*tmp;
+	ssize_t	size;
 
 	size = 1;
 	while (size > 0 && !ft_strchr(stock, '\n'))
@@ -38,20 +37,20 @@ char	*_fill_stock(char *stock, char *buffer, int fd)
 			stock = ft_strjoin(stock, buffer);
 		free(tmp);
 	}
-	return stock;
+	return (stock);
 }
 
-char *_split_stock(char **stock)
+char	*split_stock(char **stock)
 {
-	char *tmp;
-	char *line;
+	char	*tmp;
+	char	*line;
 
 	if (ft_strchr(*stock, '\n'))
 	{
 		line = ft_substr(*stock, 0, ft_strchr(*stock, '\n') - *stock + 1);
 		tmp = ft_strdup(ft_strchr(*stock, '\n') + 1);
 		free(*stock);
-		*stock = tmp; 
+		*stock = tmp;
 		if (**stock == '\0')
 		{
 			free(*stock);
@@ -66,8 +65,7 @@ char *_split_stock(char **stock)
 	}
 	else
 		line = NULL;
-
-	return line;
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -81,29 +79,29 @@ char	*get_next_line(int fd)
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-
-	stock = _fill_stock(stock, buffer, fd);
+	stock = fill_stock(stock, buffer, fd);
 	free(buffer);
 	if (!stock)
-		return NULL;
-	line = _split_stock(&stock);
-
-	return line;
+		return (NULL);
+	line = split_stock(&stock);
+	return (line);
 }
 
 // --------------------------------------------------------------------------------
 
-int main()
+int	main(void)
 {
-    int fd = open("text.txt", O_RDONLY);
-    char *line = get_next_line(fd);
+	int		fd;
+	char	*line;
 
-    while (line)
-    {
-        printf("%s", line);
-        free(line); 
-        line = get_next_line(fd);
-    }
-    free(line);  
-    close(fd);
+	fd = open("text.txt", O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	// free(line);
+	close(fd);
 }

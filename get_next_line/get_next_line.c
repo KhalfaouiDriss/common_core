@@ -70,7 +70,7 @@ char	*split_stock(char **stock)
 
 char	*get_next_line(int fd)
 {
-	static char	*stock = NULL;
+	static char	*stock;
 	char		*buffer;
 	char		*line;
 

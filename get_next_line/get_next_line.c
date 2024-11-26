@@ -18,7 +18,7 @@
 char	*fill_stock(char *stock, char *buffer, int fd)
 {
 	char	*tmp;
-	ssize_t	size;
+	int	size;
 
 	size = 1;
 	while (size > 0 && !ft_strchr(stock, '\n'))
@@ -27,6 +27,7 @@ char	*fill_stock(char *stock, char *buffer, int fd)
 		if (size < 0)
 		{
 			free(stock);
+			stock = NULL;
 			return (NULL);
 		}
 		buffer[size] = '\0';
@@ -81,7 +82,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stock = fill_stock(stock, buffer, fd);
 	if (!stock)
+	{
+		free(buffer);
 		return (NULL);
+	}
 	line = split_stock(&stock);
 	free(buffer);
 	return (line);

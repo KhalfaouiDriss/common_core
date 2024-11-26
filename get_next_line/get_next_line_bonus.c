@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:09:15 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/20 19:12:11 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/11/26 11:34:35 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/26 11:34:41 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -44,8 +44,8 @@ char	*ft_strchr(const char *str, int c)
 
 char	*fill_stock(char *stock, char *buffer, int fd)
 {
-	char	*tmp;
-	int		size;
+	char		*tmp;
+	ssize_t		size;
 
 	size = 1;
 	while (size > 0 && !ft_strchr(stock, '\n'))

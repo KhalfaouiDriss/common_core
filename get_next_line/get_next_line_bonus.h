@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:09:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/20 19:06:45 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/11/26 11:35:03 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/26 11:35:12 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <fcntl.h>
-# include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

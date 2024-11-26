@@ -9,16 +9,43 @@
 /*   Updated: 2024/11/20 19:12:11 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] == (unsigned char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	return (NULL);
+}
 
 char	*fill_stock(char *stock, char *buffer, int fd)
 {
 	char	*tmp;
-	int	size;
+	int		size;
 
 	size = 1;
 	while (size > 0 && !ft_strchr(stock, '\n'))
@@ -90,9 +117,6 @@ char	*get_next_line(int fd)
 	free(buffer);
 	return (line);
 }
-
-// --------------------------------------------------------------------------------
-
 // int	main(void)
 // {
 // 	int		fd;

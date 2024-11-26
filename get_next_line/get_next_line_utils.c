@@ -12,36 +12,6 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strchr(const char *str, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (NULL);
-	while (str[i])
-	{
-		if (str[i] == (unsigned char)c)
-			return ((char *)&str[i]);
-		i++;
-	}
-	return (NULL);
-}
-
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	unsigned int	i;
@@ -120,9 +90,10 @@ char	*ft_strjoin(char *s1, const char *s2)
 char	*ft_substr(const char *str, unsigned int start, size_t n)
 {
 	size_t	i;
-	char	*dest = NULL;
+	char	*dest;
 	size_t	size;
 
+	dest = NULL;
 	if (!str)
 		return (NULL);
 	size = ft_strlen(str);

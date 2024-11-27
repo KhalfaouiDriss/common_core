@@ -44,11 +44,10 @@ char	*ft_strchr(const char *str, int c)
 
 char	*fill_stock(char *stock, char *buffer, int fd)
 {
-	char		*tmp;
-	ssize_t		size;
+	char	*tmp;
+	ssize_t	size;
 
-	size = 1;
-	while (size > 0 && !ft_strchr(stock, '\n'))
+	while (!ft_strchr(stock, '\n'))
 	{
 		size = read(fd, buffer, BUFFER_SIZE);
 		if (size < 0)
@@ -57,6 +56,8 @@ char	*fill_stock(char *stock, char *buffer, int fd)
 			stock = NULL;
 			return (NULL);
 		}
+		if (size == 0)
+			break ;
 		buffer[size] = '\0';
 		tmp = stock;
 		if (!stock)
@@ -117,6 +118,8 @@ char	*get_next_line(int fd)
 	free(buffer);
 	return (line);
 }
+// #include <fcntl.h>
+// #include <stdio.h>
 // int	main(void)
 // {
 // 	int		fd;

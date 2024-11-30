@@ -3,8 +3,8 @@
 #endif
 
 #include <stdarg.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int ft_printf(char *format, ...);
-
+int		ft_printf(const char *format, ...);
+int	ft_putnbr(int nbr);

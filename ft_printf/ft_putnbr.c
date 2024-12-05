@@ -1,25 +1,22 @@
+#include "ft_printf.h"
+
 int	ft_putnbr(int nbr)
 {
-    int i = 0;
+	int	count;
+
+	count = 0;
 	if (nbr == -2147483648)
 	{
-		ft_putstr("-2147483648");
-		return 11;
+		count += ft_putstr("-2147483648");
+		return (count);
 	}
 	if (nbr < 0)
 	{
-		ft_putchar('-');
-        i++;
+		count += ft_putchar('-');
 		nbr = -nbr;
 	}
 	if (nbr > 9)
-	{
-        i++;
-		ft_putnbr(nbr / 10);
-		ft_putchar((nbr % 10) + 48);
-	}
-	else
-        i++;
-		ft_putchar(nbr + '0');
-    return i;
+		count += ft_putnbr(nbr / 10);
+	count += ft_putchar((nbr % 10) + '0');
+	return (count);
 }

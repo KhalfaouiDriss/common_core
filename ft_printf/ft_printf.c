@@ -1,49 +1,10 @@
-
 #include "ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
 
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
-}
-
-int	ft_putnbr(int nbr)
-{
-	int	count;
-
-	count = 0;
-	if (nbr == -2147483648)
-	{
-		count += ft_putstr("-2147483648");
-		return (count);
-	}
-	if (nbr < 0)
-	{
-		count += ft_putchar('-');
-		nbr = -nbr;
-	}
-	if (nbr > 9)
-		count += ft_putnbr(nbr / 10);
-	count += ft_putchar((nbr % 10) + '0');
-	return (count);
-}
 
 int	check_format(char c, va_list list)
 {
@@ -59,6 +20,26 @@ int	check_format(char c, va_list list)
 	{
 		return (ft_putnbr(va_arg(list, int)));
 	}
+	if (c == 'u')
+	{
+		return (ft_u_putnbr(va_arg(list, unsigned int)));
+	}
+	if (c == 'p')
+	{
+		return (ft_putptr(va_arg(list, void *)));
+	}
+	if(c == 'x')
+	{
+		return(ft_print_hex_low(va_arg(list, unsigned long)));
+	}
+	if(c == 'X')
+	{
+		return(ft_print_hex_upp(va_arg(list, unsigned long)));
+	}
+	if(c == '%')
+	{
+		return(ft_putchar('%'));
+	}
 	return (0);
 }
 
@@ -71,32 +52,35 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	size = 0;
 	va_start(list, format);
-	if (format[i] == '%' && format[i + 1] == '%')
+	while (format[i])
 	{
+		if (format[i] == '%' && format[i + 1])
+		{
+			i++;
+			if (format[i] == '%')
+				size += ft_putchar('%');
+			else
+				size += check_format(format[i], list);
+		}
+		else
+		{
+			size += ft_putchar(format[i]);
+		}
 		i++;
-		size += check_format(format[i], list);
-	}
-	else if (format[i] == '%' && format[i + 1])
-	{
-		size += ft_putchar('%');
-	}
-	else
-	{
-		size += ft_putchar(format[i]);
 	}
 	va_end(list);
 	return (size);
 }
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	s;
-	int		d;
+// int	main(void)
+// {
+// 	char	*s = "Driss";
+// 	int		d;
 
-	d = 123;
-	s = 'A';
-	ft_printf("%c frr %s \n %d\n", s, "driss", d);
-	printf("\n----------------------------\n");
-	printf("%c frr %s \n %d\n", s, "driss", d);
-	return (0);
-}
+// 	d = 123;
+// 	ft_printf("Hi i am %s, i am %d years old %u ptr : %p hex_low : %x hex_upp %X  ||| %%\n", s, 22, 2, s, 1234, 1234);
+// 	printf("----------------------------\n");
+// 	printf("Hi i am %s, i am %d years old %u ptr : %p hex_low : %x hex_upp %X  ||| %%\n", s, 22, 2, s, 1234, 1234);
+// 	return (0);
+// }

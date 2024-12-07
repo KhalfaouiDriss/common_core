@@ -10,8 +10,8 @@ int	ft_putptr(void *ptr)
 
 	count = 0;
 	addr = (unsigned long)ptr;
-	if(!addr)
-		count += ft_putstr("0x0");
+	if(ptr == NULL)
+		count += ft_putstr("(nil)");
 	else
 	{
 		count += ft_putstr("0x");

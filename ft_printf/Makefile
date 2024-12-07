@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_putnbr.c ft_putptr.c ft_print_hex_low.c ft_print_hex_upp.c ft_u_putnbr.c ft_putstr.c ft_putchar.c
+SRC = ft_printf.c ft_putnbr.c ft_putptr.c ft_print_hex_low.c ft_print_hex_upp.c ft_u_putnbr.c ft_putstr.c
 
 OBJ = ${SRC:.c=.o}
 

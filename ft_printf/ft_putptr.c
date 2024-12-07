@@ -7,8 +7,6 @@ int	ft_putptr(void *ptr)
 	char base[16] = "0123456789abcdef";
 	char res[16]; 
 	int i = 0;
-	int j = 0;
-	char tmp;
 
 	count = 0;
 	addr = (unsigned long)ptr;

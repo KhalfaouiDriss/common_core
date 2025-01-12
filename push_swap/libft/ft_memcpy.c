@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:28:26 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/17 11:46:27 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
-	size_t	i;
-	char	*dest;
-	size_t	size;
+	size_t				i;
+	const unsigned char	*s;
+	unsigned char		*d;
 
-	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
+	s = src;
+	d = dest;
 	i = 0;
-	while (str[start] && i < n)
+	if (dest == src)
+		return (dest);
+	while (i < len)
 	{
-		dest[i] = str[start];
+		d[i] = s[i];
 		i++;
-		start++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char d[5];
+	ft_memcpy(d, NULL, 1);
+	printf("%s", d);
+}
+*/

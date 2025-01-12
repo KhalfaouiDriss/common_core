@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:40:36 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/17 11:08:50 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	size_t	i;
-	char	*dest;
-	size_t	size;
+	unsigned int	i;
+	unsigned int	k;
+	unsigned int	dl;
 
-	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (str[start] && i < n)
+	i = ft_strlen(dst);
+	dl = i;
+	k = 0;
+	if (n && dl <= n)
 	{
-		dest[i] = str[start];
-		i++;
-		start++;
+		while (src[k] != '\0' && i < (n - 1))
+		{
+			dst[i] = src[k];
+			i++;
+			k++;
+		}
+		dst[i] = '\0';
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (n == 0)
+		dl = 0;
+	if (n < dl)
+		dl = n;
+	return (dl + ft_strlen((char *)src));
 }

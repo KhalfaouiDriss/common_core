@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:31:06 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/12 23:30:15 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+void	ft_putnbr_fd(int nbr, int fd)
 {
-	size_t	i;
-	char	*dest;
-	size_t	size;
-
-	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (str[start] && i < n)
+	if (nbr == -2147483648)
 	{
-		dest[i] = str[start];
-		i++;
-		start++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (nbr < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = -nbr;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd((nbr % 10) + 48, fd);
+	}
+	else
+		ft_putchar_fd(nbr + '0', fd);
 }

@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:42:36 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/17 11:27:35 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+char	*ft_strnstr(const char *str, const char *TF, size_t len)
 {
 	size_t	i;
-	char	*dest;
-	size_t	size;
+	size_t	j;
 
-	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
 	i = 0;
-	while (str[start] && i < n)
+	j = 0;
+	if (TF[i] == '\0')
+		return ((char *)str);
+	while (i < len && str[i])
 	{
-		dest[i] = str[start];
+		while (str[i + j] == TF[j] && i + j < len)
+		{
+			if (!TF[j + 1])
+				return ((char *) &str[i]);
+			j++;
+		}
+		j = 0;
 		i++;
-		start++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }

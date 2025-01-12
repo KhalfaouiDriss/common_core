@@ -7,16 +7,22 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// typedef struct s_stuck_node
-// {
-// 	int					value;
-// 	char				*data;
-// 	struct s_stuck_node	*next;
-// 	struct s_stuck_node	*prev;
+typedef struct s_list
+{
+    int             value;
+    int             index;
+    struct s_list   *next;
+}               t_list;
 
-// }						t_stuck_node;
+t_list *ft_lstnew(int content);
+void ft_lstadd_front(t_list **head, t_list *new);
+int ft_lstsize(t_list *head);
+t_list *ft_lstlast(t_list *head);
+void ft_lstadd_back(t_list **head, t_list *new);
+t_list *ft_lstget(int val, t_list *head);
+void ft_printlst(t_list *head);
+void fill_stuck(t_list **stuck, char **ar);
+void free_list(t_list **head);
 
-
-
-#include "libft/split.h"
+#include "libft/libft.h"
 #endif

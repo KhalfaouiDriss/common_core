@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:30:56 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/13 14:02:51 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+void	ft_putendl_fd(char *str, int fd)
 {
 	size_t	i;
-	char	*dest;
-	size_t	size;
 
 	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
+		return ;
 	i = 0;
-	while (str[start] && i < n)
+	while (str[i])
 	{
-		dest[i] = str[start];
+		ft_putchar_fd(str[i], fd);
 		i++;
-		start++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	ft_putchar_fd('\n', fd);
 }

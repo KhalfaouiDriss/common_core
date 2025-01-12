@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/27 08:40:18 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/13 05:44:37 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	size_t	i;
-	char	*dest;
-	size_t	size;
+	size_t	lens1;
+	size_t	lens2;
+	char	*res;
 
-	if (!str)
+	if (!s1 || !s2)
 		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	res = malloc(lens1 + lens2 + 1);
+	if (!res)
 		return (NULL);
-	i = 0;
-	while (str[start] && i < n)
-	{
-		dest[i] = str[start];
-		i++;
-		start++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	ft_strlcpy(res, s1, ft_strlen(s1) + 1);
+	ft_strlcat(res, s2, lens1 + lens2 + 1);
+	return (res);
 }

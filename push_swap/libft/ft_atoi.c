@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:44:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2024/11/13 05:46:57 by dkhalfao         ###   ########.fr       */
+/*   Created: 2024/10/24 14:45:52 by dkhalfao          #+#    #+#             */
+/*   Updated: 2024/11/17 11:24:53 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	char	*dest;
-	size_t	size;
+	int	sign;
+	int	value;
 
-	if (!str)
-		return (NULL);
-	size = ft_strlen(str);
-	if (start >= size)
-		return (ft_strdup(""));
-	if (start + n > size)
-		n = size - start;
-	dest = malloc(n + 1);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (str[start] && i < n)
+	sign = 1;
+	value = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (ft_isdigit(*str))
 	{
-		dest[i] = str[start];
-		i++;
-		start++;
+		value = value * 10 + (*str - '0');
+		str++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	value = sign * value;
+	return (value);
 }

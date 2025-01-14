@@ -17,9 +17,15 @@ int	is_digit(char *num)
 	return (1);
 }
 
-int ft_free(char **as)
+void	ft_free(char **str)
 {
-    
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
+		free(str[i--]);
 }
 
 int	ft_rpt_num(char **as)

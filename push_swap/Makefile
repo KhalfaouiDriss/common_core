@@ -1,21 +1,19 @@
-NAME = push_swap
-CHECK = checker
+NAME = push_swap.a
 
-SRCS =  $(wildcard src/*.c utils/*.c)
-CHECK_SRCS = $(wildcard utils/*.c) src/instructions.c checker.c
+SRCS = $(wildcard src/*.c utils/*.c)
 
 OBJS = ${SRCS:.c=.o}
-CHECK_OBJS = ${CHECK_SRCS:.c=.o}
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror -Wno-unused-but-set-variable
+
 
 RM = rm -rf
 
-all: ${NAME} ${CHECK}
+all: ${NAME}
 ${NAME}: ${OBJS}
 	@${MAKE} -C ./libft
-	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+	@${CC} ${OBJS} ./libft/libft.a -o ${NAME}
 
 ${CHECK}: ${CHECK_OBJS} 
 	@${CC} ${CFLAGS} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}

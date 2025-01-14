@@ -23,6 +23,11 @@ t_list *ft_lstget(int val, t_list *head);
 void ft_printlst(t_list *head);
 void fill_stuck(t_list **stuck, char **ar);
 void free_list(t_list **head);
+int	is_digit(char *num);
+void	ft_split_free(char **str);
+int	ft_rpt_num(char **as);
+int	ft_check_args(int ac, char **av);
+void ft_error(char *msg);
 
 #include "libft/libft.h"
 #endif

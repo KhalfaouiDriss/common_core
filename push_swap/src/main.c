@@ -1,23 +1,45 @@
 #include "../push_swap.h"
 
-void ft_init_Stuck(t_list **a, char **av, int ac)
-{
-    int i = (ac == 2) ? 0 : 1;
-    t_list *new;
 
-    while (av[i])
+void swap_to_b(t_list **stuck_a, t_list **stuck_b)
+{
+    int med = ((*stuck_a)->list_size / 2) + 1;
+    int i;
+    t_list *tmp;
+
+    i = 1;
+    while(i <= 1)
     {
-        int val = ft_atoi(av[i]);
-        if (!is_digit(av[i]))
-            ft_error("Invalid number");
-        new = ft_lstnew(val);
-        if (!new)
-            ft_error("Memory allocation failed");
-        ft_lstadd_back(a, new);
-        i++;
+        tmp = *stuck_a;
+        if(tmp->index <= med)
+        {
+            pb(stuck_a, stuck_b, tmp->index);
+            i++;
+        }
+        // else
+        // {
+        //     ra()
+        // }
     }
+    index_stuck(stuck_a);
+    index_stuck(stuck_b);
 }
 
+
+
+void push_swap(t_list **stuck_a, t_list **stuck_b)
+{
+    index_stuck(stuck_a);
+    while(!is_sort(stuck_a))
+    {
+        swap_to_b(stuck_a, stuck_b);
+
+        ft_putstr_fd("\n not sorted\n", 1);
+        return;
+    }
+    ft_error("stuck a is sorted\n");
+    return;
+}
 
 int	main(int ac, char **av)
 {
@@ -25,7 +47,7 @@ int	main(int ac, char **av)
     t_list	**b;
 
     if (ac < 2)
-        ft_error("args is empty");
+        ft_error("args is empty\n");
     ft_check_args(ac, av);
 
     if (ac == 2)
@@ -34,15 +56,19 @@ int	main(int ac, char **av)
     a = (t_list **)malloc(sizeof(t_list *));
     b = (t_list **)malloc(sizeof(t_list *));
     if (!a || !b)
-        ft_error("Memory allocation failed");
+        ft_error("Memory allocation failed\n");
     *a = NULL;
     *b = NULL;
 
     ft_init_Stuck(a, av, ac);
+    push_swap(a, b);
 
+
+    printf("\n stuck a");
     ft_printlst(*a);
+    printf("\n stuck b");
+    ft_printlst(*b);
     ft_putchar_fd('\n', 1);
-
     free_list(a);
     free_list(b);
     free(a);

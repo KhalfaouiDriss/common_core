@@ -11,6 +11,7 @@ typedef struct s_list
 {
     int             value;
     int             index;
+    int             list_size;
     struct s_list   *next;
 }               t_list;
 
@@ -28,6 +29,15 @@ void	ft_split_free(char **str);
 int	ft_rpt_num(char **as);
 int	ft_check_args(int ac, char **av);
 void ft_error(char *msg);
+void push_swap(t_list **stuck_a, t_list **stuck_b);
+void index_stuck(t_list **stuck);
+void ft_init_Stuck(t_list **a, char **av, int ac);
+void sort_arr(int *arr,int size);
+int is_sort(t_list **stuck);
+void swap_to_b(t_list **stuck_a, t_list **stuck_b);
+void pb(t_list **stuck_a, t_list **stuck_b, int index);
+void del_node(int content, t_list **stuck);
+t_list *ft_lstget_index(int val, t_list *head);
 
 #include "libft/libft.h"
 #endif

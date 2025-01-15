@@ -73,17 +73,55 @@ t_list *ft_lstget(int val, t_list *head)
     return NULL;
 }
 
-void ft_printlst(t_list *head)
+t_list *ft_lstget_index(int val, t_list *head)
 {
     t_list *tmp = head;
     while (tmp)
     {
+        if (tmp->index == val)
+            return tmp;
+        tmp = tmp->next;
+    }
+    return NULL;
+}
+
+
+void ft_printlst(t_list *head)
+{
+    t_list *tmp = head;
+    printf("size[%d]", tmp->list_size);
+    while (tmp)
+    {
         ft_putnbr_fd(tmp->value, 1);
+        ft_putstr_fd(" -> ", 1);
+        ft_putnbr_fd(tmp->index, 1);
         if (tmp->next)
-            ft_putchar_fd(' ', 1);
+            ft_putstr_fd("] | [", 1);
         tmp = tmp->next;
     }
 }
+
+void del_node(int content, t_list **stuck)
+{
+    t_list *tmp = *stuck;
+    t_list *prev = NULL;
+
+    while (tmp)
+    {
+        if (tmp->index == content) 
+        {
+            if (prev == NULL) 
+                *stuck = tmp->next;
+            else 
+                prev->next = tmp->next;
+            free(tmp); 
+            return; 
+        }
+        prev = tmp;
+        tmp = tmp->next;
+    }
+}
+
 
 void free_list(t_list **head)
 {

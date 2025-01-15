@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 
 SRCS = $(wildcard src/*.c utils/*.c)
 

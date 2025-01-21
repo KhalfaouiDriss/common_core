@@ -6,19 +6,14 @@ void ft_error(char *msg)
     exit(0);
 }
 
-int is_sort(t_list **stuck)
+int is_sorted(t_list **stack)
 {
-    int i;
-    t_list *tmp;
+    t_list *tmp = *stack;
 
-    tmp = *stuck;
-    i = tmp->value;
-    tmp = tmp->next;
-    while (tmp)
+    while (tmp && tmp->next)
     {
-        if (i > tmp->value)
+        if (tmp->index > tmp->next->index)
             return 0;
-        i = tmp->value;
         tmp = tmp->next;
     }
     return 1;

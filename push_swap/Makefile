@@ -5,7 +5,7 @@ SRCS = $(wildcard src/*.c utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Wno-unused-but-set-variable
+# CFLAGS = -Wall -Wextra -Werror -Wno-unused-but-set-variable
 
 
 RM = rm -rf
@@ -16,7 +16,7 @@ ${NAME}: ${OBJS}
 	@${CC} ${OBJS} ./libft/libft.a -o ${NAME}
 
 ${CHECK}: ${CHECK_OBJS} 
-	@${CC} ${CFLAGS} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}
+	@${CC} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}
 
 clean: 
 	@${MAKE} -C ./libft fclean

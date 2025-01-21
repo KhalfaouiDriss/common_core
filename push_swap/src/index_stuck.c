@@ -30,13 +30,19 @@ void index_stuck(t_list **stuck)
     int i;
     int j;
     t_list *tmp;
-
+    if(!stuck)
+        return;
     tmp = *stuck;
     i = 0;
     j = 0;
     while(tmp)
     {
         arr[i] = tmp->value;
+        if(tmp->is_placing == 0)
+        {
+            tmp->place = i;
+            tmp->is_placing = 1;
+        }
         tmp = tmp->next;
         i++;
     }

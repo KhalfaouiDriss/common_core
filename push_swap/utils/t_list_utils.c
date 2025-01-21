@@ -89,14 +89,17 @@ t_list *ft_lstget_index(int val, t_list *head)
 void ft_printlst(t_list *head)
 {
     t_list *tmp = head;
-    printf("size[%d]", tmp->list_size);
+    // printf("size[%d]", tmp->list_size);
+    ft_putstr_fd(" [", 1);
     while (tmp)
     {
         ft_putnbr_fd(tmp->value, 1);
         ft_putstr_fd(" -> ", 1);
         ft_putnbr_fd(tmp->index, 1);
+        ft_putstr_fd(" -> ", 1);
+        ft_putnbr_fd(tmp->place, 1);
         if (tmp->next)
-            ft_putstr_fd("] | [", 1);
+            ft_putstr_fd("] \n [", 1);
         tmp = tmp->next;
     }
 }

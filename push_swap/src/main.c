@@ -153,6 +153,7 @@ int main(int ac, char **av)
     ft_printlst(*b);
 
     push_swap(a, b);
+    index_stuck(a);
 
     printf("\nStack A (Sorted):\n");
     ft_printlst(*a);

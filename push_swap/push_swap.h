@@ -48,6 +48,8 @@ int rb(t_list **stuck);
 int	swap(t_list **stack);
 int	sa(t_list **stack_a);
 int	sb(t_list **stack_b);
+int		rra(t_list **stack_a);
+int		rrb(t_list **stack_b);
 
 #include "libft/libft.h"
 #endif

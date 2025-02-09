@@ -38,11 +38,11 @@ void index_stuck(t_list **stuck)
     while(tmp)
     {
         arr[i] = tmp->value;
-        if(tmp->is_placing == 0)
-        {
+        // if(tmp->is_placing == 0)
+        // {
             tmp->place = i;
             tmp->is_placing = 1;
-        }
+        // }
         tmp = tmp->next;
         i++;
     }

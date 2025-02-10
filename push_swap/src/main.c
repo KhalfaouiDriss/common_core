@@ -34,27 +34,31 @@ void push_to_b(t_list **stack_a, t_list **stack_b)
 {
     int parts = calc_chunk_size(*stack_a);
     int size = ft_lstsize(*stack_a);
-    int size_part = size / parts; 
-    int limit = size_part;        
+    int size_part = size / parts;
+    int limit = size_part;
+    int middle = size / 2;
 
     while (ft_lstsize(*stack_a) > 3)
     {
-        int count = 0;
-        
-        while (count < size_part && ft_lstsize(*stack_a) > 3)
+        int i = 0;
+        while (i < size_part && ft_lstsize(*stack_a) > 3)
         {
             if ((*stack_a)->index <= limit)
             {
                 pb(stack_a, stack_b);
-                count++;
+                if ((*stack_b)->index > middle)
+                    rb(stack_b); // تحسين التوزيع في `stack_b`
+                i++;
             }
             else
+            {
                 ra(stack_a);
             }
-            
-            limit += size_part;
         }
+        limit += size_part;
+    }
 }
+
 
 void	ft_sort_three(t_list **stack_a)
 {
@@ -69,22 +73,51 @@ void	ft_sort_three(t_list **stack_a)
 		sa(stack_a);
 }
 
-// void swap_to_a(t_list **stack_a, t_list **stack_b)
-// {
-//     t_list *tmp;
+void push_to_a(t_list **stack_a, t_list **stack_b)
+{
+    t_list *max_1;
+    t_list *max_2;
+    t_list *max_near;
+    int size;
 
-// }
+    while (*stack_b)
+    {
+        size = ft_lstsize(*stack_b);
+        max_1 = ft_get_max(stack_b);
+        max_2 = ft_lstget_index(max_1->index - 1, stack_b);
+
+        if(max_1->palce > size/2 && max_2->palce <= size/2)
+        {
+            
+        }
+
+        while (*stack_b != max)
+        {
+            if (max->place < size / 2)
+                rb(stack_b);
+            else
+                rrb(stack_b);
+        }
+        pa(stack_b, stack_a);
+        if(!is_sorted(stack_a))
+            sa(stack_a);
+        // printf("\nStack A (Sorted):\n");
+        // ft_printlst(*stack_a);
+        // printf("\nStack B:\n");
+        // ft_printlst(*stack_b);
+    }
+}
 
 void push_swap(t_list **stack_a, t_list **stack_b)
 {
     push_to_b(stack_a, stack_b);
-    printf("\nStack A (Sorted):\n");
-    ft_printlst(*stack_a);
-    // printf("\nStack B:\n");
-    // ft_printlst(*stack_b);
     if(!is_sorted(stack_a))
         ft_sort_three(stack_a);
-    // push_to_a(stack_a, stack_b);
+    push_to_a(stack_a, stack_b);
+    printf("\nStack A (Sorted):\n");
+    ft_printlst(*stack_a);
+    printf("\nStack B:\n");
+    ft_printlst(*stack_b);
     index_stuck(stack_a);
     // index_stuck(stack_b);
 }
@@ -113,10 +146,10 @@ int main(int ac, char **av)
 
     push_swap(a, b);
 
-    printf("\nStack A (Sorted):\n");
-    ft_printlst(*a);
-    printf("\nStack B:\n");
-    ft_printlst(*b);
+    // printf("\nStack A (Sorted):\n");
+    // ft_printlst(*a);
+    // printf("\nStack B:\n");
+    // ft_printlst(*b);
 
     free_list(a);
     free_list(b);

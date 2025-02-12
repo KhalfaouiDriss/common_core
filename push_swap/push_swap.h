@@ -26,7 +26,7 @@ void		assign_index(t_stack *stack_a, int ac);
 /* Sorting Algorithms */
 
 int			is_sorted(t_stack *stack);
-void		tiny_sort(t_stack **stack);
+void		sort_three(t_stack **stack);
 void		sort(t_stack **stack_a, t_stack **stack_b);
 
 /* Position */

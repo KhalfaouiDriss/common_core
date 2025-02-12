@@ -54,7 +54,7 @@ static void	shift_stack(t_stack **stack_a)
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
-	tiny_sort(stack_a);
+	sort_three(stack_a);
 	while (*stack_b)
 	{
 		get_target_position(stack_a, stack_b);

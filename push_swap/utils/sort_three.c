@@ -14,7 +14,7 @@ static int	find_highest_index(t_stack *stack)
 	return (index);
 }
 
-void	tiny_sort(t_stack **stack)
+void	sort_three(t_stack **stack)
 {
 	int		highest;
 

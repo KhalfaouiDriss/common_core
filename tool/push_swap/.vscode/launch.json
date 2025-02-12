@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "//wsl.localhost/Debian/home/c47/test/push_swap/src",
-      "program": "//wsl.localhost/Debian/home/c47/test/push_swap/src/build/Debug/outDebug",
+      "cwd": "//wsl.localhost/Debian/home/c47/common_core/push_swap",
+      "program": "//wsl.localhost/Debian/home/c47/common_core/push_swap/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

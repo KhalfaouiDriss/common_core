@@ -1,31 +1,24 @@
 NAME = push_swap
 
-SRCS = $(wildcard src/*.c utils/*.c)
+SRCS = $(wildcard src/*.c)
 
 OBJS = ${SRCS:.c=.o}
 
 CC = cc -g
-# CFLAGS = -Wall -Wextra -Werror -Wno-unused-but-set-variable
+CFLAGS = -Wall -Wextra -Werror
 
 
 RM = rm -rf
 
 all: ${NAME}
 ${NAME}: ${OBJS}
-	@${MAKE} -C ./libft
-	@${CC} ${OBJS} ./libft/libft.a -o ${NAME}
-
-${CHECK}: ${CHECK_OBJS} 
-	@${CC} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}
+	@${CC} ${OBJS} -o ${NAME}
 
 clean: 
-	@${MAKE} -C ./libft fclean
 	@${RM} ${OBJS}
-	@${RM} ${CHECK_OBJS}
 
 fclean: clean
 	@${RM} ${NAME}
-	@${RM} ${CHECK}
 
 re: fclean all
 

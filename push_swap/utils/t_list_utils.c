@@ -98,6 +98,8 @@ void ft_printlst(t_list *head)
         ft_putnbr_fd(tmp->index, 1);
         ft_putstr_fd(" -> ", 1);
         ft_putnbr_fd(tmp->place, 1);
+        ft_putstr_fd(" -> ", 1);
+        ft_putnbr_fd(tmp->target_place, 1);
         if (tmp->next)
             ft_putstr_fd("] \n [", 1);
         tmp = tmp->next;

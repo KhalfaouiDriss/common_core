@@ -113,6 +113,16 @@ int rb(t_list **stuck)
     return 0;
 }
 
+int	rr(t_list **stack_a, t_list **stack_b)
+{
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+		return (-1);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_putendl_fd("rr", 1);
+	return (0);
+}
+
 int	reverseRotate(t_list **stack)
 {
 	t_list	*head;
@@ -151,3 +161,15 @@ int	rrb(t_list **stack_b)
 	ft_putendl_fd("rrb", 1);
 	return (0);
 }
+
+int	rrr(t_list **stack_a, t_list **stack_b)
+{
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+		return (-1);
+	reverseRotate(stack_a);
+	reverseRotate(stack_b);
+	ft_putendl_fd("rrr", 1);
+	return (0);
+}
+
+

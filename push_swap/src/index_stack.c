@@ -58,3 +58,29 @@ void index_stuck(t_list **stuck)
         i++;
     }
 }
+
+
+void	assign_index(t_list *stack_a, int stack_size)
+{
+	t_list	*ptr;
+	t_list	*highest;
+	int		value;
+    printf("I'm here !!!!!!! {%d}", stack_size);
+	while (stack_size > 0)
+	{
+		ptr = stack_a;
+		value = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->index == 0 && ptr->value >= value)
+			{
+				value = ptr->value;
+				highest = ptr;
+			}
+			ptr = ptr->next;
+		}
+		if (highest != NULL)
+			highest->index = stack_size--;
+	}
+}

@@ -8,6 +8,8 @@ void ft_init_Stuck(t_list **a, char **av, int ac)
     while (av[i])
     {
         int val = ft_atoi(av[i]);
+        if(val > INT_MAX || val < INT_MIN)
+            ft_error("Invalid number (not in int range)\n");
         if (!is_digit(av[i]))
             ft_error("Invalid number\n");
         new = ft_lstnew(val);

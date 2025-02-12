@@ -1,24 +1,5 @@
 #include "../push_swap.h"
 
-int	is_digit(char *num)
-{
-	int	i;
-
-	if (!num || !*num)
-		return (0); 
-	i = 0;
-	if (num[0] == '-')
-		i++;
-	while (num[i])
-	{
-		if (num[i] < '0' || num[i] > '9')
-			return (0); 
-		i++;
-	}
-	return (1);
-}
-
-
 void	ft_free(char **str)
 {
 	int	i;

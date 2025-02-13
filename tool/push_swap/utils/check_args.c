@@ -12,6 +12,21 @@ void	ft_free(char **str)
 	free(str); 
 }
 
+void	ft_putendl_fd(char *str, int fd)
+{
+	size_t	i;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		write(1, str[i], fd);
+		i++;
+	}
+	write(1, '\n', fd);
+}
+
 void ft_split_free(char **split)
 {
     int i = 0;

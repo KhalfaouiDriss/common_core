@@ -45,6 +45,7 @@ int	count(char **av)
 	{
 		test = ft_split(av[i++], ' ');
 		j += find_nb(test);
+		ft_split_free(test);
 	}
 	return(j);
 }
@@ -68,26 +69,25 @@ int	main(int ac, char **av)
 		{
 			k = 0;
 			sp = ft_split(av[i++], ' ');
-			if (!av)
+			if (!sp)
 			ft_error("Error: Memory allocation failed for arguments.\n");
 			while (sp[k])
 			{
-				// ft_error("Here !!!!\n");
 				args[j] = ft_strdup(sp[k]);
 				k++;
 				j++;
 			}
 			ft_split_free(sp);
+			args[j] = NULL;
 		}
-	args[j] = NULL;
 	ft_check_args(ac, args);
 	a = fill_stack_values(ac, args);
+	// printf("av = %s\n", args[j]);
 	b = NULL;
 	index_stack(a);
 	push_swap(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	ft_split_free(args);
-	ft_split_free(sp);
 	return (0);
 }

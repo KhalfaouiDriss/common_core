@@ -1,17 +1,17 @@
 #include "../push_swap.h"
 
-// void	push_swap(t_list **stack_a, t_list **stack_b)
-// {
-//     int stack_size;
+void	push_swap(t_list **stack_a, t_list **stack_b)
+{
+    int stack_size;
 
-//     stack_size = ft_lstsize(*stack_a);
-// 	if (stack_size == 2 && !is_sorted(*stack_a))
-//     sa(stack_a);
-// 	else if (stack_size == 3)
-//     sort_three(stack_a);
-// 	// else if (stack_size > 3 && !is_sorted(*stack_a))
-// 	// 	sort(stack_a, stack_b);
-// }
+    stack_size = ft_lstsize(*stack_a);
+	if (stack_size == 2 && !is_sorted(*stack_a))
+        sa(stack_a);
+	else if (stack_size == 3)
+        sort_three(stack_a);
+	// else if (stack_size > 3 && !is_sorted(*stack_a))
+	// 	sort(stack_a, stack_b);
+}
 
 int main(int ac, char **av)
 {
@@ -34,6 +34,7 @@ int main(int ac, char **av)
 
     a = fill_stack_values(ac, av);
     index_stack(a);
+    push_swap(&a, &b);
     ft_printlst(a);
 
     if (ac == 2)

@@ -98,5 +98,5 @@ void ft_printlst(t_list *head)
             ft_putstr_fd("] \n [", 1);
 			tmp = tmp->next;
 		}
-        ft_putstr_fd("]", 1);
+        ft_putstr_fd("]\n", 1);
 }

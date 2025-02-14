@@ -52,8 +52,10 @@ int	is_digit(char *num)
 	if (!num || !*num)
 		return (0);
 	i = 0;
-	if (num[0] == '-')
+	if (num[0] == '-' || num[0] == '+')
 		i++;
+	if (!num[i])
+		return (0);
 	while (num[i])
 	{
 		if (num[i] < '0' || num[i] > '9')

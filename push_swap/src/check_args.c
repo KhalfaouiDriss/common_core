@@ -30,7 +30,7 @@ int	ft_rpt_num(char **as)
 	int	j;
 	int	num;
 
-	i = 1;
+	i = 0;
 	while (as[i])
 	{
 		num = ft_atoi(as[i]);
@@ -66,7 +66,6 @@ int	ft_check_args(int ac, char **av)
 	}
 	if (!ft_rpt_num(as))
 		ft_error("you have a number repeating\n");
-	if (ac == 2)
-		ft_free(as);
+	ft_split_free(as);
 	return (1);
 }

@@ -25,7 +25,7 @@ t_list	*fill_stack_values(int ac, char **av)
 	nb = 0;
 	i = 0;
 	if (ac > 2)
-		i = 1;
+		i = 0;
 	while (av[i])
 	{
 		nb = ft_atoi(av[i]);

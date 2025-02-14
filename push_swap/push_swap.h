@@ -28,6 +28,7 @@ void ft_split_free(char **split);
 int is_digit(char *num);
 int	is_sorted(t_list *stack);
 int	nb_abs(int nb);
+void	free_stack(t_list **stack);
 
 // -------------------- check args -----------------------
 

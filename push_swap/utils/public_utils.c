@@ -14,6 +14,21 @@ void ft_split_free(char **split)
     free(split);
 }
 
+void	free_stack(t_list **stack)
+{
+	t_list	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
+
 int is_digit(char *num)
 {
     int i;

@@ -17,15 +17,12 @@ int main(int ac, char **av)
 {
     t_list *a;
     t_list *b;
-    int i;
 
-    i = 1;
     if (ac < 2)
         ft_error("args is empty\n");
     ft_check_args(ac, av);
     if (ac == 2)
     {
-        i = 0;
         av = ft_split(av[1], ' ');
         if (!av)
             ft_error("Memory allocation failed for arguments\n");
@@ -38,7 +35,8 @@ int main(int ac, char **av)
     // ft_printlst(a);
     // printf("Stack B\n");
     // ft_printlst(b);
-
     if (ac == 2)
         ft_split_free(av);
+    free_stack(&a);
+    free_stack(&b);
 }

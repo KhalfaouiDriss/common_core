@@ -87,13 +87,18 @@ int ft_lstsize(t_list *head)
 void ft_printlst(t_list *head)
 {
     t_list *tmp = head;
-    // printf("size[%d]", tmp->list_size);
+    printf("[val->idx->pos->tar_pos]\n");
+    printf("--------------------------\n");
     ft_putstr_fd(" [", 1);
     while (tmp)
     {
         ft_putnbr_fd(tmp->value, 1);
         ft_putstr_fd(" -> ", 1);
         ft_putnbr_fd(tmp->index, 1);
+		ft_putstr_fd(" -> ", 1);
+        ft_putnbr_fd(tmp->pos, 1);
+		ft_putstr_fd(" -> ", 1);
+        ft_putnbr_fd(tmp->target_pos, 1);
         if (tmp->next)
             ft_putstr_fd("] \n [", 1);
 			tmp = tmp->next;

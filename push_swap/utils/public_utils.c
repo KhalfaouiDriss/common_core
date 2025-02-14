@@ -42,3 +42,10 @@ int	is_sorted(t_list *stack)
 	}
 	return (1);
 }
+
+int	nb_abs(int nb)
+{
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
+}

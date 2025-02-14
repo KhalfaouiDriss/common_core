@@ -27,6 +27,7 @@ void ft_error(char *msg);
 void ft_split_free(char **split);
 int is_digit(char *num);
 int	is_sorted(t_list *stack);
+int	nb_abs(int nb);
 
 // -------------------- check args -----------------------
 
@@ -65,12 +66,20 @@ void		rrr(t_list **stack_a, t_list **stack_b);
 void		rra(t_list **stack_a);
 void		rrb(t_list **stack_b);
 
-// ------------------- sort  -----------------------
+// ------------------- Moves  -----------------------
 
+void	best_move(t_list **stack_a, t_list **stack_b);
+void	move(t_list **a, t_list **b, int cost_a, int cost_b);
+static void	shift_stack(t_list **stack_a);
+
+// ------------------- position & cost & sort-----------------------
 void	sort_three(t_list **stack);
+void	sort(t_list **stack_a, t_list **stack_b);
 
+void	get_target_position(t_list **a, t_list **b);
+int	get_lowest_index_position(t_list **stack);
 
-
+void	get_cost(t_list **stack_a, t_list **stack_b);
 
 
 

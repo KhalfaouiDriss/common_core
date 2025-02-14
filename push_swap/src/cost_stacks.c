@@ -1,5 +1,12 @@
 #include "../push_swap.h"
 
+int	nb_abs(int nb)
+{
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
+}
+
 void	get_cost(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;

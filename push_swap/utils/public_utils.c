@@ -9,6 +9,8 @@ void ft_error(char *msg)
 void ft_split_free(char **split)
 {
     int i = 0;
+	if(!split || !(*split))
+		return;
     while (split[i])
         free(split[i++]);
     free(split);
@@ -56,11 +58,4 @@ int	is_sorted(t_list *stack)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-int	nb_abs(int nb)
-{
-	if (nb < 0)
-		return (nb * -1);
-	return (nb);
 }

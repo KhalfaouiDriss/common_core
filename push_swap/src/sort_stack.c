@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:27:40 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:27:40 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	push_to_b(t_list **stack_a, t_list **stack_b)
@@ -58,11 +70,9 @@ void	sort(t_list **stack_a, t_list **stack_b)
 	sort_three(stack_a);
 	while (*stack_b)
 	{
-		// printf("%s", "here!!!!" );
 		get_target_position(stack_a, stack_b);
 		get_cost(stack_a, stack_b);
 		best_move(stack_a, stack_b);
-        // printf("hhhhhhh\n");
 	}
 	if (!is_sorted(*stack_a))
 		shift_stack(stack_a);

@@ -1,23 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_list_utils_v1.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:28:57 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:28:57 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
-t_list *get_stack_bottom(t_list *stack)
+
+t_list	*get_stack_bottom(t_list *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
 
-t_list *get_stack_before_bottom(t_list *stack)
+t_list	*get_stack_before_bottom(t_list *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
 
-t_list *stack_new(int value)
+t_list	*stack_new(int value)
 {
-	t_list *new;
+	t_list	*new;
 
-	new = malloc(sizeof * new);
+	new = malloc(sizeof(*new));
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -32,7 +45,7 @@ t_list *stack_new(int value)
 
 void	stack_add_bottom(t_list **stack, t_list *new)
 {
-	t_list *tail;
+	t_list	*tail;
 
 	if (!new)
 		return ;

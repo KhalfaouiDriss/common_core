@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:27:49 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:27:50 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static int	find_highest_index(t_list *stack)
 {
-	int		index;
+	int	index;
 
 	index = stack->index;
 	while (stack)
@@ -16,7 +28,7 @@ static int	find_highest_index(t_list *stack)
 
 void	sort_three(t_list **stack)
 {
-	int		highest;
+	int	highest;
 
 	if (is_sorted(*stack))
 		return ;

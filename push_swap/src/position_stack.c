@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   position_stack.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:27:13 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:27:13 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	get_position(t_list **stack)
@@ -53,23 +65,19 @@ static int	get_target(t_list **a, int b_idx, int target_idx, int target_pos)
 	}
 	if (target_idx != INT_MAX)
 		return (target_pos);
-	tmp_a = *a;
-    return (get_lowest_index_position(a));
+	return (get_lowest_index_position(a));
 }
 
 void	get_target_position(t_list **a, t_list **b)
 {
 	t_list	*tmp_b;
-	int		target_pos;
 
 	tmp_b = *b;
 	get_position(a);
 	get_position(b);
-	target_pos = 0;
 	while (tmp_b)
 	{
-		target_pos = get_target(a, tmp_b->index, INT_MAX, target_pos);
-		tmp_b->target_pos = target_pos;
+		tmp_b->target_pos = get_target(a, tmp_b->index, INT_MAX, 0);
 		tmp_b = tmp_b->next;
 	}
 }

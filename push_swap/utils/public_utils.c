@@ -1,19 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   public_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:28:03 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:28:03 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void ft_error(char *msg)
+void	ft_error(char *msg)
 {
-    ft_putstr_fd(msg, 1);
-    exit(0);
+	ft_putstr_fd(msg, 1);
+	exit(0);
 }
 
-void ft_split_free(char **split)
+void	ft_split_free(char **split)
 {
-    int i = 0;
-	if(!split || !(*split))
-		return;
-    while (split[i])
-        free(split[i++]);
-    free(split);
+	int	i;
+
+	i = 0;
+	if (!split || !(*split))
+		return ;
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }
 
 void	free_stack(t_list **stack)
@@ -31,22 +45,22 @@ void	free_stack(t_list **stack)
 	*stack = NULL;
 }
 
-int is_digit(char *num)
+int	is_digit(char *num)
 {
-    int i;
+	int	i;
 
-    if (!num || !*num)
-        return (0); 
-    i = 0;
-    if (num[0] == '-')
-        i++;
-    while (num[i])
-    {
-        if (num[i] < '0' || num[i] > '9')
-            return (0); 
-        i++;
-    }
-    return (1);
+	if (!num || !*num)
+		return (0);
+	i = 0;
+	if (num[0] == '-')
+		i++;
+	while (num[i])
+	{
+		if (num[i] < '0' || num[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	is_sorted(t_list *stack)

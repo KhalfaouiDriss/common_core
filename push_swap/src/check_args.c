@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 16:25:49 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/14 16:25:49 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	ft_free(char **str)
@@ -5,11 +17,11 @@ void	ft_free(char **str)
 	int	i;
 
 	if (!str)
-		return;
+		return ;
 	i = 0;
 	while (str[i])
 		free(str[i++]);
-	free(str); 
+	free(str);
 }
 
 int	ft_rpt_num(char **as)
@@ -26,12 +38,12 @@ int	ft_rpt_num(char **as)
 		while (as[j])
 		{
 			if (num == ft_atoi(as[j]))
-				return (0); 
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (1); 
+	return (1);
 }
 
 int	ft_check_args(int ac, char **av)

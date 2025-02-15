@@ -39,10 +39,11 @@ int		is_digit(char *num);
 int		is_sorted(t_list *stack);
 int		nb_abs(int nb);
 void	free_stack(t_list **stack);
+int		find_nb(char **str);
 
 // ------------------- check args -----------------------
 
-int		ft_check_args(int ac, char **av);
+int		ft_check_args(char **av);
 
 // ------------------- t_list_utils ---------------------
 
@@ -57,7 +58,7 @@ void	ft_printlst(t_list *head);
 
 // ------------------- init_Stack ----------------------
 
-t_list	*fill_stack_values(int ac, char **av);
+t_list	*fill_stack_values(char **av);
 
 // ------------------- index stack --------------------
 

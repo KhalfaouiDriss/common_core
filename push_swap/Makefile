@@ -5,7 +5,7 @@ SRCS = $(wildcard src/*.c utils/*.c)
 OBJS = ${SRCS:.c=.o}
 
 CC = cc -g
-# CFLAGS = -Wall -Wextra -Werror -Wno-unused-but-set-variable
+CFLAGS = -Wall -Wextra -Werror
 
 
 RM = rm -rf

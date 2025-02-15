@@ -12,6 +12,16 @@
 
 #include "../push_swap.h"
 
+int	find_nb(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 void	ft_free(char **str)
 {
 	int	i;
@@ -26,8 +36,8 @@ void	ft_free(char **str)
 
 int	ft_rpt_num(char **as)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	long	num;
 
 	i = 0;
@@ -46,7 +56,7 @@ int	ft_rpt_num(char **as)
 	return (1);
 }
 
-int	ft_check_args(int ac, char **av)
+int	ft_check_args(char **av)
 {
 	char	**as;
 	int		i;
@@ -56,10 +66,13 @@ int	ft_check_args(int ac, char **av)
 	while (as[i])
 	{
 		if (!is_digit(as[i]))
-		(ft_split_free(as), ft_error("the args is not valid\n"));
+		{
+			ft_split_free(as);
+			ft_error("Error: The arguments are not valid\n");
+		}
 		i++;
 	}
 	if (!ft_rpt_num(as))
-		(ft_split_free(as),  ft_error("you have a number repeating\n"));
+		(ft_split_free(as), ft_error("Error: Duplicate numbers detected\n"));
 	return (1);
 }

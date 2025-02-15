@@ -25,19 +25,11 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		sort(stack_a, stack_b);
 }
 
-int find_nb(char **str)
-{
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int	count(char **av)
 {
-	int i;
-	int j;
-	char **test;
+	int		i;
+	int		j;
+	char	**test;
 
 	i = 0;
 	j = 0;
@@ -47,7 +39,7 @@ int	count(char **av)
 		j += find_nb(test);
 		ft_split_free(test);
 	}
-	return(j);
+	return (j);
 }
 
 int	check(int ac, char **av)
@@ -56,49 +48,56 @@ int	check(int ac, char **av)
 	int	j;
 
 	i = 1;
-	j = 0;
 	while (i < ac)
 	{
+		j = 0;
 		while (av[i][j] == ' ')
 			j++;
 		if (!av[i][j])
 			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
-int	main(int ac, char **av)
+
+char	**fill_args(int ac, char **av)
 {
-	t_list	*a;
-	t_list	*b;
-	char **sp;
-	char **args;
+	char	**args;
+	char	**sp;
 	int		i;
 	int		j;
 	int		k;
 
+	i = 1;
+	j = 0;
+	args = malloc(count(av) * sizeof(char *));
+	if (!args)
+		ft_error("Error: Memory allocation failed.\n");
+	while (i < ac)
+	{
+		k = 0;
+		sp = ft_split(av[i++], ' ');
+		if (!sp)
+			ft_error("Error: Memory allocation failed.\n");
+		while (sp[k])
+			args[j++] = ft_strdup(sp[k++]);
+		ft_split_free(sp);
+		args[j] = NULL;
+	}
+	return (args);
+}
+
+int	main(int ac, char **av)
+{
+	t_list	*a;
+	t_list	*b;
+	char	**args;
+
 	if (ac < 2 || !check(ac, av))
-		ft_error("Error: No arguments provided.\n");
-		i = 1;
-		j = 0;
-		args = malloc(count(av) * 8);
-		while (i < ac)
-		{
-			k = 0;
-			sp = ft_split(av[i++], ' ');
-			if (!*sp)
-				ft_error("Error: Memory allocation failed for arguments.\n");
-			while (sp[k])
-			{
-				args[j] = ft_strdup(sp[k]);
-				k++;
-				j++;
-			}
-			ft_split_free(sp);
-			args[j] = NULL;
-		}
-	ft_check_args(ac, args);
-	a = fill_stack_values(ac, args);
+		ft_error("Error\n");
+	args = fill_args(ac, av);
+	ft_check_args(args);
+	a = fill_stack_values(args);
 	b = NULL;
 	index_stack(a);
 	push_swap(&a, &b);

@@ -15,7 +15,7 @@
 
 #include "../push_swap.h"
 
-t_list	*fill_stack_values(int ac, char **av)
+t_list	*fill_stack_values(char **av)
 {
 	t_list	*stack_a;
 	int		i;

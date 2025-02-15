@@ -50,6 +50,19 @@ int	count(char **av)
 	return(j);
 }
 
+int	check(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (!av[i][0])
+			return (0);
+		i++;
+	}
+	return(1);
+}
 int	main(int ac, char **av)
 {
 	t_list	*a;
@@ -60,7 +73,7 @@ int	main(int ac, char **av)
 	int		j;
 	int		k;
 
-	if (ac < 2)
+	if (ac < 2 || !check(ac, av))
 		ft_error("Error: No arguments provided.\n");
 		i = 1;
 		j = 0;
@@ -69,8 +82,8 @@ int	main(int ac, char **av)
 		{
 			k = 0;
 			sp = ft_split(av[i++], ' ');
-			if (!sp)
-			ft_error("Error: Memory allocation failed for arguments.\n");
+			if (!*sp)
+				(free(args), ft_error("Error: Memory allocation failed for arguments.\n"));
 			while (sp[k])
 			{
 				args[j] = ft_strdup(sp[k]);

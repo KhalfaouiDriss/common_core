@@ -56,10 +56,10 @@ int	ft_check_args(int ac, char **av)
 	while (as[i])
 	{
 		if (!is_digit(as[i]))
-		ft_error("the args is not valid\n");
+		(ft_split_free(as), ft_error("the args is not valid\n"));
 		i++;
 	}
 	if (!ft_rpt_num(as))
-		ft_error("you have a number repeating\n");
+		(ft_split_free(as),  ft_error("you have a number repeating\n"));
 	return (1);
 }

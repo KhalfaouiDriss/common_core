@@ -53,11 +53,15 @@ int	count(char **av)
 int	check(int ac, char **av)
 {
 	int	i;
+	int	j;
 
 	i = 1;
+	j = 0;
 	while (i < ac)
 	{
-		if (!av[i][0])
+		while (av[i][j] == ' ')
+			j++;
+		if (!av[i][j])
 			return (0);
 		i++;
 	}
@@ -83,7 +87,7 @@ int	main(int ac, char **av)
 			k = 0;
 			sp = ft_split(av[i++], ' ');
 			if (!*sp)
-				(free(args), ft_error("Error: Memory allocation failed for arguments.\n"));
+				ft_error("Error: Memory allocation failed for arguments.\n");
 			while (sp[k])
 			{
 				args[j] = ft_strdup(sp[k]);
@@ -95,7 +99,6 @@ int	main(int ac, char **av)
 		}
 	ft_check_args(ac, args);
 	a = fill_stack_values(ac, args);
-	// printf("av = %s\n", args[j]);
 	b = NULL;
 	index_stack(a);
 	push_swap(&a, &b);

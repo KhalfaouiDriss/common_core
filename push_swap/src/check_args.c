@@ -28,7 +28,7 @@ int	ft_rpt_num(char **as)
 {
 	int	i;
 	int	j;
-	int	num;
+	long	num;
 
 	i = 0;
 	while (as[i])
@@ -37,7 +37,7 @@ int	ft_rpt_num(char **as)
 		j = i + 1;
 		while (as[j])
 		{
-			if (num == ft_atoi(as[j]))
+			if (num == ft_atoi(as[j]) || num == 2147483648)
 				return (0);
 			j++;
 		}

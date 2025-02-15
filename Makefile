@@ -1,5 +1,5 @@
 push:
 	git add . && \
         git status && \
-        git commit -m "push_swap demo" && \
+        git commit -m "Common_Core" && \
         git push

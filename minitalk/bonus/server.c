@@ -25,6 +25,7 @@ void	print_message(char *byte, int *bit_count, int sender_pid, int *is_new_msg)
         {
 			write(1, "\n", 1);
 			*is_new_msg = 1;
+			kill(sender_pid, SIGUSR2);
 		}
 		else
 		{

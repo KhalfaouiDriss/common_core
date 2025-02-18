@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 17:27:38 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/18 17:44:50 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	g_flag = 0;
@@ -11,16 +23,16 @@ void	handler(int sig)
 void	send_char(char c, int pid)
 {
 	int	i;
-	int p;
+	int	p;
 
 	i = 7;
 	while (i >= 0)
 	{
 		if ((c >> i) & 1)
-			p=kill(pid, SIGUSR1);
+			p = kill(pid, SIGUSR1);
 		else
-			p=kill(pid, SIGUSR2);
-		if(p == -1)
+			p = kill(pid, SIGUSR2);
+		if (p == -1)
 		{
 			ft_putstr_fd("PID Invalid\n", 1);
 			exit(0);
@@ -48,13 +60,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		printf("Usage: %s <PID> <message>\n", argv[0]);
+		ft_putstr_fd("Usage: a.out <PID> <message>\n", 1);
 		return (1);
 	}
 	pid = atoi(argv[1]);
 	if (pid <= 0)
 	{
-		printf("Invalid PID\n");
+		ft_putstr_fd("Invalid PID\n", 1);
 		return (1);
 	}
 	signal(SIGUSR1, handler);

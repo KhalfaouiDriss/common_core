@@ -1,15 +1,16 @@
-#include "minitalk_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 17:27:58 by dkhalfao          #+#    #+#             */
+/*   Updated: 2025/02/18 17:47:26 by dkhalfao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	reset_message_state(siginfo_t *info, char *byte, int *bit_count, int *sender_pid, int *is_new_msg)
-{
-	if (*sender_pid != info->si_pid)
-	{
-		*sender_pid = info->si_pid;
-		*byte = 0;
-		*bit_count = 0;
-		*is_new_msg = 1;
-	}
-}
+#include "minitalk_bonus.h"
 
 void	append_bit(int sig, char *byte, int *bit_count)
 {
@@ -17,12 +18,13 @@ void	append_bit(int sig, char *byte, int *bit_count)
 	(*bit_count)++;
 }
 
-void	print_message(char *byte, int *bit_count, int sender_pid, int *is_new_msg)
+void	print_message(char *byte, int *bit_count, int sender_pid,
+		int *is_new_msg)
 {
 	if (*bit_count == 8)
 	{
-		if (*byte == '\0') 
-        {
+		if (*byte == '\0')
+		{
 			write(1, "\n", 1);
 			*is_new_msg = 1;
 			kill(sender_pid, SIGUSR2);
@@ -49,13 +51,17 @@ void	handle_signal(int sig, siginfo_t *info, void *context)
 	static int	bit_count = 0;
 	static int	sender_pid = 0;
 	static int	is_new_msg = 1;
-    
-	(void)context;
 
-	reset_message_state(info, &byte, &bit_count, &sender_pid, &is_new_msg);
+	(void)context;
+	if (sender_pid != info->si_pid)
+	{
+		sender_pid = info->si_pid;
+		byte = 0;
+		bit_count = 0;
+		is_new_msg = 1;
+	}
 	append_bit(sig, &byte, &bit_count);
 	print_message(&byte, &bit_count, sender_pid, &is_new_msg);
-
 	kill(sender_pid, SIGUSR1);
 }
 
@@ -68,11 +74,10 @@ int	main(void)
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-
-	printf("Server PID: %d\n", getpid());
-
+	ft_putstr_fd("Server PID: ", 1);
+	ft_putnbr_fd(getpid(), 1);
+	ft_putstr_fd("\n", 1);
 	while (1)
 		pause();
-	
 	return (0);
 }

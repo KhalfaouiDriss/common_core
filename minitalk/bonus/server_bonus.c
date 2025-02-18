@@ -1,4 +1,4 @@
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	reset_message_state(siginfo_t *info, char *byte, int *bit_count, int *sender_pid, int *is_new_msg)
 {

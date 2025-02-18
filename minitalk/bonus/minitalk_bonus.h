@@ -6,6 +6,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "libft/libft.h" 
+# include "../libft/libft.h" 
 
 #endif

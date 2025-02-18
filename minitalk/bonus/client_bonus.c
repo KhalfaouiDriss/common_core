@@ -1,4 +1,4 @@
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 int	g_flag = 0;
 
@@ -7,20 +7,26 @@ void	handler(int sig)
 	if (sig == SIGUSR1)
 		g_flag = 1;
 	if (sig == SIGUSR2)
-		ft_putstr_fd("done\n", 1);
+		ft_putstr_fd("send Message succusfuly\n", 1);
 }
 
 void	send_char(char c, int pid)
 {
 	int	i;
+	int p;
 
 	i = 7;
 	while (i >= 0)
 	{
 		if ((c >> i) & 1)
-			kill(pid, SIGUSR1);
+			p = kill(pid, SIGUSR1);
 		else
-			kill(pid, SIGUSR2);
+			p = kill(pid, SIGUSR2);
+		if(p == -1)
+		{
+			ft_putstr_fd("PID Invalid\n", 1);
+			exit(0);
+		}
 		while (!g_flag)
 			;
 		g_flag = 0;

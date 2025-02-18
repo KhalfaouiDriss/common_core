@@ -11,14 +11,20 @@ void	handler(int sig)
 void	send_char(char c, int pid)
 {
 	int	i;
+	int p;
 
 	i = 7;
 	while (i >= 0)
 	{
 		if ((c >> i) & 1)
-			kill(pid, SIGUSR1);
+			p=kill(pid, SIGUSR1);
 		else
-			kill(pid, SIGUSR2);
+			p=kill(pid, SIGUSR2);
+		if(p == -1)
+		{
+			ft_putstr_fd("PID Invalid\n", 1);
+			exit(0);
+		}
 		while (!g_flag)
 			;
 		g_flag = 0;

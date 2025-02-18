@@ -22,8 +22,8 @@ OBJS_CLIEN_BONUS = $(SRCS_CLIENT_BONUS:.c=.o)
 all: $(SERVER) $(CLIENT)
 
 $(SERVER) $(CLIENT): $(OBJS_SERVER) $(OBJS_CLIENT) $(LIBFT)
-		${CC} ${OBJS_SERVER} ../libft/libft.a -o ${SERVER}
-		${CC} ${OBJS_CLIENT} ../libft/libft.a -o ${CLIENT}
+		${CC} ${OBJS_SERVER} libft/libft.a -o ${SERVER}
+		${CC} ${OBJS_CLIENT} libft/libft.a -o ${CLIENT}
 
 $(LIBFT):
 		${MAKE} -C ./libft
@@ -34,8 +34,8 @@ $(LIBFT):
 bonus: $(SERVER_BONUS) $(CLIENT_BONUS)
 
 $(SERVER_BONUS) $(CLIENT_BONUS): $(OBJS_CLIEN_BONUS) $(OBJS_SERVER_BONUS) $(LIBFT)
-		${CC} ${OBJS_SERVER_BONUS} libft/libft.a -o ${SERVER_BONUS}
-		${CC} ${OBJS_CLIEN_BONUS} libft/libft.a -o ${CLIENT_BONUS}
+		${CC} ${OBJS_SERVER_BONUS} ./libft/libft.a -o ${SERVER_BONUS}
+		${CC} ${OBJS_CLIEN_BONUS} ./libft/libft.a -o ${CLIENT_BONUS}
 
 
 

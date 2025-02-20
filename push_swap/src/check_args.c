@@ -70,6 +70,8 @@ int	ft_check_args(char **av)
 			ft_split_free(as);
 			ft_error("Error: The arguments are not valid\n");
 		}
+		if(ft_atoi(as[i]) == 2147483648)
+			ft_error("Error\n");
 		i++;
 	}
 	if (!ft_rpt_num(as))

@@ -110,11 +110,11 @@ void	mov_right(t_game *game)
 
 int	key_hook(int keycode, t_game *game)
 {
-	int (new_x), (new_y);
+	// int (new_x), (new_y);
 	if (keycode == 65307)
 		exit_game(game, 1);
-	new_x = game->player_x;
-	new_y = game->player_y;
+	// new_x = game->player_x;
+	// new_y = game->player_y;
 	if (keycode == 119 || keycode == 65362)
 		mov_up(game);
 	else if (keycode == 115 || keycode == 65364)

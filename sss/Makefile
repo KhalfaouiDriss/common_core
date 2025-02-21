@@ -1,9 +1,9 @@
 NAME = so_long
 BNAME = so_long_bonus
-CC = cc
+CC = cc -g
 MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
 GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 SRCS = src/main.c src/mv_player.c src/render_map.c  src/valid_map.c src/utils_1.c src/utils_2.c
 BSRCS = src_bonus/main_bonus.c src_bonus/mv_player_bonus.c src_bonus/render_map_bonus.c \
 		src_bonus/valid_map_bonus.c src_bonus/utils_1_bonus.c src_bonus/utils_2_bonus.c \

@@ -60,7 +60,6 @@ void	handle_signal(int sig, siginfo_t *info, void *context)
 	}
 	append_bit(sig, &byte, &bit_count);
 	print_msg(&byte, &bit_count, sender_pid, &is_new_msg);
-	kill(sender_pid, SIGUSR1);
 }
 
 int	main(void)

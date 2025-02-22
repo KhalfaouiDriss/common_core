@@ -1,7 +1,7 @@
 LIBFT = libft/libft.a
 
 CC = cc
-# CCFLAGS = cc -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 SERVER = server
 CLIENT = client
@@ -50,4 +50,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all bonus

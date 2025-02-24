@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:27:28 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:47:18 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:52:00 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	handle_signal(int sig, siginfo_t *info, void *context)
 	}
 	append_bit(sig, &byte, &bit_count);
 	print_msg(&byte, &bit_count, sender_pid, &is_new_msg);
+	kill(sender_pid, SIGUSR1);
 }
 
 int	main(void)

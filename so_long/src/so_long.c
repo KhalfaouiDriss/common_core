@@ -33,18 +33,26 @@ void init_map(char *file, t_game *game)
     int i = 0;
     fd = open(file, O_RDONLY);
     line = get_next_line(fd);
+    int width = ft_strlen(line);
     map = (char **)malloc(ft_strlen(line) + 1);
     while(line)
     {
+        if(ft_strlen(line) != width)
+        {
+            ft_printf("map not valaid");
+            free(game);
+            exit(0);
+        }
         map[i] = ft_strdup(line);
         if(map[i][ft_strlen(map[i]) - 1] == '\n')
             map[i][ft_strlen(map[i]) - 1] = '\0';
         free(line);
         line = get_next_line(fd);
+        ft_printf("%d\n", ft_strlen(game->map[i]));
         i++;
     }
     game->heigth = i - 1;
-    game->width = ft_strlen(game->map[i]);
+    game->width = 4;
     map[i] = NULL;
     free(line);
     game->map = map;
@@ -83,8 +91,10 @@ int main(int ac, char **av)
     int i = 0;
     while (game->map[i])
     {
-        ft_printf("%s\n", game->map[1]);
+        ft_printf("%s\n", game->map[i]);
+        ft_printf("%d\n", ft_strlen(game->map[i]));
         i++;
     }
+    
     return 0;
 }

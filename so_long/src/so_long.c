@@ -2,15 +2,16 @@
 
 void initial_imgs(t_game *game)
 {
-    game->f_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_f.xpm", 32, 32);
-    game->b_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_b.xpm", 32, 32);
-    game->l_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_l.xpm", 32, 32);
-    game->r_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_r.xpm", 32, 32);
-    game->wall = mlx_xpm_file_to_image(game->mlx, "../assets/wall.xpm", 32, 32);
-    game->exit_c = mlx_xpm_file_to_image(game->mlx, "../assets/exit_c.xpm", 32, 32);
-    game->exit_o = mlx_xpm_file_to_image(game->mlx, "../assets/exit_o.xpm", 32, 32);
-    game->collect = mlx_xpm_file_to_image(game->mlx, "../assets/collect.xpm", 32, 32);
-    game->empty = mlx_xpm_file_to_image(game->mlx, "../assets/empty.xpm", 32, 32);
+    int a = 32;
+    game->f_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_f.xpm", &a, &a);
+    game->b_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_b.xpm", &a, &a);
+    game->l_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_l.xpm", &a, &a);
+    game->r_player = mlx_xpm_file_to_image(game->mlx, "../assets/player_r.xpm", &a, &a);
+    game->wall = mlx_xpm_file_to_image(game->mlx, "../assets/wall.xpm", &a, &a);
+    game->exit_c = mlx_xpm_file_to_image(game->mlx, "../assets/exit_c.xpm", &a, &a);
+    game->exit_o = mlx_xpm_file_to_image(game->mlx, "../assets/exit_o.xpm", &a, &a);
+    game->collect = mlx_xpm_file_to_image(game->mlx, "../assets/collect.xpm", &a, &a);
+    game->empty = mlx_xpm_file_to_image(game->mlx, "../assets/empty.xpm", &a, &a);
 
     if(!game->f_player || !game->b_player || !game->l_player || !game->r_player || !game->wall || !game->empty
         || !game->collect || !game->exit_c || !game->exit_o)

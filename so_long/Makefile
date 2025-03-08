@@ -3,7 +3,7 @@ CC = cc -g
 MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
 GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c
 LIBFT = includes/libft/libft.a 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRCS = $(wildcard src/*.c utils/*.c) 
 
 OBJS = $(SRCS:.c=.o)
@@ -11,7 +11,7 @@ OBJS = $(SRCS:.c=.o)
 all: printf $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(GNL) includes/libft/libft.a includes/ft_printf/libftprintf.a
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(GNL) includes/libft/libft.a includes/ft_printf/ft_printf.a
 
 
 $(LIBFT):
@@ -22,6 +22,7 @@ printf:
 
 clean:
 	$(MAKE) -C includes/ft_printf clean
+	$(MAKE) -C includes/libft clean
 	rm -f $(OBJS)
 
 fclean: clean

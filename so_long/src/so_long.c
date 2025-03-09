@@ -3,6 +3,7 @@
 void initial_imgs(t_game *game)
 {
     int a = 32;
+
     game->f_player = mlx_xpm_file_to_image(game->mlx, "assets/player_f.xpm", &a, &a);
     game->b_player = mlx_xpm_file_to_image(game->mlx, "assets/player_b.xpm", &a, &a);
     game->l_player = mlx_xpm_file_to_image(game->mlx, "assets/player_l.xpm", &a, &a);
@@ -13,36 +14,53 @@ void initial_imgs(t_game *game)
     game->collect = mlx_xpm_file_to_image(game->mlx, "assets/collect.xpm", &a, &a);
     game->empty = mlx_xpm_file_to_image(game->mlx, "assets/empty.xpm", &a, &a);
 
-    if(!game->f_player || !game->b_player || !game->l_player || !game->r_player || !game->wall || !game->empty
-        || !game->collect || !game->exit_c || !game->exit_o)
-        (ft_printf("error\n"), ft_error(game));
+    if (!game->f_player || !game->b_player || !game->l_player || !game->r_player ||
+        !game->wall || !game->empty || !game->collect || !game->exit_c || !game->exit_o)
+    {
+        ft_printf("Error: Failed to load images\n");
+        ft_error(game);
+    }
 }
 
 void render_game(t_game *game)
 {
-    char **map;
-    int (i),(j);
+    char **map = game->map;
+    int y, x;
 
-    i = 0;
-    map = game->map;
-
-    while ()
+    y = 0;
+    while (map[y])
     {
-        /* code */
+        x = 0;
+        while (map[y][x])
+        {
+            if (map[y][x] == '0')
+                mlx_put_image_to_window(game->mlx, game->win, game->empty, x * 32, y * 32);
+            else if (map[y][x] == '1')
+                mlx_put_image_to_window(game->mlx, game->win, game->wall, x * 32, y * 32);
+            else if (map[y][x] == 'C')
+                mlx_put_image_to_window(game->mlx, game->win, game->collect, x * 32, y * 32);
+            else if (map[y][x] == 'E')
+                mlx_put_image_to_window(game->mlx, game->win, game->exit_c, x * 32, y * 32);
+            else if (map[y][x] == 'P')
+                mlx_put_image_to_window(game->mlx, game->win, game->f_player, x * 32, y * 32);
+            x++;
+        }
+        y++;
     }
-    
-    mlx_put_image_to_window()
+    mlx_loop(game->mlx);
 }
 
 void so_long(t_game *game)
 {
     initial_imgs(game);
     render_game(game);
+    
 }
+
 int main(int ac, char **av)
 {
     t_game game;
-    int i = 0;
+    int i;
 
     if (ac != 2)
         return (write(2, "Usage: ./so_long <map.ber>\n", 27));
@@ -53,17 +71,28 @@ int main(int ac, char **av)
     init_game(&game);
     init_map(av[1], &game);
     check_map(&game);
+    
     game.mlx = mlx_init();
-    game.win = mlx_new_window(game.mlx, game.map_width * 32, game.map_height* 32, "So Long!");
-    so_long(&game);
-
-    i = 0;
-    while (game.map[i])
+    if (!game.mlx)
     {
-        ft_printf("%s\n", game.map[i]);
-        i++;
+        ft_printf("Error: Failed to initialize MLX\n");
+        return (1);
     }
 
-    ft_printf("w = %d || H = %d\n", game.map_width, game.map_height);
-    ft_error(&game);
+    game.win = mlx_new_window(game.mlx, game.map_width * 32, game.map_height * 32, "So Long!");
+    if (!game.win)
+    {
+        ft_printf("Error: Failed to create window\n");
+        return (1);
+    }
+
+    so_long(&game);
+
+    // طباعة الخريطة
+    for (i = 0; game.map[i]; i++)
+        ft_printf("%s\n", game.map[i]);
+
+    ft_printf("w = %d || h = %d\n", game.map_width, game.map_height);
+
+    return (0);
 }

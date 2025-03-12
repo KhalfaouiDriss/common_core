@@ -34,27 +34,81 @@ void render_game(t_game *game)
         while (map[y][x])
         {
             if (map[y][x] == '0')
-                mlx_put_image_to_window(game->mlx, game->win, game->empty, x * 32, y * 32);
+                mlx_put_image_to_window(game->mlx, game->win, game->empty, x * 64, y * 64);
             else if (map[y][x] == '1')
-                mlx_put_image_to_window(game->mlx, game->win, game->wall, x * 32, y * 32);
+                mlx_put_image_to_window(game->mlx, game->win, game->wall, x * 64, y * 64);
             else if (map[y][x] == 'C')
-                mlx_put_image_to_window(game->mlx, game->win, game->collect, x * 32, y * 32);
+                mlx_put_image_to_window(game->mlx, game->win, game->collect, x * 64, y * 64);
             else if (map[y][x] == 'E')
-                mlx_put_image_to_window(game->mlx, game->win, game->exit_c, x * 32, y * 32);
+                mlx_put_image_to_window(game->mlx, game->win, game->exit_c, x * 64, y * 64);
             else if (map[y][x] == 'P')
-                mlx_put_image_to_window(game->mlx, game->win, game->f_player, x * 32, y * 32);
+                mlx_put_image_to_window(game->mlx, game->win, game->f_player, x * 64, y * 64);
             x++;
         }
         y++;
     }
-    mlx_loop(game->mlx);
+}
+
+int mv(int keycode, t_game *game)
+{
+    if (keycode == 119) // W
+    {
+        if(game->map[game->player_x - 1][game->player_y] == '1')
+            return (0);
+
+        if(game->map[game->player_x - 1][game->player_y] == 'C')
+            game->collectible_count++;
+        game->map[game->player_x][game->player_y] = '0';
+        game->map[--game->player_x][game->player_y] = 'P';
+    }
+
+    if (keycode == 115) // S
+    {
+        if(game->map[game->player_x + 1][game->player_y] == '1')
+            return (0);
+
+        if(game->map[game->player_x + 1][game->player_y] == 'C')
+            game->collectible_count++;
+        game->map[game->player_x][game->player_y] = '0';
+        game->map[++game->player_x][game->player_y] = 'P';
+    }
+
+    if (keycode == 97) // D
+    {
+        if(game->map[game->player_x][game->player_y - 1] == '1')
+            return (0);
+        if(game->map[game->player_x][game->player_y - 1] == 'C')
+            game->collectible_count++;
+        game->map[game->player_x][game->player_y] = '0';
+        game->map[game->player_x][--game->player_y] = 'P';
+    }
+
+    if (keycode == 100) // A
+    {
+        if(game->map[game->player_x][game->player_y + 1] == '1')
+            return (0);
+        if(game->map[game->player_x][game->player_y + 1] == 'C')
+            game->collectible_count++;
+        game->map[game->player_x][game->player_y] = '0';
+        game->map[game->player_x][++game->player_y] = 'P';
+    }
+
+    render_game(game);
+    return (0);
+}
+
+
+void move_player(t_game *game)
+{
+    mlx_key_hook(game->win, mv, game);
 }
 
 void so_long(t_game *game)
 {
     initial_imgs(game);
     render_game(game);
-    
+    move_player(game);
+    mlx_loop(game->mlx);
 }
 
 int main(int ac, char **av)
@@ -79,7 +133,7 @@ int main(int ac, char **av)
         return (1);
     }
 
-    game.win = mlx_new_window(game.mlx, game.map_width * 32, game.map_height * 32, "So Long!");
+    game.win = mlx_new_window(game.mlx, game.map_width * 64, game.map_height * 64, "So Long!");
     if (!game.win)
     {
         ft_printf("Error: Failed to create window\n");

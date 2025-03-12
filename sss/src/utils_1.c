@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:00:56 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/17 03:30:43 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:49:50 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,13 @@ void	clean_screen(t_game *game)
 		mlx_destroy_image(game->mlx, game->nc_exit);
 	if (game->collect)
 		mlx_destroy_image(game->mlx, game->collect);
+}
+
+void	you_win(void)
+{
+	ft_printf("-----------------------------------------------\n");
+	ft_printf("|    🎉🎉🎉  Congratulations!!!!!  🎉🎉🎉     |\n");
+	ft_printf("|    You found all collectibles and exit.     |\n");
+	ft_printf("|        ✓✓✓✓✓✓✓✓ You won! ✓✓✓✓✓✓✓✓           |\n");
+	ft_printf("-----------------------------------------------\n");
 }

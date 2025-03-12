@@ -12,15 +12,6 @@
 
 #include "../includes/so_long.h"
 
-void	you_win(void)
-{
-	ft_printf("-----------------------------------------------\n");
-	ft_printf("|    🎉🎉🎉  Congratulations!!!!!  🎉🎉🎉     |\n");
-	ft_printf("|    You found all collectibles and exit.     |\n");
-	ft_printf("|        ✓✓✓✓✓✓✓✓ You won! ✓✓✓✓✓✓✓✓           |\n");
-	ft_printf("-----------------------------------------------\n");
-}
-
 int	main(int ac, char **av)
 {
 	t_game	game;

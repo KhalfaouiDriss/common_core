@@ -26,6 +26,7 @@ typedef struct s_game
 	void	*l_player;
 	void	*exit_c;
 	void	*exit_o;
+	int		is_exit;
 	void	*collect;
 	int		move_count;
 	int		collectible_count;

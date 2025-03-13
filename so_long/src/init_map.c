@@ -15,6 +15,7 @@ void	init_game(t_game *game)
 	game->new_y = 0;
 	game->height = 0;
 	game->flage = 0;
+    game->is_exit = 0;
 }
 
 void height_map(char *file, t_game *game)

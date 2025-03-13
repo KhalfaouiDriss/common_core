@@ -49,16 +49,22 @@ void render_game(t_game *game)
     }
 }
 
-int mv(int keycode, t_game *game)
+int move_player(int keycode, t_game *game)
 {
     if (keycode == 119) // W
     {
         if(game->map[game->player_x - 1][game->player_y] == '1')
             return (0);
-
         if(game->map[game->player_x - 1][game->player_y] == 'C')
             game->collectible_count++;
+        if(game->map[game->player_x - 1][game->player_y] == 'E')
+            game->is_exit = 1;
         game->map[game->player_x][game->player_y] = '0';
+        if(game->is_exit)
+        {
+            game->map[game->player_x][game->player_y] = 'E';
+            game->is_exit = 0;
+        }
         game->map[--game->player_x][game->player_y] = 'P';
     }
 
@@ -69,7 +75,14 @@ int mv(int keycode, t_game *game)
 
         if(game->map[game->player_x + 1][game->player_y] == 'C')
             game->collectible_count++;
+        if(game->map[game->player_x + 1][game->player_y] == 'E')
+            game->is_exit = 1;
         game->map[game->player_x][game->player_y] = '0';
+        if(game->is_exit)
+        {
+            game->map[game->player_x][game->player_y] = 'E';
+            game->is_exit = 0;
+        }
         game->map[++game->player_x][game->player_y] = 'P';
     }
 
@@ -79,7 +92,14 @@ int mv(int keycode, t_game *game)
             return (0);
         if(game->map[game->player_x][game->player_y - 1] == 'C')
             game->collectible_count++;
+        if(game->map[game->player_x][game->player_y - 1] == 'E')
+            game->is_exit = 1;
         game->map[game->player_x][game->player_y] = '0';
+       if(game->is_exit)
+        {
+            game->map[game->player_x][game->player_y] = 'E';
+            game->is_exit = 0;
+        }
         game->map[game->player_x][--game->player_y] = 'P';
     }
 
@@ -89,7 +109,14 @@ int mv(int keycode, t_game *game)
             return (0);
         if(game->map[game->player_x][game->player_y + 1] == 'C')
             game->collectible_count++;
+        if(game->map[game->player_x][game->player_y + 1] == 'E')
+            game->is_exit = 1;
         game->map[game->player_x][game->player_y] = '0';
+        if(game->is_exit)
+        {
+            game->map[game->player_x][game->player_y] = 'E';
+            game->is_exit = 0;
+        }
         game->map[game->player_x][++game->player_y] = 'P';
     }
 
@@ -97,17 +124,11 @@ int mv(int keycode, t_game *game)
     return (0);
 }
 
-
-void move_player(t_game *game)
-{
-    mlx_key_hook(game->win, mv, game);
-}
-
 void so_long(t_game *game)
 {
     initial_imgs(game);
     render_game(game);
-    move_player(game);
+    mlx_key_hook(game->win, move_player, game);
     mlx_loop(game->mlx);
 }
 
@@ -142,7 +163,6 @@ int main(int ac, char **av)
 
     so_long(&game);
 
-    // طباعة الخريطة
     for (i = 0; game.map[i]; i++)
         ft_printf("%s\n", game.map[i]);
 

@@ -1,7 +1,7 @@
 NAME = so_long
 BNAME = so_long_bonus
 CC = cc -g
-MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
+MLX = includes/minilibx-linux -lmlx -lXext -lX11 
 GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c 
 # CFLAGS = -Wall -Wextra -Werror
 SRCS = src/main.c src/mv_player.c src/render_map.c  src/valid_map.c src/utils_1.c src/utils_2.c

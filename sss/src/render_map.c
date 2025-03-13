@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:52:03 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/16 18:48:48 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:31:18 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ void	loading_textures(t_game *game)
 
 	a = 32;
 	init_image(game);
-	game->wall = mlx_xpm_file_to_image(game->mlx, "texture/wall.xpm", &a, &a);
-	game->player = mlx_xpm_file_to_image(game->mlx, "texture/player.xpm", &a,
+	game->wall = mlx_xpm_file_to_image(game->mlx, "assets/wall.xpm", &a, &a);
+	game->player = mlx_xpm_file_to_image(game->mlx, "assets/player_f.xpm", &a,
 			&a);
-	game->b_player = mlx_xpm_file_to_image(game->mlx, "texture/b_player.xpm",
+	game->b_player = mlx_xpm_file_to_image(game->mlx, "assets/player_b.xpm",
 			&a, &a);
-	game->r_player = mlx_xpm_file_to_image(game->mlx, "texture/r_player.xpm",
+	game->r_player = mlx_xpm_file_to_image(game->mlx, "assets/player_r.xpm",
 			&a, &a);
-	game->l_player = mlx_xpm_file_to_image(game->mlx, "texture/l_player.xpm",
+	game->l_player = mlx_xpm_file_to_image(game->mlx, "assets/player_l.xpm",
 			&a, &a);
-	game->collect = mlx_xpm_file_to_image(game->mlx, "texture/collect_f1.xpm",
+	game->collect = mlx_xpm_file_to_image(game->mlx, "assets/collect.xpm",
 			&a, &a);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "texture/exit.xpm", &a, &a);
-	game->nc_exit = mlx_xpm_file_to_image(game->mlx, "texture/nc_exit.xpm", &a,
+	game->exit = mlx_xpm_file_to_image(game->mlx, "assets/exit_o.xpm", &a, &a);
+	game->nc_exit = mlx_xpm_file_to_image(game->mlx, "assets/exit_c.xpm", &a,
 			&a);
-	game->empty = mlx_xpm_file_to_image(game->mlx, "texture/empty.xpm", &a, &a);
+	game->empty = mlx_xpm_file_to_image(game->mlx, "assets/empty.xpm", &a, &a);
 	if (!game->wall || !game->player || !game->collect || !game->exit
 		|| !game->empty || !game->r_player || !game->l_player || !game->b_player
 		|| !game->nc_exit)
-		(write(2, "Error: Failed to load textures\n", 30), exit_game(game, 1));
+		(write(2, "Error: Failed to load assetss\n", 30), exit_game(game, 1));
 }
 
 void	parse_map(const char *filename, t_game *game)

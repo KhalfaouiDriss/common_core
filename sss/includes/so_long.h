@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 01:52:36 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/19 18:53:36 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:31:53 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "/usr/include/minilibx-linux/mlx.h"
+# include "../includes/minilibx-linux/mlx.h"
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 # include <X11/keysym.h>

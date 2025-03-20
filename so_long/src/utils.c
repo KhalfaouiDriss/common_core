@@ -14,6 +14,19 @@ void ft_error(t_game *game)
     exit(0);
 }
 
+void free_map(char **map)
+{
+    int i;
+
+    i = 0;
+    while (map[i])
+    {
+        free(map[i]);
+        i++;
+    }
+    free(map);
+}
+
 t_count find_player(t_game *game)
 {
     t_count count;

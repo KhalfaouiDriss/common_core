@@ -60,7 +60,6 @@ void init_map(char *file, t_game *game)
         line = get_next_line(fd);
         i++;
     }
-    // ft_printf("\n%s\n", game->map[0]);
     free(line);
     game->map[i] = NULL;
     close(fd);

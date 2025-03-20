@@ -97,18 +97,12 @@ void check_coins_place(t_game *game, int x, int y)
         while (map[i][j])
         {
             if (map[i][j] == 'C' || map[i][j] == 'E') 
-                ft_printf("Invalid map 7\n"), ft_error(game);
+                ft_printf("Invalid map 7\n"), free_map(map), ft_error(game);
             j++;
         }
         i++;
     }
-    i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+    free_map(map);
 }
 
 void check_map(t_game *game)

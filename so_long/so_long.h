@@ -60,5 +60,6 @@ void ft_error(t_game *game);
 void flood_fill(char **map, int x, int y);
 char **map_dup(char **o_map);
 t_count find_player(t_game *game);
+void free_map(char **map);
 
 #endif

@@ -110,7 +110,7 @@ int move_player(int keycode, t_game *game)
 
 int	exit_game(t_game *game)
 {
-	game->map = NULL;
+	// game->map = NULL;
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
@@ -151,13 +151,15 @@ int main(int ac, char **av)
     if (!game.mlx)
     {
         ft_printf("Error: Failed to initialize MLX\n");
+        ft_error(&game);
         return (1);
     }
-
+    
     game.win = mlx_new_window(game.mlx, game.map_width * 64, game.map_height * 64, "So Long!");
     if (!game.win)
     {
         ft_printf("Error: Failed to create window\n");
+        ft_error(&game);
         return (1);
     }
 

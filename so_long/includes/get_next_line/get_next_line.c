@@ -118,7 +118,8 @@ char	*get_next_line(int fd)
 	free(buffer);
 	return (line);
 }
-#include <fcntl.h>
+
+// #include <fcntl.h>
 // #include <stdio.h>
 
 // int	main(void)

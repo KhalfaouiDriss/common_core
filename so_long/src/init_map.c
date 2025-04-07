@@ -18,7 +18,8 @@ void	init_game(t_game *game)
     game->is_exit = 0;
 }
 
-void height_map(char *file, t_game *game)
+void 
+height_map(char *file, t_game *game)
 {
     char *line;
     int fd;
@@ -28,7 +29,7 @@ void height_map(char *file, t_game *game)
     while (line)
     {
         game->map_height++;
-            free(line);
+        free(line);
         line = get_next_line(fd);
     }
     free(line);
@@ -50,17 +51,19 @@ void init_map(char *file, t_game *game)
     }
     height_map(file, game);
     game->map = malloc(sizeof(char *) * (game->map_height + 1));
+    if(!game->map)
+        ft_error(game);
     line = get_next_line(fd);
     while (line)
     {
         game->map[i] = ft_strdup(line);
         if(game->map[i][ft_strlen(line) - 1] == '\n')
-        game->map[i][ft_strlen(line) - 1] = '\0';
+            game->map[i][ft_strlen(line) - 1] = '\0';
         free(line);
         line = get_next_line(fd);
         i++;
     }
-    free(line);
+    // free(line);
     game->map[i] = NULL;
     close(fd);
 }

@@ -61,5 +61,11 @@ void flood_fill(char **map, int x, int y);
 char **map_dup(char **o_map);
 t_count find_player(t_game *game);
 void free_map(char **map);
+// 
+void initial_imgs(t_game *game);
+void render_game(t_game *game);
+int find_move(t_game *game,int keycode, int *dx, int *dy);
+void reinit_game(t_game *game, int *new_x, int *new_y);
+int move_player(int keycode, t_game *game);
 
 #endif

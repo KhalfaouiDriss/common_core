@@ -11,7 +11,22 @@ void ft_error(t_game *game)
         i++;
     }
     free(game->map);
-    exit(0);
+}
+
+void	destroy_all_imgs(t_game *game)
+{
+	if (game->player)
+		mlx_destroy_image(game->mlx, game->player);
+	if (game->wall)
+		mlx_destroy_image(game->mlx, game->wall);
+	if (game->exit_c)
+	    mlx_destroy_image(game->mlx, game->exit_c);
+	if (game->exit_o)
+		mlx_destroy_image(game->mlx, game->exit_o);
+	if (game->collect)
+		mlx_destroy_image(game->mlx, game->collect);
+	if (game->empty)
+		mlx_destroy_image(game->mlx, game->empty);
 }
 
 void free_map(char **map)

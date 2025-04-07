@@ -3,22 +3,18 @@
 void initial_imgs(t_game *game)
 {
     int a = 32;
-
-    game->f_player = mlx_xpm_file_to_image(game->mlx, "assets/player_f.xpm", &a, &a);
-    game->b_player = mlx_xpm_file_to_image(game->mlx, "assets/player_b.xpm", &a, &a);
-    game->l_player = mlx_xpm_file_to_image(game->mlx, "assets/player_l.xpm", &a, &a);
-    game->r_player = mlx_xpm_file_to_image(game->mlx, "assets/player_r.xpm", &a, &a);
-    game->wall = mlx_xpm_file_to_image(game->mlx, "assets/wall.xpm", &a, &a);
     game->exit_c = mlx_xpm_file_to_image(game->mlx, "assets/exit_c.xpm", &a, &a);
+    game->player = mlx_xpm_file_to_image(game->mlx, "assets/player_f.xpm", &a, &a);
+    game->wall = mlx_xpm_file_to_image(game->mlx, "assets/wall.xpm", &a, &a);
     game->exit_o = mlx_xpm_file_to_image(game->mlx, "assets/exit_o.xpm", &a, &a);
     game->collect = mlx_xpm_file_to_image(game->mlx, "assets/collect.xpm", &a, &a);
     game->empty = mlx_xpm_file_to_image(game->mlx, "assets/empty.xpm", &a, &a);
+    game->exit = game->exit_c;
 
-    if (!game->f_player || !game->b_player || !game->l_player || !game->r_player ||
-        !game->wall || !game->empty || !game->collect || !game->exit_c || !game->exit_o)
+    if (!game->player || !game->wall || !game->empty || !game->collect || !game->exit_c || !game->exit_o)
     {
         ft_printf("Error: Failed to load images\n");
-        ft_error(game);
+        exit_game(game);
     }
 }
 
@@ -40,9 +36,9 @@ void render_game(t_game *game)
             else if (map[y][x] == 'C')
                 mlx_put_image_to_window(game->mlx, game->win, game->collect, x * 64, y * 64);
             else if (map[y][x] == 'E')
-                mlx_put_image_to_window(game->mlx, game->win, game->exit_c, x * 64, y * 64);
+                mlx_put_image_to_window(game->mlx, game->win, game->exit, x * 64, y * 64);
             else if (map[y][x] == 'P')
-                mlx_put_image_to_window(game->mlx, game->win, game->f_player, x * 64, y * 64);
+                mlx_put_image_to_window(game->mlx, game->win, game->player, x * 64, y * 64);
             x++;
         }
         y++;
@@ -56,7 +52,7 @@ int find_move(t_game *game,int keycode, int *dx, int *dy)
     Q = 0;
     (*dx = 0, *dy = 0);
     if (keycode == 65307)
-        ft_error(game);
+        exit_game(game);
     if (keycode == 119) // W
         (*dx = -1, Q = 1);
     else if (keycode == 115) // S
@@ -73,7 +69,7 @@ void reinit_game(t_game *game, int *new_x, int *new_y)
     if (game->map[*new_x][*new_y] == 'C')
         game->collectible_count--;
     if (game->collectible_count == 0)
-        game->exit_c = game->exit_o; 
+        game->exit = game->exit_o; 
     if (game->is_exit)
         game->map[game->player_x][game->player_y] = 'E';
     else
@@ -81,7 +77,7 @@ void reinit_game(t_game *game, int *new_x, int *new_y)
     if (game->map[*new_x][*new_y] == 'E')
     {
         if(game->collectible_count == 0)
-            ft_error(game);
+            exit_game(game);
         game->is_exit = 1;
     }
     else

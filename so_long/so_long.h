@@ -20,10 +20,8 @@ typedef struct s_game
 	int		player_y;
 	void	*wall;
 	void	*empty;
-	void	*f_player;
-	void	*b_player;
-	void	*r_player;
-	void	*l_player;
+	void	*player;
+	void	*exit;
 	void	*exit_c;
 	void	*exit_o;
 	int		is_exit;
@@ -61,6 +59,8 @@ void flood_fill(char **map, int x, int y);
 char **map_dup(char **o_map);
 t_count find_player(t_game *game);
 void free_map(char **map);
+int	exit_game(t_game *game);
+void destroy_all_imgs(t_game *game);
 // 
 void initial_imgs(t_game *game);
 void render_game(t_game *game);

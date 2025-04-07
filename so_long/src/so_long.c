@@ -2,8 +2,10 @@
 
 int	exit_game(t_game *game)
 {
-	// int	i;
-
+	if(game->map)
+		ft_error(game); 
+	if (game->mlx)
+    	destroy_all_imgs(game);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
@@ -11,9 +13,8 @@ int	exit_game(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		game->mlx = NULL;
-		ft_error(game); 
 	}
-	return (0);
+	exit(0);
 }
 
 
@@ -40,7 +41,6 @@ int	check_map_file(char *filename)
 int	main(int ac, char **av)
 {
 	t_game	game;
-	// int		i;
 
 	if (ac != 2)
 		return (write(2, "Usage: ./so_long <map.ber>\n", 27));
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	if (!game.mlx)
 	{
 		ft_printf("Error: Failed to initialize MLX\n");
-		ft_error(&game);
+		exit_game(&game);
 		return (1);
 	}
 	game.win = mlx_new_window(game.mlx, game.map_width * 64,
@@ -61,14 +61,9 @@ int	main(int ac, char **av)
 	if (!game.win)
 	{
 		ft_printf("Error: Failed to create window\n");
-		ft_error(&game);
+		exit_game(&game);
 		return (1);
 	}
 	so_long(&game);
-	ft_error(&game);
-	exit_game(&game);
-	// for (i = 0; game.map[i]; i++)
-	// 	ft_printf("%s\n", game.map[i]);
-	// ft_printf("w = %d || h = %d\n", game.map_width, game.map_height);
 	return (0);
 }

@@ -34,6 +34,11 @@ height_map(char *file, t_game *game)
     }
     free(line);
     close(fd);
+    if(game->map_height < 3)
+    {
+        ft_putendl_fd("Error: Invalid map file", 2);
+        exit_game(game);
+    }
 }
 
 void init_map(char *file, t_game *game)
@@ -63,7 +68,6 @@ void init_map(char *file, t_game *game)
         line = get_next_line(fd);
         i++;
     }
-    // free(line);
     game->map[i] = NULL;
     close(fd);
 }

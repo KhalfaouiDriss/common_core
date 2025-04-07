@@ -8,21 +8,21 @@ void check_walls(t_game *game)
     while (game->map[0][count.j])
     {
         if (game->map[0][count.j] != '1')
-            ft_printf("Invalid map 1\n"),ft_error(game);
+            ft_printf("Invalid map 1\n"),exit_game(game);
         count.j++;
     }
     count.i = 1;
     while (count.i < game->map_height - 1)
     {
         if (game->map[count.i][0] != '1' || game->map[count.i][game->map_width - 1] != '1')
-            ft_printf("Invalid map 2\n"),ft_error(game);
+            ft_printf("Invalid map 2\n"),exit_game(game);
         count.i++;
     }
     count.h = 0;
     while (game->map[game->map_height - 1][count.h])
     {
         if (game->map[game->map_height - 1][count.h] != '1')
-            ft_printf("Invalid map 3\n"), ft_error(game);
+            ft_printf("Invalid map 3\n"), exit_game(game);
         count.h++;
     }
 }
@@ -40,13 +40,13 @@ void check_elements(t_game *game)
         while (map[count.i][count.j])
         {
             if (!ft_strchr("01PCE", map[count.i][count.j]))
-                ft_printf("Invalid map 4\n"), ft_error(game);
+                ft_printf("Invalid map 4\n"), exit_game(game);
             if(map[count.i][count.j] == 'C')
                 game->collectible_count++;
             count.j++;
         }
         if (count.j != width)
-            ft_printf("Invalid map 5\n"), ft_error(game);
+            ft_printf("Invalid map 5\n"), exit_game(game);
         count.i++;
     }
     game->map_height = count.i;
@@ -77,7 +77,7 @@ void find_all_element(t_game *game)
         x++;
     }
     if(count.i != 1 || count.h != 1 || count.j < 1)
-        ft_printf("Invalid map 6\n"), ft_error(game);
+        ft_printf("Invalid map 6\n"), exit_game(game);
     game->collectible_count = count.j;
 }
 
@@ -88,7 +88,7 @@ void check_coins_place(t_game *game, int x, int y)
 
     map = map_dup(game->map);
     if (!map)
-        ft_printf("Invalid map\n"), ft_error(game);
+        ft_printf("Invalid map\n"), exit_game(game);
     flood_fill(map, x, y);
     i = 0;
     while (map[i])
@@ -97,7 +97,7 @@ void check_coins_place(t_game *game, int x, int y)
         while (map[i][j])
         {
             if (map[i][j] == 'C' || map[i][j] == 'E') 
-                ft_printf("Invalid map 7\n"), free_map(map), ft_error(game);
+                ft_printf("Invalid map 7\n"), free_map(map), exit_game(game);
             j++;
         }
         i++;
@@ -108,6 +108,7 @@ void check_coins_place(t_game *game, int x, int y)
 void check_map(t_game *game)
 {
     t_count player_index;
+
     check_elements(game);
     check_walls(game);
     find_all_element(game);

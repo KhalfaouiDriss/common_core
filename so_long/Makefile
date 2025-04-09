@@ -1,5 +1,5 @@
 NAME = so_long
-CC = cc -g
+CC = cc
 MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
 GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c
 LIBFT = includes/libft/libft.a 
@@ -21,8 +21,8 @@ printf:
 	$(MAKE) -C includes/ft_printf
 
 clean:
-	$(MAKE) -C includes/ft_printf clean
-	$(MAKE) -C includes/libft clean
+	@make -C includes/ft_printf clean
+	@make -C includes/libft clean
 	rm -f $(OBJS)
 
 fclean: clean

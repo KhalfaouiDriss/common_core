@@ -82,7 +82,7 @@ The game features a character that can move across a map, collect items, and exi
 | `A` / `←`    | Move left     |
 | `S` / `↓`    | Move down     |
 | `D` / `→`    | Move right    |
-| `ESC`       | Exit the game |
+| `ESC`/ `X`   | Exit the game |
 
 ---
 

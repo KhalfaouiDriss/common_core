@@ -1,0 +1,959 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make -C includes/ft_printf
+ 
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Mon May 19 14:03:34 2025
+
+# Variables
+
+# makefile (from 'Makefile', line 7)
+OBJ = ${SRC:.c=.o}
+# environment
+GDK_BACKEND = x11
+# environment
+MEMORY_PRESSURE_WRITE = c29tZSAyMDAwMDAgMjAwMDAwMAA=
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 5)
+SRC = ft_printf.c ft_putnbr.c ft_puthexadecimal.c ft_u_putnbr.c ft_putstr.c
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+FONTCONFIG_PATH = /etc/fonts
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
+SNAP_LAUNCHER_ARCH_TRIPLET = x86_64-linux-gnu
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/khalfaoui-driss
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/193/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/khalfaoui-driss/common_core/so_long
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /home/khalfaoui-driss/snap/code/193/.local/share:/home/khalfaoui-driss/snap/code/193:/snap/code/193/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+SNAP_EUID = 1000
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+VSCODE_CODE_CACHE_PATH = /home/khalfaoui-driss/.config/Code/CachedData/91fa95bccb027ece6a968589bb1d662fa9c8e170
+# environment
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.92ZR62
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+MEMORY_PRESSURE_WATCH = /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure
+# makefile
+MAKEFLAGS = pqrRw
+# makefile
+CURDIR := /home/khalfaoui-driss/common_core/so_long/includes/ft_printf
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrRw
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# environment
+CONDA_SHLVL = 1
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 4595
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+CONDA_PYTHON_EXE = /home/khalfaoui-driss/miniconda3/bin/python
+# makefile (from 'Makefile', line 3)
+FLAGS = -Wall -Wextra -Werror
+# environment
+XDG_DATA_HOME = /home/khalfaoui-driss/snap/code/193/.local/share
+# environment
+SESSION_MANAGER = local/C47:@/tmp/.ICE-unix/2111,unix/C47:/tmp/.ICE-unix/2111
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/193/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GTK_PATH = /snap/code/193/usr/lib/x86_64-linux-gnu/gtk-3.0
+# environment
+ 
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# environment
+CONDA_PREFIX = /home/khalfaoui-driss/miniconda3
+# makefile
+SHELL = /bin/sh
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 1
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SNAP_COOKIE = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
+# environment
+PATH = /home/khalfaoui-driss/miniconda3/bin:/home/khalfaoui-driss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+SNAP_USER_COMMON = /home/khalfaoui-driss/snap/code/common
+# environment
+CLUTTER_DISABLE_MIPMAPPED_TEXT = 1
+# environment
+SNAP = /snap/code/193
+# environment
+INVOCATION_ID = 6811643551434cd8808b5296780b74a8
+# environment
+SNAP_REVISION = 193
+# environment
+SNAP_REAL_HOME = /home/khalfaoui-driss
+# environment
+FONTCONFIG_FILE = /etc/fonts/fonts.conf
+# environment
+USERNAME = khalfaoui-driss
+# environment
+GNOME_SETUP_DISPLAY = :1
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# environment
+GTK_IM_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/immodules/immodules.cache
+# makefile (from 'Makefile', line 1)
+NAME = ft_printf.a
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+LOCPATH = /snap/code/193/usr/lib/locale
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+CONDA_DEFAULT_ENV = base
+# environment
+XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+LOGNAME = khalfaoui-driss
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SNAP_ARCH = amd64
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 2169
+# environment
+DISPLAY = :0
+# environment
+USER = khalfaoui-driss
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+SNAP_DATA = /var/snap/code/193
+# environment
+SNAP_CONTEXT = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
+# environment
+MANAGERPID = 1885
+# environment
+DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4538
+# environment
+_ = /snap/code/193/usr/share/code/code
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+SNAP_UID = 1000
+# environment
+XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+GIO_MODULE_DIR = /home/khalfaoui-driss/snap/code/common/.cache/gio-modules
+# environment
+JOURNAL_STREAM = 9:14935
+# environment
+XDG_SESSION_CLASS = user
+# environment
+GSM_SKIP_SSH_AGENT_WORKAROUND = true
+# environment
+HOME = /home/khalfaoui-driss
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-6335123b-1.10-main.sock
+# environment
+GTK_EXE_PREFIX = /snap/code/193/usr
+# environment
+SNAP_NAME = code
+# environment
+GSETTINGS_SCHEMA_DIR = /home/khalfaoui-driss/snap/code/193/.local/share/glib-2.0/schemas
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+SNAP_VERSION = 91fa95bc
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_COMMON = /var/snap/code/common
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+SNAP_USER_DATA = /home/khalfaoui-driss/snap/code/193
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+CONDA_EXE = /home/khalfaoui-driss/miniconda3/bin/conda
+# environment
+GDMSESSION = ubuntu
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# variable set hash-table stats:
+# Load=140/1024=14%, Rehash=0, Collisions=8/176=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66307, inode 4332637): 15 files, no impossibilities.
+
+# 15 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+ft_puthexadecimal.o: ft_puthexadecimal.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_puthexadecimal'
+#  Last modified 2025-05-11 17:58:24.353618705
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+# Not a target:
+ft_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.654751916
+#  File has been updated.
+#  Successfully updated.
+
+ft_printf.o: ft_printf.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_printf'
+#  Last modified 2025-05-11 17:58:24.268619591
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+# Not a target:
+ft_putstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.655751902
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2025-04-27 16:09:15.654751916
+#  File has been updated.
+#  Successfully updated.
+
+ft_printf.a: ft_printf.o ft_putnbr.o ft_puthexadecimal.o ft_u_putnbr.o ft_putstr.o
+#  Implicit rule search has not been done.
+#  Last modified 2025-05-11 17:58:24.408618132
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 12):
+	ar crs ${NAME} ${OBJ}
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 18):
+	rm -rf ${OBJ}
+
+# Not a target:
+ft_u_putnbr.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.655751902
+#  File has been updated.
+#  Successfully updated.
+
+ft_putnbr.o: ft_putnbr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_putnbr'
+#  Last modified 2025-05-11 17:58:24.309619164
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: ft_printf.a
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	rm -rf ${NAME}
+
+# Not a target:
+ft_puthexadecimal.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.655751902
+#  File has been updated.
+#  Successfully updated.
+
+ft_u_putnbr.o: ft_u_putnbr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_u_putnbr'
+#  Last modified 2025-05-11 17:58:24.386618362
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+ft_putstr.o: ft_putstr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_putstr'
+#  Last modified 2025-05-11 17:58:24.405618163
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	cc ${FLAGS} -c $< -o $@
+
+# Not a target:
+ft_putnbr.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.655751902
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=19/1024=2%, Rehash=0, Collisions=0/59=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 32 / storage = 343 B / avg = 10 B
+# current buf: size = 8162 B / used = 343 B / count = 32 / avg = 10 B
+
+# strcache performance: lookups = 65 / hit rate = 50%
+# hash-table stats:
+# Load=32/8192=0%, Rehash=0, Collisions=0/65=0%
+# Finished Make data base on Mon May 19 14:03:34 2025
+
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Mon May 19 14:03:34 2025
+
+# Variables
+
+# environment
+GDK_BACKEND = x11
+# environment
+MEMORY_PRESSURE_WRITE = c29tZSAyMDAwMDAgMjAwMDAwMAA=
+# environment
+LC_ALL = C
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+FONTCONFIG_PATH = /etc/fonts
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
+SNAP_LAUNCHER_ARCH_TRIPLET = x86_64-linux-gnu
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/khalfaoui-driss
+# makefile (from 'Makefile', line 4)
+GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/193/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/khalfaoui-driss/common_core/so_long
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /home/khalfaoui-driss/snap/code/193/.local/share:/home/khalfaoui-driss/snap/code/193:/snap/code/193/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+SNAP_EUID = 1000
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+VSCODE_CODE_CACHE_PATH = /home/khalfaoui-driss/.config/Code/CachedData/91fa95bccb027ece6a968589bb1d662fa9c8e170
+# makefile (from 'Makefile', line 5)
+LIBFT = includes/libft/libft.a 
+# environment
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.92ZR62
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+MEMORY_PRESSURE_WATCH = /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/khalfaoui-driss/common_core/so_long
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# makefile (from 'Makefile', line 7)
+SRCS = $(wildcard src/*.c utils/*.c) 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# environment
+CONDA_SHLVL = 1
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 4595
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+CONDA_PYTHON_EXE = /home/khalfaoui-driss/miniconda3/bin/python
+# environment
+XDG_DATA_HOME = /home/khalfaoui-driss/snap/code/193/.local/share
+# environment
+SESSION_MANAGER = local/C47:@/tmp/.ICE-unix/2111,unix/C47:/tmp/.ICE-unix/2111
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/193/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile (from 'Makefile', line 9)
+OBJS = $(SRCS:.c=.o)
+# environment
+GTK_PATH = /snap/code/193/usr/lib/x86_64-linux-gnu/gtk-3.0
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# environment
+CONDA_PREFIX = /home/khalfaoui-driss/miniconda3
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SNAP_COOKIE = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
+# environment
+PATH = /home/khalfaoui-driss/miniconda3/bin:/home/khalfaoui-driss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+SNAP_USER_COMMON = /home/khalfaoui-driss/snap/code/common
+# environment
+CLUTTER_DISABLE_MIPMAPPED_TEXT = 1
+# environment
+SNAP = /snap/code/193
+# environment
+INVOCATION_ID = 6811643551434cd8808b5296780b74a8
+# environment
+SNAP_REVISION = 193
+# environment
+SNAP_REAL_HOME = /home/khalfaoui-driss
+# environment
+FONTCONFIG_FILE = /etc/fonts/fonts.conf
+# environment
+USERNAME = khalfaoui-driss
+# environment
+GNOME_SETUP_DISPLAY = :1
+# makefile (from 'Makefile', line 3)
+MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# environment
+GTK_IM_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/immodules/immodules.cache
+# makefile (from 'Makefile', line 1)
+NAME = so_long
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+LOCPATH = /snap/code/193/usr/lib/locale
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+CONDA_DEFAULT_ENV = base
+# environment
+XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+LOGNAME = khalfaoui-driss
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SNAP_ARCH = amd64
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 2169
+# environment
+DISPLAY = :0
+# environment
+USER = khalfaoui-driss
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+ 
+SNAP_DATA = /var/snap/code/193
+# environment
+SNAP_CONTEXT = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
+# environment
+MANAGERPID = 1885
+# environment
+DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4538
+# environment
+_ = /snap/code/193/usr/share/code/code
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 6)
+CFLAGS = -Wall -Wextra -Werror
+# environment
+SNAP_UID = 1000
+# environment
+XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+GIO_MODULE_DIR = /home/khalfaoui-driss/snap/code/common/.cache/gio-modules
+# environment
+JOURNAL_STREAM = 9:14935
+# environment
+XDG_SESSION_CLASS = user
+# environment
+GSM_SKIP_SSH_AGENT_WORKAROUND = true
+# environment
+HOME = /home/khalfaoui-driss
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-6335123b-1.10-main.sock
+# environment
+GTK_EXE_PREFIX = /snap/code/193/usr
+# environment
+SNAP_NAME = code
+# environment
+GSETTINGS_SCHEMA_DIR = /home/khalfaoui-driss/snap/code/193/.local/share/glib-2.0/schemas
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+SNAP_VERSION = 91fa95bc
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_COMMON = /var/snap/code/common
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 2)
+CC = cc
+# environment
+SNAP_USER_DATA = /home/khalfaoui-driss/snap/code/193
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+CONDA_EXE = /home/khalfaoui-driss/miniconda3/bin/conda
+# environment
+GDMSESSION = ubuntu
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# variable set hash-table stats:
+# Load=145/1024=14%, Rehash=0, Collisions=11/186=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 66307, inode 4332793): 14 files, no impossibilities.
+# utils: could not be stat'd.
+# . (device 66307, inode 4332626): 12 files, no impossibilities.
+
+# 26 files, no impossibilities in 3 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2025-04-27 16:09:15.654751916
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+ 
+src/utils.o:
+#  Implicit rule search has been done.
+#  Last modified 2025-05-11 17:58:25.954602021
+#  File has been updated.
+#  Successfully updated.
+
+so_long: src/check_map.o src/init_imgs.o src/init_map.o src/so_long.o src/start_game.o src/utils.o
+#  Implicit rule search has not been done.
+#  Last modified 2025-05-11 17:58:26.052601
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(GNL) includes/libft/libft.a includes/ft_printf/ft_printf.a
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 24):
+	@make -C includes/ft_printf clean
+	@make -C includes/libft clean
+	rm -f $(OBJS)
+
+includes/libft/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2025-05-11 17:58:25.74460421
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 18):
+		${MAKE} -C ./includes/libft
+
+printf:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := printf
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
+#  recipe to execute (from 'Makefile', line 21):
+	$(MAKE) -C includes/ft_printf
+
+# Not a target:
+src/check_map.o:
+#  Implicit rule search has been done.
+#  Last modified 2025-05-11 17:58:25.810603522
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/init_map.o:
+#  Implicit rule search has been done.
+#  Last modified 2025-05-11 17:58:25.866602938
+ 
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: printf includes/libft/libft.a so_long
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 29):
+	$(MAKE) -C includes/ft_printf fclean
+	$(MAKE) -C includes/libft fclean
+	rm -f $(NAME)
+
+# Not a target:
+src/so_long.o:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2025-05-11 17:58:25.895602636
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/start_game.o:
+#  Implicit rule search has been done.
+#  Last modified 2025-05-11 17:58:25.925602323
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re printf
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/init_imgs.o:
+#  Implicit rule search has been done.
+#  Last modified 2025-05-11 17:58:25.83760324
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=17/1024=2%, Rehash=0, Collisions=2/49=4%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 42 / storage = 426 B / avg = 10 B
+# current buf: size = 8162 B / used = 426 B / count = 42 / avg = 10 B
+
+# strcache performance: lookups = 71 / hit rate = 40%
+# hash-table stats:
+# Load=42/8192=1%, Rehash=0, Collisions=0/71=0%
+# Finished Make data base on Mon May 19 14:03:34 2025
+
+ 

@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/khalfaoui-driss/common_core/philosopher'
+cc    -c -o src/philo.o src/philo.c
+cc    -c -o src/utils_1.o src/utils_1.c
+cc  -o philo src/philo.o src/philo.o src/utils_1.o src/utils_1.o
+make: Leaving directory '/home/khalfaoui-driss/common_core/philosopher'
+ 

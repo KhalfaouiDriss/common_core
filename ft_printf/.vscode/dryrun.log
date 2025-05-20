@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/khalfaoui-driss/common_core/ft_printf'
+cc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o
+cc -Wall -Wextra -Werror -c ft_putnbr.c -o ft_putnbr.o
+cc -Wall -Wextra -Werror -c ft_puthexadecimal.c -o ft_puthexadecimal.o
+cc -Wall -Wextra -Werror -c ft_u_putnbr.c -o ft_u_putnbr.o
+cc -Wall -Wextra -Werror -c ft_putstr.c -o ft_putstr.o
+ar crs libftprintf.a ft_printf.o ft_putnbr.o ft_puthexadecimal.o ft_u_putnbr.o ft_putstr.o
+make: Leaving directory '/home/khalfaoui-driss/common_core/ft_printf'
+ 

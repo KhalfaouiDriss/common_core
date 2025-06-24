@@ -14,7 +14,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	@${MAKE} -C ./libft
-	@${CC} ${OBJS} ./libft/libft.a -o ${NAME}
+	${CC} ${OBJS} ./libft/libft.a -o ${NAME}
 
 clean: 
 	@${MAKE} -C ./libft fclean

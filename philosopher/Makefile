@@ -2,14 +2,23 @@ NAME = philo
 
 # CFLAGS = -Wall -Wextra -Werror
 
-SRC = $(wildcard src/*)
+SRC = $(wildcard src/*.c)
 
-OBJ = $(SRC:.c=.o)
+OBJ = ${SRC:.c=.o}
 
-all:$(NAME)
+all:${NAME}
 
-$(NAME):$(OBJ)
-	cc $(CFLAGS) -o $(NAME) $(OBJ)
+${NAME}:${OBJ}
+	${MAKE} -C libft/
+	cc ${CFLAGS} ${OBJ} libft/libft.a -o ${NAME}
 
-fclean:
-	rm -f $(NAME) $(OBJ)
+clean:
+	${MAKE} -C libft/ fclean
+	rm -f ${OBJ}
+
+fclean: clean
+	rm -f ${NAME}
+
+re: fclean all
+
+.PHONY: all fclean re clean

@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:27:38 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:44:50 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:43:34 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,4 @@ int	main(int argc, char **argv)
 	send_message(argv[2], pid);
 	return (0);
 }
+

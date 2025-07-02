@@ -4,13 +4,21 @@
 
 // int primes[10] = {1, 3, 5, 7, 9, 11, 13, 15, 17};
 
-void routine(char *name)
+int global_fct(int blo)
 {
-    printf("%s : hi\n", name); format :
+	static int p;
+
+	if(blo)
+        p = blo;
+	return p;
+}
+
+void routine()
+{
+    printf("%d\n", global_fct(0));
 }
 int main()
 {
-    routine("ahmad"); name:
-    routine("med");
-    goto name;
+    global_fct(4);
+    routine();
 }

@@ -1,116 +1,117 @@
 #include "../philo.h"
 
-t_philo *init_philos(t_data *data)
+void	*philo_job(void *arg)
 {
-    t_philo **philos;
-    int i;
+	t_philo *philo = (t_philo *)arg;
 
-    i = 0;
-    philos = malloc(sizeof(t_philo) * data->nb_philos);
-    while (i < data->nb_philos)
-    {
-        philos[i] = malloc(sizeof(t_philo));
-        if(!philos[i])
-            return NULL;
-        pthread_mutex_init(&philos[i]->meal_time_lock, 0);
-        philos[i]->id = i;
-        philos[i]->time_eat = 0;
-        
-    }
-    
+	if (philo->id % 2)
+		usleep(1000); // delay to avoid race on forks
+
+	while (!philo->data->simulation_over)
+	{
+		// take forks
+		pthread_mutex_lock(philo->left_fork);
+		 if (philo->data->simulation_over)
+    	{
+			pthread_mutex_unlock(philo->left_fork);
+			break;
+    	}
+		print_action(philo, "has taken a fork");
+
+		pthread_mutex_lock(philo->right_fork);
+		if (philo->data->simulation_over)
+		{
+			pthread_mutex_unlock(philo->right_fork);
+			pthread_mutex_unlock(philo->left_fork);
+			break;
+		}
+		print_action(philo, "has taken a fork");
+
+		// eat
+		pthread_mutex_lock(&philo->meal_time_lock);
+		print_action(philo, "is eating");
+		philo->last_meal = timestamp_ms();
+		philo->meals++;
+		pthread_mutex_unlock(&philo->meal_time_lock);
+
+		ft_usleep(philo->data->_eat_t);
+
+		pthread_mutex_unlock(philo->right_fork);
+		pthread_mutex_unlock(philo->left_fork);
+
+		// sleep
+		print_action(philo, "is sleeping");
+		ft_usleep(philo->data->_sleep_t);
+
+		// think
+		print_action(philo, "is thinking");
+	}
+	return NULL;
 }
 
-t_data *init_data(int ac, char **av)
+
+void	*controller(void *arg)
 {
-    t_data *data;
-    int i = 1;
-    
-    data = malloc(sizeof(t_data) * 1);
-    if(!data)
-        return NULL;
-    
-    data->nb_philos = ft_atoi(av[i++]); 
-    data->_die_t = ft_atoi(av[i++]); 
-    data->_eat_t = ft_atoi(av[i++]); 
-    data->_sleep_t = ft_atoi(av[i++]); 
-    data->must_eat_count = -1;
+	int i = 0;
+	t_data *data = (t_data *)arg;
 
-    if (ac == 6)
-        data->must_eat_count = ft_atoi(av[i]);
+	while (!data->simulation_over)
+	{
+		while(i < data->nb_philos)
+		{
+			t_philo *p = data->philos[i];
 
-    if (data->nb_philos <= 0 || data->nb_philos > 200 ||
-        data->_die_t < 60 || data->_eat_t < 60 || data->_sleep_t < 60)
-        return NULL;
-    data->philos = init_philos(data);
-    if(!data->philos)
-        return NULL;
-    return data;
+			pthread_mutex_lock(&p->meal_time_lock);
+			if ((timestamp_ms() - p->last_meal) > data->_die_t)
+			{
+				print_action(p, "died");
+				data->simulation_over = 1;
+				pthread_mutex_unlock(&p->meal_time_lock);
+				return NULL;
+			}
+			pthread_mutex_unlock(&p->meal_time_lock);
+			i++;
+		}
+		usleep(1000);
+	}
+	return NULL;
 }
 
-int valid_args(char **av)
-{
-    int i = 1;
-    int j;
-
-    while (av[i])
-    {
-        j = 0;
-        while (av[i][j])
-        {
-            if (!ft_isdigit(av[i][j]))
-                return 1;
-            j++;
-        }
-        i++;
-    }
-    return 0;
-}
-
-int print_error(char *msg)
-{
-    printf("Error: %s\n", msg);
-    return 0;
-}
-
-void *controller(void *dt)
-{
-    t_data *data = (t_data *)dt;
-
-}
-
-void *philo_job(void *dt)
-{
-    t_data *data = (t_data *)dt;
-
-}
 
 void start_simulation(t_data *data)
 {
-    int i;
-    // pthread_t td[data->nb_philos];
-    pthread_t mtr;
+    int i = 0;
+	pthread_t monitor;
 
-    pthread_create(mtr, NULL, controller, (void *)data);
-    i = 0;
-
-    while(i < data->nb_philos)
+	pthread_create(&monitor, NULL, controller, data);
+	while( i < data->nb_philos)
     {
-        pthread_create(&data->philos[i]->thread, NULL, philo_job, (void *)data)
+        pthread_create(&data->philos[i]->thread, NULL, philo_job, data->philos[i]);
+        i++;
     }
+    i = 0;
+	while(i < data->nb_philos)
+    {
+		pthread_join(data->philos[i]->thread, NULL);
+        i++;
+    }
+	pthread_join(monitor, NULL);
 }
 
 int main(int ac, char **av)
 {
-    t_data *data;
+	t_data *data;
 
-    if (ac < 5 || ac > 6)
-        return print_error("incorrect number of arguments");
-    if (valid_args(av))
-        return print_error("arguments must be positive numbers");
-    data = init_data(ac, av);
-    if (!data)
-        return print_error("invalid values in arguments");
-    start_simulation(&data);
+	if (ac < 5 || ac > 6)
+		return print_error("invalid argument count");
+	if (valid_args(av))
+		return print_error("arguments must be numbers");
 
-    return 0;
+	data = init_data(ac, av);
+	if (!data)
+		return print_error("failed to initialize data");
+
+	start_simulation(data);
+	cleanup(data);
+	return 0;
 }

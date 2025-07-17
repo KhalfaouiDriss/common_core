@@ -1,80 +1,14 @@
 #include "../philo.h"
 
-void	*philo_job(void *arg)
+void	*controller(void *arg)
 {
-	t_philo *philo = (t_philo *)arg;
 
-	if (philo->id % 2)
-		usleep(1000); // delay to avoid race on forks
-
-	while (!philo->data->simulation_over)
-	{
-		// take forks
-		pthread_mutex_lock(philo->left_fork);
-		 if (philo->data->simulation_over)
-    	{
-			pthread_mutex_unlock(philo->left_fork);
-			break;
-    	}
-		print_action(philo, "has taken a fork");
-
-		pthread_mutex_lock(philo->right_fork);
-		if (philo->data->simulation_over)
-		{
-			pthread_mutex_unlock(philo->right_fork);
-			pthread_mutex_unlock(philo->left_fork);
-			break;
-		}
-		print_action(philo, "has taken a fork");
-
-		// eat
-		pthread_mutex_lock(&philo->meal_time_lock);
-		print_action(philo, "is eating");
-		philo->last_meal = timestamp_ms();
-		philo->meals++;
-		pthread_mutex_unlock(&philo->meal_time_lock);
-
-		ft_usleep(philo->data->_eat_t);
-
-		pthread_mutex_unlock(philo->right_fork);
-		pthread_mutex_unlock(philo->left_fork);
-
-		// sleep
-		print_action(philo, "is sleeping");
-		ft_usleep(philo->data->_sleep_t);
-
-		// think
-		print_action(philo, "is thinking");
-	}
 	return NULL;
 }
 
-
-void	*controller(void *arg)
+void *philo_job()
 {
-	int i = 0;
-	t_data *data = (t_data *)arg;
 
-	while (!data->simulation_over)
-	{
-		while(i < data->nb_philos)
-		{
-			t_philo *p = data->philos[i];
-
-			pthread_mutex_lock(&p->meal_time_lock);
-			if ((timestamp_ms() - p->last_meal) > data->_die_t)
-			{
-				print_action(p, "died");
-				data->simulation_over = 1;
-				pthread_mutex_unlock(&p->meal_time_lock);
-				return NULL;
-			}
-			pthread_mutex_unlock(&p->meal_time_lock);
-			i++;
-		}
-		usleep(1000);
-	}
-	return NULL;
 }
 
 

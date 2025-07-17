@@ -28,7 +28,6 @@ int main()
     int i = 0;
     pthread_create(&td[0], NULL, rot, (void *)&i);
     pthread_create(&td[1], NULL, rot, (void *)&i);
-    // pthread_join(td, NULL);
     
     while (1)
     {

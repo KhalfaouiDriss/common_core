@@ -8,6 +8,7 @@
 typedef struct test
 {
     int l;
+    pthread_mutex_t m;
     int k;
 } t_test;
 
@@ -30,8 +31,9 @@ void *rot(void *test)
 {
     int i = 0, j = 0, k;
     t_test *tt = (t_test *)test;
-    // pthread_mutex_lock((pthread_mutex_t *)m);
-    mtx_lock(&tt->l);
+    pthread_mutex_lock(&tt->m);
+    // mtx_lock(&tt->l);
+    tt->k++;
     while(i <= 10)
     {
         printf("th[%d] : %d\n", tt->k, j);
@@ -39,7 +41,8 @@ void *rot(void *test)
         i++;
         sleep(1);           
     }
-     mtx_unlock(&tt->l);
+    pthread_mutex_lock(&tt->m);
+    //  mtx_unlock(&tt->l);
 }
 
 int main()
@@ -51,17 +54,11 @@ int main()
     t_test test;
     test.l = 0;
     test.k = 0;
-    test.k++;
     pthread_create(&th[0], NULL, rot, (void *)&test);
-    test.k++;
     pthread_create(&th[1], NULL, rot, (void *)&test);
-    test.k++;
     pthread_create(&th[2], NULL, rot, (void *)&test);
-    test.k++;
     pthread_create(&th[3], NULL, rot, (void *)&test);
-    test.k++;
     pthread_create(&th[4], NULL, rot, (void *)&test);
-    test.k++;
     pthread_create(&th[5], NULL, rot, (void *)&test);
     pthread_join(th[0], NULL);
     pthread_join(th[1], NULL);

@@ -9,11 +9,9 @@ OBJ = ${SRC:.c=.o}
 all:${NAME}
 
 ${NAME}:${OBJ}
-	${MAKE} -C libft/
-	cc ${CFLAGS} ${OBJ} libft/libft.a -o ${NAME}
+	cc ${CFLAGS} ${OBJ} -o ${NAME}
 
 clean:
-	${MAKE} -C libft/ fclean
 	rm -f ${OBJ}
 
 fclean: clean

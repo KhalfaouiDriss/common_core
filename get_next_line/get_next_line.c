@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:09:15 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/07/08 09:51:55 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/07/23 06:04:46 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,19 +121,22 @@ char	*get_next_line(int fd)
 #include <fcntl.h>
 #include <stdio.h>
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	int fd;
 	char *line;
 
-	fd = open("file.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
+	if(av[1])
 	{
-		printf("%s", line);
-		free(line);
+		fd = open(av[1], O_RDONLY);
 		line = get_next_line(fd);
+		while (line)
+		{
+			printf("%s", line);
+			free(line);
+			line = get_next_line(fd);
+		}
+		// free(line);
+		close(fd);
 	}
-	// free(line);
-	close(fd);
 }

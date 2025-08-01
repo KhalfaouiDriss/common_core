@@ -1,57 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 09:37:14 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/07/19 12:21:19 by khalfaoui47      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../philo.h"
 
-void	error_message(char *text)
+int     ft_atoi(const char *str)
 {
-	if (text)
-		write(2, text, ft_strlen(text) + 1);
-	exit(0);
+        int     sign;
+        int     value;
+
+        sign = 1;
+        value = 0;
+        while ((*str >= 9 && *str <= 13) || *str == 32)
+                str++;
+        if (*str == '-')
+                sign = -1;
+        if (*str == '-' || *str == '+')
+                ++str;
+        while (ft_isdigit(*str))
+        {
+                value = value * 10 + (*str - '0');
+                str++;
+        }
+        value = sign * value;
+        return (value);
 }
 
-void	destroy_all(t_data *data, char *str, int count, int signal)
+t_data *get_data()
 {
-	while (--count >= 0)
-		pthread_mutex_destroy(&data->forks[count]);
-	pthread_mutex_destroy(&data->write_lock);
-	pthread_mutex_destroy(&data->meal_lock);
-	error_message(str);
+    static t_data data;
+    
+    return &data;
 }
 
-void	print_action(t_philo *philo, char *action)
+int     ft_isdigit(int c)
 {
-	size_t	time;
-
-	pthread_mutex_lock(philo->mutexes.write_lock);
-	time = get_current_time() - philo->times.born_time;
-	printf("[%ld] %d%s\n", time, philo->id, action);
-	pthread_mutex_unlock(philo->mutexes.write_lock);
+        if (c >= 48 && c <= 57)
+                return (1);
+        return (0);
 }
 
-size_t	get_current_time(void)
+long get_time(void)
 {
-	t_timeval	time;
-
-	if (gettimeofday(&time, NULL) == -1)
-		error_message("[gettimeofday ERROR]\n");
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}
-
-void	ft_usleep(size_t mls)
-{
-	size_t	start;
-
-	start = get_current_time();
-	while (get_current_time() - start < mls)
-		usleep(500);
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
 }

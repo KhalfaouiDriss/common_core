@@ -115,7 +115,6 @@
 //             data->th[i].left_fork = &data->th[data->n_philos - 1].right_fork; 
 
 //         pthread_create(&data->th[i].th, NULL, simulation, (void *)&data->th[i]);
-
 //         i++;
 //     }
 //     i = 0;

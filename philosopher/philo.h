@@ -11,27 +11,20 @@
 
 # define PHILO_MAX_COUNT 200
 # define DBG printf("=====\n");
-
-typedef struct s_mutexs
-{
-	pthread_mutex_t lock_eat;
-} t_mutexs;
+# define EAT 1
+# define THINK 2
+# define HUNGRY 3
 
 typedef struct s_philo
 {
     int id;
+    int state;
     pthread_t th;
-    pthread_mutex_t right_fork;
+    pthread_mutex_t *right_fork;
     pthread_mutex_t *left_fork;
-    int t_die;
-    int t_eat;
-    int t_sleep;
-    struct s_mutexs *mutexs;
     struct s_data *data;
-
     long last_eat_time;
     int eat_count;
-    pthread_mutex_t meal_mutex;
 } t_philo;
 
 
@@ -42,7 +35,10 @@ typedef struct s_data
 	int _eat_time;
 	int _sleep_time;
 	int _eat_count;
-	struct s_mutexs *mutexs;
+    long start_time;
+    pthread_mutex_t *lock_eat;
+	pthread_mutex_t *lock_mon;
+	pthread_mutex_t *lock_print;
 	struct s_philo philo[PHILO_MAX_COUNT];
 } t_data;
 
@@ -51,6 +47,7 @@ typedef struct s_data
 int     ft_atoi(const char *str);
 t_data	*get_data();
 int     ft_isdigit(int c);
-long	get_time(void);		
+long	get_time(void);
+void	*ft_memset(void *str, int c, size_t len);
 
 #endif 

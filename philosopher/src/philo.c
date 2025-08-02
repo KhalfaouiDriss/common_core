@@ -15,10 +15,25 @@ int init_data(t_data *data, char **av, int ac)
     data->_eat_count = -1;
     if (ac == 6)
         data->_eat_count = ft_atoi(av[5]);
-    data->mutexs = malloc(sizeof(t_mutexs));
-    if (!data->mutexs)
+    int i = 0;
+    while (i < data->philos_number)
+    {
+        data->philo[i].left_fork = malloc(sizeof(pthread_mutex_t));
+        pthread_mutex_init(data->philo[i].left_fork, NULL);
+        i++;
+    }
+    data->lock_eat = malloc(sizeof(pthread_mutex_t));
+    data->lock_print = malloc(sizeof(pthread_mutex_t));
+    data->lock_mon = malloc(sizeof(pthread_mutex_t));
+
+    if (!data->lock_eat || !data->lock_print || !data->lock_mon)
         return 0;
-    if (pthread_mutex_init(&data->mutexs->lock_eat, NULL) != 0)
+
+    if (pthread_mutex_init(data->lock_eat, NULL) != 0)
+        return 0;
+    if (pthread_mutex_init(data->lock_print, NULL) != 0)
+        return 0;
+    if (pthread_mutex_init(data->lock_mon, NULL) != 0)
         return 0;
 
     return 1;
@@ -51,17 +66,15 @@ void *monitoring(void *arg)
 		while (i < data->philos_number)
 		{
 			t_philo *philo = &data->philo[i];
-			pthread_mutex_lock(&philo->mutexs->lock_eat);
-			long now = get_time();
-			if (now - philo->last_eat_time > philo->t_die)
+			pthread_mutex_lock(philo->data->lock_mon);
+			if (get_time() - philo->last_eat_time >= philo->data->_die_time)
 			{
-				printf("💀 philo[%d] died\n", philo->id);
+				printf("philo[%d] died\n", philo->id);
 				exit(1);
 			}
-			pthread_mutex_unlock(&philo->mutexs->lock_eat);
+			pthread_mutex_unlock(philo->data->lock_mon);
             i++;
         }
-		usleep(1000);
 	}
 	return NULL;
 }
@@ -71,28 +84,30 @@ void *monitoring(void *arg)
 void *simulation(void *ph)
 {
 	t_philo *philo = (t_philo *)ph;
+    
 
+    if (philo->id % 2 == 0)
+        usleep(1000);
 	while (1)
 	{
-		if (philo->id % 2 == 0)
-			usleep(500);
+        pthread_mutex_lock(philo->left_fork);
+        printf("philo[%d] : take left fork\n", philo->id);
+        pthread_mutex_lock(philo->right_fork);
+        printf("philo[%d] : take right fork\n", philo->id);
 
-		pthread_mutex_lock(philo->left_fork);
-		pthread_mutex_lock(&philo->right_fork);
-
-		pthread_mutex_lock(&philo->mutexs->lock_eat);
+		pthread_mutex_lock(philo->data->lock_eat);
+        philo->state = EAT;
 		philo->last_eat_time = get_time();
 		philo->eat_count++;
 		printf("philo[%d] : eating\n", philo->id);
-		usleep(philo->t_eat);
-		pthread_mutex_unlock(&philo->mutexs->lock_eat);
+		usleep(philo->data->_eat_time);
+		pthread_mutex_unlock(philo->data->lock_eat);
 
-		pthread_mutex_unlock(&philo->right_fork);
 		pthread_mutex_unlock(philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
 
 		printf("philo[%d] : sleeping\n", philo->id);
-		usleep(philo->t_sleep);
-
+		usleep(philo->data->_sleep_time * 1000);
 		printf("philo[%d] : thinking\n", philo->id);
 	}
 	return NULL;
@@ -104,26 +119,19 @@ int create_philos(t_data *data)
     int i = 0;
     pthread_t monitor;
 
-	pthread_create(&monitor, NULL, monitoring, data);
+    
     while (i < data->philos_number)
     {
         t_philo *philo = &data->philo[i];
-        philo->id = i;
-        philo->t_die = data->_die_time;
-        philo->t_eat = data->_eat_time;
-        philo->t_sleep = data->_sleep_time;
-        philo->mutexs = data->mutexs;
+        philo->id = i+1;
         philo->data = data;
         philo->eat_count = 0;
         philo->last_eat_time = get_time();
-        pthread_mutex_init(&philo->right_fork, NULL);
 
-        if (i > 0)
-            philo->left_fork = &data->philo[i - 1].right_fork;
-
+        philo->left_fork = data->philo[i].left_fork;
+        philo->right_fork = data->philo[(i + 1) % data->philos_number].left_fork;
         i++;
     }
-    data->philo[0].left_fork = &data->philo[data->philos_number - 1].right_fork;
     i = 0;
     while (i < data->philos_number)
     {
@@ -134,14 +142,22 @@ int create_philos(t_data *data)
         }
         i++;
     }
-    pthread_detach(monitor);
-    return join_all(data);
+
+    pthread_create(&monitor, NULL, monitoring, data);
+
+    join_all(data);
+    pthread_join(monitor, NULL);
+    return 1;
 }
+
 
 
 int main(int ac, char **av)
 {
-    t_data *data = get_data();
+    t_data *data = malloc(sizeof(t_data));
+    if (!data)
+        return 1;
+    ft_memset(data, 0, sizeof(t_data));
 
     if (!init_data(data, av, ac))
         return 1;
@@ -151,3 +167,4 @@ int main(int ac, char **av)
 
     return 0;
 }
+

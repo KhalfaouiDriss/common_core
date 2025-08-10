@@ -9,11 +9,16 @@
 #include <unistd.h>
 #include <stdio.h>
 
+
 # define PHILO_MAX_COUNT 200
-# define DBG printf("=====\n");
-# define EAT 1
-# define THINK 2
-# define HUNGRY 3
+# define YES 1
+# define NO 0
+# define FORK 1
+# define EATING 2
+# define SLEEPING 3
+# define THINKING 4
+# define DIED 5
+# define DONE 6
 
 typedef struct s_philo
 {
@@ -24,6 +29,7 @@ typedef struct s_philo
     pthread_mutex_t *left_fork;
     struct s_data *data;
     long last_eat_time;
+    long next_meal;
     int eat_count;
 } t_philo;
 
@@ -34,12 +40,15 @@ typedef struct s_data
 	int _die_time;
 	int _eat_time;
 	int _sleep_time;
-	int _eat_count;
+	int _eat_max;
     long start_time;
+    int is_all;
+    int is_dead;
     pthread_mutex_t *lock_eat;
 	pthread_mutex_t *lock_mon;
 	pthread_mutex_t *lock_print;
-	struct s_philo philo[PHILO_MAX_COUNT];
+	pthread_mutex_t *forks;
+	t_philo philo[PHILO_MAX_COUNT];
 } t_data;
 
 
@@ -49,5 +58,13 @@ t_data	*get_data();
 int     ft_isdigit(int c);
 long	get_time(void);
 void	*ft_memset(void *str, int c, size_t len);
+void	print_message(int id, t_philo *philo);
+
+// init.c
+int init_data(t_data *data, char **av, int ac);
+int init_philos(t_data *data);
+int init_mutexs(t_data *data);
+
+void	ft_take_fork(t_philo *philo);
 
 #endif 

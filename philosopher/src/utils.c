@@ -24,9 +24,9 @@ int     ft_atoi(const char *str)
 
 t_data *get_data()
 {
-    static t_data data;
-    
-    return &data;
+    static t_data *data;
+    data = malloc(sizeof(t_data));
+    return data;
 }
 
 int     ft_isdigit(int c)
@@ -54,4 +54,26 @@ void	*ft_memset(void *str, int c, size_t len)
 		i++;
 	}
 	return ((void *)str);
+}
+
+void	print_message(int id, t_philo *philo)
+{
+	unsigned int	time;
+
+	pthread_mutex_lock(philo->data->lock_print);
+	time = get_time() - philo->data->start_time;
+	if (id == FORK)
+		printf("%u\t%d has taken a fork\n", time, philo->id + 1);
+	else if (id == EATING)
+		printf("%u\t%d is eating\n", time, philo->id + 1);
+	else if (id == SLEEPING)
+		printf("%u\t%d is sleeping\n", time, philo->id + 1);
+	else if (id == THINKING)
+		printf("%u\t%d is thinking\n", time, philo->id + 1);
+	else if (id == DIED)
+		printf("%u\t%d died\n", time, philo->id + 1);
+	else if (id == DONE)
+		printf("Simulation is Done :)\n");
+	if (id != DIED && id != DONE)
+		pthread_mutex_unlock(philo->data->lock_print);
 }

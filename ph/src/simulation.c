@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/07/19 09:37:40 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/14 09:25:29 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	*obsorver(void *ptr)
 	philos = (t_philo *)ptr;
 	while (true)
 	{
-		i = -1;
-		while (++i < philos[0].philo_count)
+		i = 0;
+		while (i < philos[0].philo_count)
 		{
 			pthread_mutex_lock(philos->mutexes.meal_lock);
-			if (get_current_time() - philos[i].times.last_meal
+			if (get_time() - philos[i].times.last_meal
 				> philos[i].times.die)
 			{
 				pthread_mutex_unlock(philos->mutexes.meal_lock);
@@ -57,6 +57,7 @@ void	*obsorver(void *ptr)
 				return (NULL);
 			}
 			pthread_mutex_unlock(philos->mutexes.meal_lock);
+			i++;
 		}
 		if (is_all_eat(philos))
 			return (NULL);
@@ -72,7 +73,7 @@ void	philo_routine(t_philo *philo)
 	print_action(philo, " has taken a fork");
 	pthread_mutex_lock(philo->mutexes.meal_lock);
 	print_action(philo, " is eating");
-	philo->times.last_meal = get_current_time();
+	philo->times.last_meal = get_time();
 	philo->meals_eaten += 1;
 	pthread_mutex_unlock(philo->mutexes.meal_lock);
 	ft_usleep(philo->times.eat);
@@ -91,34 +92,36 @@ void	*start_simulation(void *ptr)
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	pthread_mutex_lock(philo->mutexes.meal_lock);
-	philo->times.born_time = get_current_time();
-	philo->times.last_meal = get_current_time();
+	philo->times.born_time = get_time();
+	philo->times.last_meal = get_time();
 	pthread_mutex_unlock(philo->mutexes.meal_lock);
 	while (true)
 		philo_routine(philo);
 	return (NULL);
 }
 
-void	launcher(t_data *data, int count)
+int	simulation(t_data *data, int count)
 {
-	t_id	obsorver_id;
+	pthread_t	monitore_id;
 	int		i;
 
-	i = -1;
-	if (pthread_create(&obsorver_id, NULL, &obsorver, data->philos) != 0)
-		destroy_all(data, "[Thread Creation ERROR]\n", count, 1);
-	while (++i < count)
+	i = 0;
+	if (pthread_create(&monitore_id, NULL, &obsorver, data->philos) != 0)
+		return (destroy_all(data, "Thread Creation error\n", count, 1));
+	while (i < count)
 	{
 		if (pthread_create(&data->philos[i].thread_id, NULL,
 				start_simulation, &data->philos[i]) != 0)
-			destroy_all(data, "[Thread Creation ERROR]\n", count, 1);
+			return (destroy_all(data, "Thread Creation error\n", count, 1));
+		i++;
 	}
-	i = -1;
-	if (pthread_join(obsorver_id, NULL) != 0)
-		destroy_all(data, "[Thread Join ERROR]\n", count, 1);
-	while (++i < count)
+	i = 0;
+	if (pthread_join(monitore_id, NULL) != 0)
+		return (destroy_all(data, "Thread Join error\n", count, 1));
+	while (i < count)
 	{
 		if (pthread_detach(data->philos[i].thread_id) != 0)
-			destroy_all(data, "[Thread Detach ERROR]\n", count, 1);
+			return (destroy_all(data, "Thread Detach error\n", count, 1));
+		i++;
 	}
 }

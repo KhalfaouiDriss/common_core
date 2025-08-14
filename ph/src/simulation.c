@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 09:38:21 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/14 10:00:02 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int	simulation(t_data *data, int count)
 		if (pthread_create(&data->philos[i].thread_id, NULL,
 				start_simulation, &data->philos[i]) != 0)
 			return (destroy_all(data, "Thread Creation error\n", count, 1));
+		pthread_detach(data->philos[i].thread_id);
 		i++;
 	}
 	i = 0;

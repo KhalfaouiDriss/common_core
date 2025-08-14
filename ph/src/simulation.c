@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 09:38:01 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/14 09:38:21 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,4 @@ int	simulation(t_data *data, int count)
 			return (destroy_all(data, "Thread Detach error\n", count, 1));
 		i++;
 	}
-	printf("=================\n");
 }

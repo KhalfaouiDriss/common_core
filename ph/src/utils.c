@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:14 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 08:48:34 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/14 09:47:40 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	destroy_all(t_data *data, char *str, int count, int signal)
 	while (count > 0)
 	{
 		pthread_mutex_destroy(&data->forks[count]);
+		pthread_detach(data->philos[count].thread_id);
 		count--;
 	}
 	pthread_mutex_destroy(&data->write_lock);

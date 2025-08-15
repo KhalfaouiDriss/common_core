@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 16:57:09 by dapetros          #+#    #+#             */
-/*   Updated: 2025/08/14 09:25:16 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/14 10:31:55 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_philos(t_data *data , t_philo *philos, pthread_mutex_t *forks, char **
 		philos[i].times.sleep = ft_atoi(argv[4]);
 		philos[i].times.last_meal = get_time();
 		philos[i].times.born_time = get_time();
+		philos[i].data = data;
 		philos[i].must_eat = -1;
 		if (argv[5])
 			philos[i].must_eat = ft_atoi(argv[5]);
@@ -61,6 +62,7 @@ int	init_data(t_data *data, t_philo *philos, pthread_mutex_t *forks)
 {
 	data->forks = forks;
 	data->philos = philos;
+	data->id_die = 0;
 	if (pthread_mutex_init(&data->write_lock, NULL) != 0
 		|| pthread_mutex_init(&data->meal_lock, NULL) != 0)
 	{

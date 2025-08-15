@@ -12,6 +12,7 @@
 # define PHILO_MAX_COUNT 200
 
 typedef struct timeval	t_timeval;
+typedef struct s_data t_data;
 
 typedef struct s_mutexes
 {
@@ -39,6 +40,7 @@ typedef struct s_philo
 	pthread_t		thread_id;
 	int			meals_eaten;
 	int			philo_count;
+	t_data *data;
 }	t_philo;
 
 typedef struct s_data
@@ -47,6 +49,7 @@ typedef struct s_data
 	t_philo	*philos;
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	write_lock;
+	int id_die;
 }	t_data;
 
 // init.c
@@ -57,7 +60,7 @@ int	init_data(t_data *data, t_philo *philos, pthread_mutex_t *forks);
 // simulation.c
 bool	is_all_eat(t_philo *philos);
 void	*obsorver(void *ptr);
-void	philo_routine(t_philo *philo);
+int	philo_routine(t_philo *philo);
 void	*start_simulation(void *ptr);
 int	simulation(t_data *data, int count);
 
@@ -66,7 +69,7 @@ void	error_message(char *text);
 int	destroy_all(t_data *data, char *str, int count, int signal);
 void	print_action(t_philo *philo, char *action);
 size_t	get_time(void);
-void	ft_usleep(size_t ms);
+int	ft_usleep(t_philo *philo ,size_t ms);
 
 // utils_2.c
 size_t	ft_strlen(const char *str);

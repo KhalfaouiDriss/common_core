@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:46 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 09:46:22 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/14 10:28:30 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	main(int argc, char **argv)
 	init_philos(&data, philos, forks, argv);
 	if(simulation(&data, philos[0].philo_count))
 		return 1;
-	destroy_all(&data, NULL, philos[0].philo_count, 1);
+	
+	destroy_all(&data, NULL, philos[0].philo_count, 0);
 	return (0);
+	
 }

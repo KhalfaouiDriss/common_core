@@ -59,7 +59,7 @@ int	init_data(t_data *data, t_philo *philos, pthread_mutex_t *forks);
 
 // simulation.c
 bool	is_all_eat(t_philo *philos);
-void	*obsorver(void *ptr);
+void	*monitor(void *ptr);
 int	philo_routine(t_philo *philo);
 void	*start_simulation(void *ptr);
 int	simulation(t_data *data, int count);

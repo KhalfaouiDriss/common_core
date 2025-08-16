@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 10:42:04 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/16 02:11:34 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	is_all_eat(t_philo *philos)
 	return (false);
 }
 
-void	*obsorver(void *ptr)
+void	*monitor(void *ptr)
 {
 	t_philo	*philos;
 	int		i;
@@ -54,7 +54,7 @@ void	*obsorver(void *ptr)
 				pthread_mutex_unlock(philos->mutexes.meal_lock);
 				print_action(&philos[i], " died");
 				philos->data->id_die = 1;
-				// pthread_mutex_lock(philos->mutexes.write_lock);
+				pthread_mutex_lock(philos->mutexes.write_lock);
 				return (NULL);
 			}
 			pthread_mutex_unlock(philos->mutexes.meal_lock);
@@ -113,7 +113,7 @@ int	simulation(t_data *data, int count)
 	int		i;
 
 	i = 0;
-	if (pthread_create(&monitore_id, NULL, &obsorver, data->philos) != 0)
+	if (pthread_create(&monitore_id, NULL, &monitor, data->philos) != 0)
 		return (destroy_all(data, "Thread Creation error\n", count, 1));
 	while (i < count)
 	{

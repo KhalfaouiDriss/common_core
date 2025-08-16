@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/16 02:11:34 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/16 02:38:22 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ bool	is_all_eat(t_philo *philos)
 	int		finished;
 	int		i;
 
-	i = -1;
+	i = 0;
 	finished = 0;
 	if (philos[0].must_eat == -1)
 		return (false);
-	while (++i < philos[0].philo_count)
+	while (i < philos[0].philo_count)
 	{
 		pthread_mutex_lock(philos->mutexes.meal_lock);
 		if (philos[i].meals_eaten >= philos[i].must_eat)
 			++finished;
 		pthread_mutex_unlock(philos->mutexes.meal_lock);
+		i++;
 	}
 	if (finished == philos[0].philo_count)
 	{
@@ -54,10 +55,11 @@ void	*monitor(void *ptr)
 				pthread_mutex_unlock(philos->mutexes.meal_lock);
 				print_action(&philos[i], " died");
 				philos->data->id_die = 1;
-				pthread_mutex_lock(philos->mutexes.write_lock);
+				// pthread_mutex_lock(philos->mutexes.write_lock);
 				return (NULL);
 			}
 			pthread_mutex_unlock(philos->mutexes.meal_lock);
+			
 			i++;
 		}
 		if (is_all_eat(philos))
@@ -99,7 +101,7 @@ void	*start_simulation(void *ptr)
 	philo->times.born_time = get_time();
 	philo->times.last_meal = get_time();
 	pthread_mutex_unlock(philo->mutexes.meal_lock);
-	while (true)
+	while (true && !philo[0].data->id_die)
 	{
 		if(philo_routine(philo))
 			break;

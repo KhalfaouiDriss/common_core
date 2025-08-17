@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:14 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/17 10:41:57 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:37:33 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ int	destroy_all(t_data *data, char *str, int count, int signal)
 	{
 		while (i < count)
 		{
-			pthread_detach(data->philos[i - 1].thread_id);
+			pthread_join(data->philos[i].thread_id, NULL);
 			i++;
 		}
 	}
-	while (count >= 0)
+	i = 0;
+	while (i < count)
 	{
-		pthread_mutex_destroy(&data->forks[count - 1]);
-		count--;
+		pthread_mutex_destroy(&data->forks[i]);
+		i++;
 	}
 	pthread_mutex_destroy(&data->write_lock);
 	pthread_mutex_destroy(&data->meal_lock);
@@ -43,14 +44,19 @@ int	destroy_all(t_data *data, char *str, int count, int signal)
 	return 1;
 }
 
-void	print_action(t_philo *philo, char *action)
+int	print_action(t_philo *philo, char *action)
 {
 	size_t	time;
-
 	pthread_mutex_lock(philo->mutexes.write_lock);
-	time = get_time() - philo->times.born_time;
-	printf("%ld %d%s\n", time, philo->id, action);
+	if(!philo->data->id_die)
+	{
+		time = get_time() - philo->times.born_time;
+		printf("%ld %d%s\n", time, philo->id, action);
+		pthread_mutex_unlock(philo->mutexes.write_lock);
+		return 0;
+	}
 	pthread_mutex_unlock(philo->mutexes.write_lock);
+	return 1;
 }
 
 size_t	get_time(void)
@@ -68,8 +74,13 @@ int	ft_usleep(t_philo *philo ,size_t ms)
 	start = get_time();
 	while (get_time() - start < ms)
 	{
+		pthread_mutex_lock(philo->mutexes.write_lock);
 		if(philo->data->id_die)
+		{
+			pthread_mutex_unlock(philo->mutexes.write_lock);
 			return 1;
+		}
+		pthread_mutex_unlock(philo->mutexes.write_lock);
 		usleep(50);
 	}
 	return 0;

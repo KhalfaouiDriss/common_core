@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+# include <stdatomic.h>
 
 # define PHILO_MAX_COUNT 200
 
@@ -67,7 +68,7 @@ int	simulation(t_data *data, int count);
 // utils.c
 void	error_message(char *text);
 int	destroy_all(t_data *data, char *str, int count, int signal);
-void	print_action(t_philo *philo, char *action);
+int	print_action(t_philo *philo, char *action);
 size_t	get_time(void);
 int	ft_usleep(t_philo *philo ,size_t ms);
 

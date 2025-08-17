@@ -2,7 +2,7 @@ NAME = philo
 
 # CFLAGS = -Wall -Wextra -Werror
 
-SRC = $(wildcard src2/*.c)
+SRC = $(wildcard src/*.c)
 
 OBJ = ${SRC:.c=.o}
 

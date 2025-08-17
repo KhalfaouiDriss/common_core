@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/16 02:38:22 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/17 10:50:29 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,6 @@ void	*start_simulation(void *ptr)
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)
 		ft_usleep(philo, 1);
-	pthread_mutex_lock(philo->mutexes.meal_lock);
-	philo->times.born_time = get_time();
-	philo->times.last_meal = get_time();
-	pthread_mutex_unlock(philo->mutexes.meal_lock);
 	while (true && !philo[0].data->id_die)
 	{
 		if(philo_routine(philo))

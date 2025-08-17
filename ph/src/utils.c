@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:14 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/16 02:36:39 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/17 10:41:57 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_usleep(t_philo *philo ,size_t ms)
 	{
 		if(philo->data->id_die)
 			return 1;
-		usleep(500);
+		usleep(50);
 	}
 	return 0;
 }

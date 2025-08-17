@@ -75,4 +75,5 @@ int	ft_usleep(t_philo *philo ,size_t ms);
 size_t	ft_strlen(const char *str);
 long	ft_atoi(const char *str);
 
+int	check_args(int argc, char **argv);
 #endif 

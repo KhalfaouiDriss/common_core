@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 16:57:09 by dapetros          #+#    #+#             */
-/*   Updated: 2025/08/14 10:31:55 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/17 10:48:17 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	init_philos(t_data *data , t_philo *philos, pthread_mutex_t *forks, char **argv)
 {
 	int	i;
-
+	size_t born;
+	
 	i = 0;
+	born = get_time();
 	while (i < ft_atoi(argv[1]))
 	{
 		philos[i].id = i + 1;
@@ -24,8 +26,8 @@ void	init_philos(t_data *data , t_philo *philos, pthread_mutex_t *forks, char **
 		philos[i].times.die = ft_atoi(argv[2]);
 		philos[i].times.eat = ft_atoi(argv[3]);
 		philos[i].times.sleep = ft_atoi(argv[4]);
-		philos[i].times.last_meal = get_time();
-		philos[i].times.born_time = get_time();
+		philos[i].times.last_meal = born;
+		philos[i].times.born_time = born;
 		philos[i].data = data;
 		philos[i].must_eat = -1;
 		if (argv[5])

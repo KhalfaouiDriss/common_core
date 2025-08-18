@@ -1,8 +1,9 @@
 NAME = philo
 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-SRC = $(wildcard src/*.c)
+# SRC = $(wildcard src/*.c)
+SRC = src/init.c src/main.c src/simulation.c src/utils.c src/utils_2.c
 
 OBJ = ${SRC:.c=.o}
 

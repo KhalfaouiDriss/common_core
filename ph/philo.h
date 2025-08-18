@@ -6,7 +6,7 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 02:07:08 by khalfaoui47       #+#    #+#             */
-/*   Updated: 2025/08/18 01:18:16 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/18 01:30:00 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ size_t					ft_strlen(const char *str);
 long					ft_atoi(const char *str);
 int						eating(t_philo *philo);
 int						take_forks(t_philo *philo);
+void					init_times(t_philo *philo, char **argv);
 
 int						check_args(int argc, char **argv);
 #endif

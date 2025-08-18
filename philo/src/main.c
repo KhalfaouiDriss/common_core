@@ -6,11 +6,24 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:46 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/18 11:41:15 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/18 13:36:24 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
+
+int	one_philo(t_philo *philo)
+{
+	if (philo->philo_count == 1)
+	{
+		pthread_mutex_lock(philo->mutexes.meal_lock);
+		print_action(&philo[0], " has taken a fork");
+		ft_usleep(philo, philo->times.die);
+		pthread_mutex_unlock(philo->mutexes.meal_lock);
+		return (1);
+	}
+	return (0);
+}
 
 int	check_args(int argc, char **argv)
 {

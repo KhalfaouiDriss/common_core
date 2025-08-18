@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/18 11:51:55 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/18 14:19:21 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	*monitor(void *ptr)
 
 int	philo_routine(t_philo *philo)
 {
+	if (one_philo(philo))
+		return (1);
 	if (print_action(philo, " is thinking"))
 		return (1);
 	usleep(2000);
@@ -98,6 +100,7 @@ void	*start_simulation(void *ptr)
 			break ;
 		}
 		pthread_mutex_unlock(&philo->data->write_lock);
+		usleep(500);
 		if (philo_routine(philo))
 			break ;
 	}

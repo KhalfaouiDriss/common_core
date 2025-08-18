@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 02:07:08 by khalfaoui47       #+#    #+#             */
-/*   Updated: 2025/08/18 01:30:00 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/18 14:01:56 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ int						take_forks(t_philo *philo);
 void					init_times(t_philo *philo, char **argv);
 
 int						check_args(int argc, char **argv);
+int	one_philo(t_philo *philo);
 #endif

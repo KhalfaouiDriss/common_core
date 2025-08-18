@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/18 01:18:27 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/18 11:51:55 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ bool	is_all_eat(t_philo *philos)
 	if (finished == philos[0].philo_count)
 	{
 		pthread_mutex_lock(philos->mutexes.write_lock);
+		philos->data->id_die = 1;
+		pthread_mutex_unlock(philos->mutexes.write_lock);
 		return (true);
 	}
 	return (false);

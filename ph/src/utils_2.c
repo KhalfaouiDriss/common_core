@@ -6,11 +6,11 @@
 /*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:27 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/14 07:10:23 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/18 01:23:52 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"	
+#include "../philo.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -45,4 +45,51 @@ long	ft_atoi(const char *str)
 			break ;
 	}
 	return (num * sign);
+}
+
+int	take_forks(t_philo *philo)
+{
+	pthread_mutex_lock(philo->mutexes.left_fork);
+	if (print_action(philo, " has taken a fork"))
+	{
+		pthread_mutex_unlock(philo->mutexes.left_fork);
+		return (1);
+	}
+	pthread_mutex_lock(philo->mutexes.right_fork);
+	if (print_action(philo, " has taken a fork"))
+	{
+		pthread_mutex_unlock(philo->mutexes.left_fork);
+		pthread_mutex_unlock(philo->mutexes.right_fork);
+		return (1);
+	}
+	return (0);
+}
+
+int	eating(t_philo *philo)
+{
+	if (print_action(philo, " is eating"))
+	{
+		pthread_mutex_unlock(philo->mutexes.right_fork);
+		pthread_mutex_unlock(philo->mutexes.left_fork);
+		return (1);
+	}
+	philo->times.last_meal = get_time();
+	philo->meals_eaten += 1;
+	if (ft_usleep(philo, philo->times.eat))
+	{
+		pthread_mutex_unlock(philo->mutexes.left_fork);
+		pthread_mutex_unlock(philo->mutexes.right_fork);
+		return (1);
+	}
+	pthread_mutex_unlock(philo->mutexes.left_fork);
+	pthread_mutex_unlock(philo->mutexes.right_fork);
+	return (0);
+}
+
+void	init_times(t_philo *philo, char **argv)
+{
+	philo->philo_count = ft_atoi(argv[1]);
+	philo->times.die = ft_atoi(argv[2]);
+	philo->times.eat = ft_atoi(argv[3]);
+	philo->times.sleep = ft_atoi(argv[4]);
 }

@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 16:57:09 by dapetros          #+#    #+#             */
-/*   Updated: 2025/08/17 10:48:17 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/18 01:23:17 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	init_philos(t_data *data , t_philo *philos, pthread_mutex_t *forks, char **argv)
+void	init_philos(t_data *data, t_philo *philos, pthread_mutex_t *forks,
+		char **argv)
 {
-	int	i;
-	size_t born;
-	
+	int		i;
+	size_t	born;
+
 	i = 0;
 	born = get_time();
 	while (i < ft_atoi(argv[1]))
 	{
 		philos[i].id = i + 1;
-		philos[i].philo_count = ft_atoi(argv[1]);
-		philos[i].times.die = ft_atoi(argv[2]);
-		philos[i].times.eat = ft_atoi(argv[3]);
-		philos[i].times.sleep = ft_atoi(argv[4]);
+		init_times(&philos[i], argv);
 		philos[i].times.last_meal = born;
 		philos[i].times.born_time = born;
 		philos[i].data = data;
@@ -54,10 +52,10 @@ int	init_forks(t_data *data, pthread_mutex_t *forks, int count)
 		if (pthread_mutex_init(&forks[i], NULL) != 0)
 		{
 			destroy_all(data, "Mutex Init error\n", i, 1);
-			return 1;
+			return (1);
 		}
 	}
-	return 0;
+	return (0);
 }
 
 int	init_data(t_data *data, t_philo *philos, pthread_mutex_t *forks)
@@ -69,7 +67,7 @@ int	init_data(t_data *data, t_philo *philos, pthread_mutex_t *forks)
 		|| pthread_mutex_init(&data->meal_lock, NULL) != 0)
 	{
 		destroy_all(data, "Mutex Init error\n", -1, 1);
-		return 1;
+		return (1);
 	}
-	return 0;
+	return (0);
 }

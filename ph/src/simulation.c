@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:39 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/17 17:38:54 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/18 01:18:27 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 bool	is_all_eat(t_philo *philos)
 {
-	int		finished;
-	int		i;
+	int	finished;
+	int	i;
 
 	i = 0;
 	finished = 0;
@@ -48,8 +48,7 @@ void	*monitor(void *ptr)
 		i = 0;
 		while (i < philos[0].philo_count)
 		{
-			if (get_time() - philos[i].times.last_meal
-				> philos[i].times.die)
+			if (get_time() - philos[i].times.last_meal > philos[i].times.die)
 			{
 				print_action(&philos[i], " died");
 				pthread_mutex_lock(philos->mutexes.write_lock);
@@ -62,52 +61,23 @@ void	*monitor(void *ptr)
 		if (is_all_eat(philos))
 			return (NULL);
 	}
-	// pthread_mutex_unlock(philos->mutexes.write_lock);
 	return (NULL);
 }
 
 int	philo_routine(t_philo *philo)
 {
-	if(print_action(philo, " is thinking"))
-		return 1;
+	if (print_action(philo, " is thinking"))
+		return (1);
 	usleep(2000);
-	pthread_mutex_lock(philo->mutexes.left_fork);
-	if(print_action(philo, " has taken a fork"))
-	{
-		pthread_mutex_unlock(philo->mutexes.left_fork);
-		return 1;
-	}
-	pthread_mutex_lock(philo->mutexes.right_fork);
-	if(print_action(philo, " has taken a fork"))
-	{
-		pthread_mutex_unlock(philo->mutexes.left_fork);
-		pthread_mutex_unlock(philo->mutexes.right_fork);
-		return 1;
-	}
-	// pthread_mutex_lock(philo->mutexes.meal_lock);
-	if(print_action(philo, " is eating"))
-	{
-		// pthread_mutex_unlock(philo->mutexes.meal_lock);
-		pthread_mutex_unlock(philo->mutexes.right_fork);
-		pthread_mutex_unlock(philo->mutexes.left_fork);
-		return 1;
-	}
-	philo->times.last_meal = get_time();
-	philo->meals_eaten += 1;
-	// pthread_mutex_unlock(philo->mutexes.meal_lock);
-	if(ft_usleep(philo ,philo->times.eat))
-	{
-		pthread_mutex_unlock(philo->mutexes.left_fork);
-		pthread_mutex_unlock(philo->mutexes.right_fork);
-		return 1;
-	}
-	pthread_mutex_unlock(philo->mutexes.left_fork);
-	pthread_mutex_unlock(philo->mutexes.right_fork);
-	if(print_action(philo, " is sleeping"))
-		return 1;
-	if(ft_usleep(philo ,philo->times.sleep))
-		return 1;
-	return 0;
+	if (take_forks(philo))
+		return (1);
+	if (eating(philo))
+		return (1);
+	if (print_action(philo, " is sleeping"))
+		return (1);
+	if (ft_usleep(philo, philo->times.sleep))
+		return (1);
+	return (0);
 }
 
 void	*start_simulation(void *ptr)
@@ -123,11 +93,11 @@ void	*start_simulation(void *ptr)
 		if (philo[0].data->id_die)
 		{
 			pthread_mutex_unlock(&philo->data->write_lock);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&philo->data->write_lock);
-		if(philo_routine(philo))
-			break;
+		if (philo_routine(philo))
+			break ;
 	}
 	return (NULL);
 }
@@ -135,15 +105,15 @@ void	*start_simulation(void *ptr)
 int	simulation(t_data *data, int count)
 {
 	pthread_t	monitore_id;
-	int		i;
+	int			i;
 
 	i = 0;
 	if (pthread_create(&monitore_id, NULL, &monitor, data->philos) != 0)
 		return (destroy_all(data, "Thread Creation error\n", count, 1));
 	while (i < count)
 	{
-		if (pthread_create(&data->philos[i].thread_id, NULL,
-				start_simulation, &data->philos[i]) != 0)
+		if (pthread_create(&data->philos[i].thread_id, NULL, start_simulation,
+				&data->philos[i]) != 0)
 			return (destroy_all(data, "Thread Creation error\n", count, 1));
 		i++;
 	}
@@ -156,5 +126,5 @@ int	simulation(t_data *data, int count)
 			return (destroy_all(data, "Thread Detach error\n", count, 1));
 		i++;
 	}
-	return 0;
+	return (0);
 }

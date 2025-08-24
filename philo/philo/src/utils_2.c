@@ -6,7 +6,7 @@
 /*   By: dkhalfao <dkhalfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:27 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/18 14:12:51 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/08/18 15:29:27 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ long	ft_atoi(const char *str)
 		if (num > INT_MAX)
 			break ;
 	}
+	if (str[i])
+		return (-1);
 	return (num * sign);
 }
 

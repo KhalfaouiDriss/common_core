@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:14 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/19 16:29:01 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/20 20:20:35 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-
-void	error_message(char *text)
-{
-	if (text)
-		write(2, text, ft_strlen(text) + 1);
-}
 
 int	destroy_all(t_data *data, char *str, int count, int signal)
 {
@@ -40,7 +34,7 @@ int	destroy_all(t_data *data, char *str, int count, int signal)
 	pthread_mutex_destroy(&data->write_lock);
 	pthread_mutex_destroy(&data->meal_lock);
 	if (str)
-		write(1, str, ft_strlen(str) + 1);
+		write(2, str, ft_strlen(str) + 1);
 	return (1);
 }
 

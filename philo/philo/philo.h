@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 02:07:08 by khalfaoui47       #+#    #+#             */
-/*   Updated: 2025/08/19 16:31:02 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/20 20:19:55 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void					*start_simulation(void *ptr);
 int						simulation(t_data *data, int count);
 
 // utils.c
-void					error_message(char *text);
 int						destroy_all(t_data *data, char *str, int count,
 							int signal);
 int						print_action(t_philo *philo, char *action);
@@ -96,5 +95,5 @@ int						take_forks(t_philo *philo);
 void					init_times(t_philo *philo, char **argv);
 
 int						check_args(int argc, char **argv);
-int	one_philo(t_philo *philo);
+int						one_philo(t_philo *philo);
 #endif

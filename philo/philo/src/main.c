@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 09:37:46 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/08/19 16:31:35 by khalfaoui47      ###   ########.fr       */
+/*   Updated: 2025/08/20 20:20:11 by dkhalfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_args(int argc, char **argv)
 	i = 1;
 	if (argc < 5 || argc > 6)
 	{
-		write(1, "Argument Count error\n", 22);
+		write(2, "Argument Count error\n", 22);
 		return (1);
 	}
 	while (i < argc)
@@ -41,12 +41,12 @@ int	check_args(int argc, char **argv)
 		num = ft_atoi(argv[i]);
 		if (i == 1 && (num < 1 || num > PHILO_MAX_COUNT))
 		{
-			write(1, "Argument error\n", 16);
+			write(2, "Argument error\n", 16);
 			return (1);
 		}
 		else if ((num < 0 || num > INT_MAX))
 		{
-			write(1, "Argument error\n", 16);
+			write(2, "Argument error\n", 16);
 			return (1);
 		}
 		i++;

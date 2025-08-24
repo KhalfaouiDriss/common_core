@@ -44,7 +44,7 @@ int main()
         {
             std::cout << "enter the index : ";
             std::cin >> SearchFor;
-            if((SearchFor < 1 || SearchFor > 4))
+            if((SearchFor < 1 || SearchFor > 8))
                 std::cout << "Invalid Index" << std::endl;
             else
                 PB[SearchFor - 1].Display();

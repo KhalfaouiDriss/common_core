@@ -22,7 +22,9 @@ class Account {
 public:
 
 	typedef Account		t;
-
+ // constructor (default)
+ // prametrized (int )
+ // copy construct (obj)
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );

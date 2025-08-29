@@ -1,14 +1,23 @@
 #include <iostream>
+#include <ctime>
+#include <iomanip>
+
 using namespace std;
 
 int main()
 {
 
-    string name;
+    time_t stime = time(nullptr);
 
-    // cin >> name;
-    getline(cin, name);
+    tm *now = localtime(&stime);
 
-    cout << name << endl;
-
+    cout << "[" 
+    << now->tm_year + 1900 
+    << setfill('0') << setw(2) << now->tm_mon 
+    << setfill('0') << setw(2) << now->tm_mday 
+    << "_" 
+    << setfill('0') << setw(2) << now->tm_hour 
+    << setfill('0') << setw(2) << now->tm_min 
+    << setfill('0') << setw(2) << now->tm_sec
+    << "] ";
 }

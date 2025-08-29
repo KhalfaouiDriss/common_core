@@ -1,6 +1,6 @@
 NAME = acc
 
-SRC = Account.cpp
+SRC = tests.cpp utils.cpp
 
 G++ = g++ -std=c++98
 

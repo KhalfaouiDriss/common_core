@@ -1,0 +1,135 @@
+# DevOps — Level 0: Shell, Git & Reproducible Environment (42-style)
+
+**Grade:** 100
+**Recommended Duration:** 5–7 days
+**Mandatory:** Yes
+**Languages:** Bash + Git + Markdown (no GUI)
+**Recommended Environment:** Debian/Ubuntu inside VM or Docker
+
+---
+
+## 0. Project Goal
+
+You will be able to:
+
+* Control the system entirely via the terminal.
+* Write modular Bash scripts (POSIX-sh where possible).
+* Manage versions using Git (branches, rebase, merge, tags, hooks).
+* Make your environment reproducible (simple Dockerfile or Vagrantfile).
+* Perform self-research using `man`, `--help`, and official docs instead of asking directly.
+
+---
+
+## 1. General Rules
+
+* **No GUI** for any requirements (files, Git, etc.); everything via terminal.
+* **Only Bash**; Unix standard tools allowed (`sed`, `awk`, `grep`, `cut`, `tr`, `sort`, `uniq`, `find`, `xargs`, `tar`, `curl`, `wget`).
+* All scripts must be **executable** and pass `shellcheck` without errors.
+* Provide a clear `README.md` with usage and test instructions.
+* Deliver via a **public Git repo** with the exact structure required.
+
+---
+
+## 2. Deliverables
+
+Repository structure:
+
+```
+level00/
+ ├─ README.md
+ ├─ subject.pdf (optional)
+ ├─ env/
+ │   ├─ Dockerfile   (or Vagrantfile)
+ │   └─ bootstrap.sh
+ ├─ scripts/
+ │   ├─ ft_head
+ │   ├─ ft_tail
+ │   ├─ ft_find
+ │   ├─ ft_trim
+ │   └─ ft_http_status
+ ├─ dotfiles/
+ │   └─ .bashrc
+ ├─ git/
+ │   ├─ exercise.md
+ │   └─ hooks/
+ │       └─ pre-commit
+ └─ tests/
+     └─ test.sh
+```
+
+---
+
+## 3. Mandatory Part — 100 points
+
+### M1) Man Hunt (5 pts)
+
+Document in `README.md` concise answers with examples:
+
+1. Search manual pages by keyword (`man -k` or `apropos`).
+2. Find executable path of a program (`which`, `type -a`).
+3. Show last 20 lines of a file.
+4. Count lines matching a pattern across multiple files.
+5. Get current user's UID and GID.
+
+### M2) File Gym (10 pts)
+
+* Create a tree of files/folders as described in `README.md` (names, perms, symlinks/hardlinks).
+* Create a `tar.gz` archive preserving structure and extract it identically.
+* Script `scripts/ft_tree_hash`: outputs SHA256 of all files alphabetically.
+
+### M3) Perm Party (10 pts)
+
+* Script to set perms to `u=rw,g=r,o=` and add sticky bit to folder `tmp_shared/`.
+* Explain in `README.md` the difference between `chmod 644` and `chmod u=rw,go=r`.
+
+### M4) Process Dojo (10 pts)
+
+* Script `scripts/ft_watch`: every 2s shows top 5 memory/CPU consuming processes with uptime and owner.
+* Option `-k <pattern>`: kills matching processes interactively.
+
+### M5) Net Mini (10 pts)
+
+* Document in `git/exercise.md`: practical examples `ip a`, `ss -lntup`, `curl -I`, `dig`, `traceroute` with explanations.
+* Script `scripts/ft_http_status <url>`: returns HTTP status code only.
+
+### M6) Pkg-Ops (5 pts)
+
+* For Debian/Ubuntu: `env/bootstrap.sh` updates system, installs `curl git make gcc shellcheck`, creates non-root user (optional). Must be **idempotent**.
+
+### M7) Bash Utils (30 pts)
+
+Implement in `scripts/`:
+
+* `ft_head <file> <n>`: first `n` lines (default 10).
+* `ft_tail <file> <n>`: last `n` lines (default 10).
+* `ft_find <dir> <pattern>`: regex search, output `path:line:match`.
+* `ft_trim`: read stdin, trim leading/trailing spaces and collapse multiple spaces.
+* `ft_http_status <url>`: show status code (mandatory if not done in M5).
+
+Conditions:
+
+* POSIX-sh (`#!/usr/bin/env sh`).
+* Handle errors (missing file, perms, missing args).
+* Pass `shellcheck`.
+
+### M8) Dotfiles (5 pts)
+
+* In `dotfiles/.bashrc`:
+
+  * Custom `PS1`: `user@host:cwd $(git branch)` if present.
+  * 5 useful aliases (`ll`, `la`, `gco`, `gb`, `gst`).
+  * Enable `set -o vi` or `set -o emacs` (state reason).
+
+### M9) Git Kata (10 pts)
+
+Perform in same repo:
+
+1. Create branches `feature/a` & `feature/b` with conflicting changes.
+2. Rebase `feature/b` onto `main`, then merge `feature/a`.
+3. Resolve conflict manually and document.
+4. Tag `v0.1.0` using **Conventional Commits**.
+5. Hook `git/hooks/pre-commit` runs `shellcheck`.
+
+### M10) Reproducible Dev Env (5 pts)
+
+* In `env/`, **Dockerfile** (or Vagrantfile) creating

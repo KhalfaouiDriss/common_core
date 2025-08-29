@@ -1,6 +1,6 @@
-NAME = PhoneBook
+NAME = acc
 
-SRC = tests.cpp
+SRC = Account.cpp
 
 G++ = g++ -std=c++98
 

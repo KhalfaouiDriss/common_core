@@ -1,18 +1,24 @@
-NAME = acc
+NAME = Account
 
-SRC = tests.cpp utils.cpp
+SRC = tests.cpp utils.cpp Account.cpp
 
-G++ = g++ -std=c++98
+CXX = c++
 
-all:${NAME}
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-${NAME}:
-	${G++} ${SRC} -o ${NAME} 
+OBJ = $(SRC:.cpp=.o)
 
-clean: fclean
+all: $(NAME)
 
-fclean:
-	rm $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 
+.PHONY: all clean fclean re

@@ -1,6 +1,19 @@
 #include "PhoneBook.hpp"
 
-void add(PhoneBook &PB, int i)
+int isNumber(std::string Number)
+{
+    int i = 0;
+
+    while (Number[i])
+    {
+        if(Number[i] < '0' || Number[i] > '9')
+            return 1;
+        i++;
+    }
+    return 0;
+}
+
+int add(PhoneBook &PB, int i)
 {
     std::string FirstName;
     std::string LastName;
@@ -18,7 +31,14 @@ void add(PhoneBook &PB, int i)
     std::cin >> PhoneNumber;
     std::cout << "Darkest Secret : ";
     std::cin >> DarkestSecret;
+    if(isNumber(PhoneNumber))
+    {
+        std::cout << "* Error : Add New Contact Not complet\n";
+        return 1;
+    }
     PB.Set(i + 1 ,FirstName, LastName, NickName, PhoneNumber, DarkestSecret);
+    std::cout << "* Add New Contact Succass\n";
+    return 0;
 }
 
 int main()
@@ -31,14 +51,16 @@ int main()
 
     while (true)
     {
-        std::cout << "enter the command : ";
+        std::cout << "Contact Count : " << i << "\nenter the command : ";
         std::cin >> cmd;
 
         if(cmd == "ADD")
         {
-            add(PB[i], i);
-            if(i < 7)
-                i++;
+            if(!add(PB[i], i))
+            {
+                if(i < 7)
+                    i++;
+            }
         }
         else if(cmd == "SEARCH")
         {

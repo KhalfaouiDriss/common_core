@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int main(int ac, char **av)
 {
     int i = 1, j;
@@ -21,12 +19,12 @@ int main(int ac, char **av)
         i = 1;
         while (i < ac)
         {
-            cout << av[i];
+            std::cout << av[i];
             i++;
         }
-        cout << "\n";
+        std::cout << "\n";
         return 0;
     }
-    cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
     return 1;
 }

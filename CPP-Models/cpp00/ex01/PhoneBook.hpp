@@ -13,7 +13,8 @@ class PhoneBook
         std::string PhoneNumber;
         std::string DarkestSecret;   
     public:
-        void Set(int _id, std::string _FirstName, std::string _LastName, std::string _NickName, std::string _PhoneNumber, std::string _DarkestSecret)
+        void Set(int _id, std::string _FirstName, std::string _LastName, 
+            std::string _NickName, std::string _PhoneNumber, std::string _DarkestSecret)
         {
             id = _id;
             FirstName = _FirstName;

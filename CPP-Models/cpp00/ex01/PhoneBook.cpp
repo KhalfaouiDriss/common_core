@@ -22,17 +22,23 @@ int add(PhoneBook &PB, int i)
     std::string DarkestSecret;
 
     std::cout << "First Name : ";
-    std::cin >> FirstName;
+    if(!std::getline(std::cin, FirstName))
+        return 2;
     std::cout << "Last Name : ";
-    std::cin >> LastName;
+    if(!std::getline(std::cin, LastName))
+        return 2;
     std::cout << "Nick Name : ";
-    std::cin >> NickName;
+    if(!std::getline(std::cin, NickName))
+        return 2;
     std::cout << "Phone Number : ";
-    std::cin >> PhoneNumber;
+    if(!std::getline(std::cin, PhoneNumber))
+        return 2;
     std::cout << "Darkest Secret : ";
-    std::cin >> DarkestSecret;
-    if(isNumber(PhoneNumber))
+    if(!std::getline(std::cin, DarkestSecret))
+        return 2;
+    if(isNumber(PhoneNumber) || FirstName.empty() || LastName.empty() || NickName.empty() || PhoneNumber.empty() || DarkestSecret.empty())
     {
+        std::cin.ignore(1000, '\n');
         std::cout << "* Error : Add New Contact Not complet\n";
         return 1;
     }
@@ -51,30 +57,44 @@ int main()
 
     while (true)
     {
-        std::cout << "Contact Count : " << i << "\nenter the command : ";
-        std::cin >> cmd;
+        std::cout << "Insert Place : " << i + 1 << std::endl;
+        std::cout << "enter the command : ";
+        if(!std::getline(std::cin, cmd))
+        {
+            std::cout << std::endl;
+            break;
+        }
 
-        if(cmd == "ADD")
+        else if(cmd == "ADD" || cmd == "A")
         {
             if(!add(PB[i], i))
             {
-                if(i < 7)
-                    i++;
+                i++;
+                if(i > 7)
+                    i = 0;
+            }
+            else
+            {
+                std::cin.ignore(1000, '\n');
+                break;
             }
         }
-        else if(cmd == "SEARCH")
+        else if(cmd == "SEARCH" || cmd == "S")
         {
             std::cout << "enter the index : ";
             std::cin >> SearchFor;
+
             if((SearchFor < 1 || SearchFor > 8))
                 std::cout << "Invalid Index" << std::endl;
             else
                 PB[SearchFor - 1].Display();
+            std::cin.ignore(100, '\n');      
+            
         }
         else if(cmd == "EXIT")
-            break;
+            return 0;
         else
-            std::cout << "Invalid Command" << std::endl;
+            std::cout << "Invalid Command" << std::endl;  
     }
-    
+    return 1;
 }

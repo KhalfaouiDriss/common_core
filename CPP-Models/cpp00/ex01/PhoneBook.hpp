@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:48:54 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/09/04 13:48:55 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/09/06 14:37:08 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,8 @@ class PhoneBook
         std::string DarkestSecret;
     public:
         void Set(int _id, std::string _FirstName, std::string _LastName, 
-            std::string _NickName, std::string _PhoneNumber, std::string _DarkestSecret)
-        {
-            id = _id;
-            FirstName = _FirstName;
-            LastName = _LastName;
-            NickName = _NickName;
-            PhoneNumber = _PhoneNumber;
-            DarkestSecret = _DarkestSecret;
-        }
-        void Display()
-        {
-            std::cout << "index : " << id << std::endl;
-            std::cout << "First Name : " << FirstName << std::endl;
-            std::cout << "Last Name : " << LastName << std::endl;
-            std::cout << "Nick Name : " << NickName << std::endl;
-        }
+            std::string _NickName, std::string _PhoneNumber, std::string _DarkestSecret);
+        void Display();
 };
 
 

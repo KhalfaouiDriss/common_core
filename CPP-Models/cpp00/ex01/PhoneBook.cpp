@@ -3,15 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkhalfao <dkhalfao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: khalfaoui47 <khalfaoui47@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:48:19 by dkhalfao          #+#    #+#             */
-/*   Updated: 2025/09/04 13:48:21 by dkhalfao         ###   ########.fr       */
+/*   Updated: 2025/09/06 14:59:01 by khalfaoui47      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PhoneBook.hpp"
+
+void PhoneBook::Set(int _id, std::string _FirstName, std::string _LastName, 
+    std::string _NickName, std::string _PhoneNumber, std::string _DarkestSecret)
+{
+    id = _id;
+    FirstName = _FirstName;
+    LastName = _LastName;
+    NickName = _NickName;
+    PhoneNumber = _PhoneNumber;
+    DarkestSecret = _DarkestSecret;
+}
+
+void PhoneBook::Display()
+{
+    std::cout << "index : " << id << std::endl;
+    std::cout << "First Name : " << FirstName << std::endl;
+    std::cout << "Last Name : " << LastName << std::endl;
+    std::cout << "Nick Name : " << NickName << std::endl;
+}
 
 int isNumber(std::string Number)
 {
@@ -49,9 +68,9 @@ int add(PhoneBook &PB, int i)
     std::cout << "Darkest Secret : ";
     if(!std::getline(std::cin, DarkestSecret))
         return 2;
-    if(isNumber(PhoneNumber) || FirstName.empty() || LastName.empty() || NickName.empty() || PhoneNumber.empty() || DarkestSecret.empty())
+    if(isNumber(PhoneNumber) || FirstName.empty() || LastName.empty() || 
+        NickName.empty() || PhoneNumber.empty() || DarkestSecret.empty())
     {
-        std::cin.ignore(1000, '\n');
         std::cout << "* Error : Add New Contact Not complet\n";
         return 1;
     }
@@ -83,13 +102,8 @@ int main()
             if(!add(PB[i], i))
             {
                 i++;
-                if(i > 7)
+                if(i > 2)
                     i = 0;
-            }
-            else
-            {
-                std::cin.ignore(1000, '\n');
-                break;
             }
         }
         else if(cmd == "SEARCH" || cmd == "S")

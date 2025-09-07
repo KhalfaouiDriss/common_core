@@ -7,5 +7,5 @@ int main()
     x = newZombie("Pik");
     x->announce();
     randomChump("kik");
-    // delete x;
+    delete x;
 }

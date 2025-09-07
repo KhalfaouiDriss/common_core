@@ -1,12 +1,11 @@
 #include "Zombie.hpp" 
 
-
 int main()
 {
     Zombie *x = NULL;
-    
-    x = newZombie("Driss");
+
+    x = newZombie("Pik");
     x->announce();
     randomChump("kik");
-    delete x;
+    // delete x;
 }

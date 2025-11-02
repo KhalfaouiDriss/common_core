@@ -8,293 +8,156 @@ make -C includes/ft_printf
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 19 14:03:34 2025
+# Make data base, printed on Wed Oct 22 09:32:39 2025
 
 # Variables
 
 # makefile (from 'Makefile', line 7)
 OBJ = ${SRC:.c=.o}
 # environment
-GDK_BACKEND = x11
-# environment
-MEMORY_PRESSURE_WRITE = c29tZSAyMDAwMDAgMjAwMDAwMAA=
-# environment
 LC_ALL = C
 # makefile (from 'Makefile', line 5)
 SRC = ft_printf.c ft_putnbr.c ft_puthexadecimal.c ft_u_putnbr.c ft_putstr.c
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
+PULSE_SERVER = unix:/mnt/wslg/PulseServer
 # environment
-FONTCONFIG_PATH = /etc/fonts
+WSLENV = ELECTRON_RUN_AS_NODE/w:
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
-SNAP_LAUNCHER_ARCH_TRIPLET = x86_64-linux-gnu
-# environment
-VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
-# environment
-VSCODE_CWD = /home/khalfaoui-driss
+VSCODE_CWD = /mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_COMMAND := make
 # environment
-QT_ACCESSIBILITY = 1
+VSCODE_HANDLES_SIGPIPE = true
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-SNAP_INSTANCE_NAME = code
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/193/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/khalfaoui-driss/common_core/so_long
+PWD = /home/khalfaoui47/common_core/so_long
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /home/khalfaoui-driss/snap/code/193/.local/share:/home/khalfaoui-driss/snap/code/193:/snap/code/193/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-SNAP_EUID = 1000
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
 # environment
-CONDA_PROMPT_MODIFIER = (base) 
-# environment
-VSCODE_CODE_CACHE_PATH = /home/khalfaoui-driss/.config/Code/CachedData/91fa95bccb027ece6a968589bb1d662fa9c8e170
-# environment
 LANG = C
-# environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.92ZR62
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-MEMORY_PRESSURE_WATCH = /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure
 # makefile
 MAKEFLAGS = pqrRw
 # makefile
-CURDIR := /home/khalfaoui-driss/common_core/so_long/includes/ft_printf
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+CURDIR := /home/khalfaoui47/common_core/so_long/includes/ft_printf
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 MFLAGS = -pqrRw
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # default
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
+WSL2_GUI_APPS_ENABLED = 1
 # environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+WAYLAND_DISPLAY = wayland-0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# environment
-XDG_SESSION_DESKTOP = ubuntu
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
-# environment
-CONDA_SHLVL = 1
 # automatic
 @F = $(notdir $@)
-# environment
-VSCODE_PID = 4595
-# environment
-XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
-CONDA_PYTHON_EXE = /home/khalfaoui-driss/miniconda3/bin/python
 # makefile (from 'Makefile', line 3)
 FLAGS = -Wall -Wextra -Werror
-# environment
-XDG_DATA_HOME = /home/khalfaoui-driss/snap/code/193/.local/share
-# environment
-SESSION_MANAGER = local/C47:@/tmp/.ICE-unix/2111,unix/C47:/tmp/.ICE-unix/2111
 # automatic
 *F = $(notdir $*)
-# environment
-CHROME_DESKTOP = code.desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/193/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/khalfaoui47/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/out/nls.messages.json","locale":"en","availableLanguages":{}}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# environment
-GTK_PATH = /snap/code/193/usr/lib/x86_64-linux-gnu/gtk-3.0
-# environment
- 
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# environment
-CONDA_PREFIX = /home/khalfaoui-driss/miniconda3
 # makefile
 SHELL = /bin/sh
 # environment
-XMODIFIERS = @im=ibus
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-SHLVL = 0
+SHLVL = 1
 # environment
 MAKELEVEL := 1
-# environment
-IM_CONFIG_CHECK_ENV = 1
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_COOKIE = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
-# environment
-PATH = /home/khalfaoui-driss/miniconda3/bin:/home/khalfaoui-driss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/khalfaoui47/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/khalfaoui47/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Program Files/cursor/resources/app/bin:/mnt/c/Users/C47/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/C47/AppData/Roaming/npm:/mnt/c/Users/C47/.lmstudio/bin:/snap/bin:/home/khalfaoui47/.local/bin:/home/khalfaoui47/.local/bin
 # default
 MAKEFILES := 
 # automatic
 ^F = $(notdir $^)
 # environment
-SNAP_USER_COMMON = /home/khalfaoui-driss/snap/code/common
-# environment
-CLUTTER_DISABLE_MIPMAPPED_TEXT = 1
-# environment
-SNAP = /snap/code/193
-# environment
-INVOCATION_ID = 6811643551434cd8808b5296780b74a8
-# environment
-SNAP_REVISION = 193
-# environment
-SNAP_REAL_HOME = /home/khalfaoui-driss
-# environment
-FONTCONFIG_FILE = /etc/fonts/fonts.conf
-# environment
-USERNAME = khalfaoui-driss
-# environment
-GNOME_SETUP_DISPLAY = :1
+APPLICATION_INSIGHTS_NO_STATSBEAT = true
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
-# environment
-GTK_IM_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/immodules/immodules.cache
 # makefile (from 'Makefile', line 1)
 NAME = ft_printf.a
 # environment
-XDG_CURRENT_DESKTOP = Unity
+HOSTTYPE = x86_64
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
 # automatic
 +F = $(notdir $+)
 # environment
-DESKTOP_SESSION = ubuntu
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# environment
-LOCPATH = /snap/code/193/usr/lib/locale
+WSL_INTEROP = /run/WSL/147801_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-CONDA_DEFAULT_ENV = base
+LOGNAME = khalfaoui47
 # environment
-XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-LOGNAME = khalfaoui-driss
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
-SNAP_ARCH = amd64
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/C47/.vscode/extensions/ms-vscode-remote.remote-wsl-0.104.3
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2169
-# environment
 DISPLAY = :0
 # environment
-USER = khalfaoui-driss
-# environment
-GTK_MODULES = gail:atk-bridge
+USER = khalfaoui47
 # default
 MAKE_VERSION := 4.3
 # environment
-SNAP_DATA = /var/snap/code/193
-# environment
-SNAP_CONTEXT = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
-# environment
-MANAGERPID = 1885
-# environment
 DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4538
+_ = /mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-_ = /snap/code/193/usr/share/code/code
+XDG_RUNTIME_DIR = /run/user/1000/
 # environment
-XDG_RUNTIME_DIR = /run/user/1000
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-a0383316-aab2-4b62-93ca-715bdeb5b7d4.sock
 # environment
-SNAP_UID = 1000
-# environment
-XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu:/etc/xdg
-# environment
-GDK_PIXBUF_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/gdk-pixbuf-loaders.cache
-# environment
-GIO_MODULE_DIR = /home/khalfaoui-driss/snap/code/common/.cache/gio-modules
-# environment
-JOURNAL_STREAM = 9:14935
-# environment
-XDG_SESSION_CLASS = user
-# environment
-GSM_SKIP_SSH_AGENT_WORKAROUND = true
-# environment
-HOME = /home/khalfaoui-driss
-# environment
-QT_IM_MODULE = ibus
+HOME = /home/khalfaoui47
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-6335123b-1.10-main.sock
-# environment
-GTK_EXE_PREFIX = /snap/code/193/usr
-# environment
-SNAP_NAME = code
-# environment
-GSETTINGS_SCHEMA_DIR = /home/khalfaoui-driss/snap/code/193/.local/share/glib-2.0/schemas
-# environment
-IM_CONFIG_PHASE = 1
+TERM = xterm-256color
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# environment
-SNAP_VERSION = 91fa95bc
 # default
 SUFFIXES := 
 # environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-SNAP_COMMON = /var/snap/code/common
+WSL_DISTRO_NAME = Ubuntu
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/khalfaoui-driss/snap/code/193
-# environment
-XDG_MENU_PREFIX = gnome-
-# environment
 VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-CONDA_EXE = /home/khalfaoui-driss/miniconda3/bin/conda
-# environment
-GDMSESSION = ubuntu
-# environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=140/1024=14%, Rehash=0, Collisions=8/176=5%
+# Load=72/1024=7%, Rehash=0, Collisions=3/109=3%
 
 # Pattern-specific Variable Values
 
@@ -302,7 +165,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66307, inode 4332637): 15 files, no impossibilities.
+# . (device 2096, inode 60652): 15 files, no impossibilities.
 
 # 15 files, no impossibilities in 1 directories.
 
@@ -311,6 +174,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 %.o: %.c
 #  recipe to execute (from 'Makefile', line 15):
 	cc ${FLAGS} -c $< -o $@
+ 
 
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
@@ -318,7 +182,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 ft_puthexadecimal.o: ft_puthexadecimal.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ft_puthexadecimal'
-#  Last modified 2025-05-11 17:58:24.353618705
+#  Last modified 2025-10-18 12:51:27.914421884
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -327,14 +191,14 @@ ft_puthexadecimal.o: ft_puthexadecimal.c
 # Not a target:
 ft_printf.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.654751916
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
 ft_printf.o: ft_printf.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ft_printf'
-#  Last modified 2025-05-11 17:58:24.268619591
+#  Last modified 2025-10-18 12:51:27.87842189
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -343,21 +207,20 @@ ft_printf.o: ft_printf.c
 # Not a target:
 ft_putstr.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.655751902
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2025-04-27 16:09:15.654751916
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
 ft_printf.a: ft_printf.o ft_putnbr.o ft_puthexadecimal.o ft_u_putnbr.o ft_putstr.o
 #  Implicit rule search has not been done.
-#  Last modified 2025-05-11 17:58:24.408618132
+#  Last modified 2025-10-18 12:51:28.138421847
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 12):
@@ -374,14 +237,14 @@ clean:
 # Not a target:
 ft_u_putnbr.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.655751902
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
 ft_putnbr.o: ft_putnbr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ft_putnbr'
-#  Last modified 2025-05-11 17:58:24.309619164
+#  Last modified 2025-10-18 12:51:27.898421886
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -417,14 +280,14 @@ fclean: clean
 # Not a target:
 ft_puthexadecimal.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.655751902
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
 ft_u_putnbr.o: ft_u_putnbr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ft_u_putnbr'
-#  Last modified 2025-05-11 17:58:24.386618362
+#  Last modified 2025-10-18 12:51:27.930421881
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -433,7 +296,7 @@ ft_u_putnbr.o: ft_u_putnbr.c
 ft_putstr.o: ft_putstr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ft_putstr'
-#  Last modified 2025-05-11 17:58:24.405618163
+#  Last modified 2025-10-18 12:51:27.946421879
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -442,7 +305,7 @@ ft_putstr.o: ft_putstr.c
 # Not a target:
 ft_putnbr.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.655751902
+#  Last modified 2025-08-14 05:37:05.376655546
 #  File has been updated.
 #  Successfully updated.
 
@@ -465,7 +328,7 @@ ft_putnbr.c:
 # strcache performance: lookups = 65 / hit rate = 50%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/65=0%
-# Finished Make data base on Mon May 19 14:03:34 2025
+# Finished Make data base on Wed Oct 22 09:32:39 2025
 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
@@ -473,305 +336,168 @@ ft_putnbr.c:
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon May 19 14:03:34 2025
+# Make data base, printed on Wed Oct 22 09:32:39 2025
 
 # Variables
 
 # environment
-GDK_BACKEND = x11
-# environment
-MEMORY_PRESSURE_WRITE = c29tZSAyMDAwMDAgMjAwMDAwMAA=
-# environment
 LC_ALL = C
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
+PULSE_SERVER = unix:/mnt/wslg/PulseServer
 # environment
-FONTCONFIG_PATH = /etc/fonts
+WSLENV = ELECTRON_RUN_AS_NODE/w:
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
-SNAP_LAUNCHER_ARCH_TRIPLET = x86_64-linux-gnu
-# environment
-VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
-# environment
-VSCODE_CWD = /home/khalfaoui-driss
+VSCODE_CWD = /mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code
 # makefile (from 'Makefile', line 4)
 GNL = includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c
 # default
 MAKE_COMMAND := make
 # environment
-QT_ACCESSIBILITY = 1
+VSCODE_HANDLES_SIGPIPE = true
+ 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-SNAP_INSTANCE_NAME = code
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/193/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/khalfaoui-driss/common_core/so_long
+PWD = /home/khalfaoui47/common_core/so_long
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /home/khalfaoui-driss/snap/code/193/.local/share:/home/khalfaoui-driss/snap/code/193:/snap/code/193/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-SNAP_EUID = 1000
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
-# environment
-CONDA_PROMPT_MODIFIER = (base) 
-# environment
-VSCODE_CODE_CACHE_PATH = /home/khalfaoui-driss/.config/Code/CachedData/91fa95bccb027ece6a968589bb1d662fa9c8e170
 # makefile (from 'Makefile', line 5)
 LIBFT = includes/libft/libft.a 
 # environment
 LANG = C
-# environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.92ZR62
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-MEMORY_PRESSURE_WATCH = /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure
 # makefile
 MAKEFLAGS = pqrR
 # makefile
-CURDIR := /home/khalfaoui-driss/common_core/so_long
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
+CURDIR := /home/khalfaoui47/common_core/so_long
 # makefile (from 'Makefile', line 7)
 SRCS = $(wildcard src/*.c utils/*.c) 
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 MFLAGS = -pqrR
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # default
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
+WSL2_GUI_APPS_ENABLED = 1
 # environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+WAYLAND_DISPLAY = wayland-0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# environment
-XDG_SESSION_DESKTOP = ubuntu
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
-# environment
-CONDA_SHLVL = 1
 # automatic
 @F = $(notdir $@)
-# environment
-VSCODE_PID = 4595
-# environment
-XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
-CONDA_PYTHON_EXE = /home/khalfaoui-driss/miniconda3/bin/python
-# environment
-XDG_DATA_HOME = /home/khalfaoui-driss/snap/code/193/.local/share
-# environment
-SESSION_MANAGER = local/C47:@/tmp/.ICE-unix/2111,unix/C47:/tmp/.ICE-unix/2111
 # automatic
 *F = $(notdir $*)
-# environment
-CHROME_DESKTOP = code.desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/193/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/khalfaoui47/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/out/nls.messages.json","locale":"en","availableLanguages":{}}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile (from 'Makefile', line 9)
 OBJS = $(SRCS:.c=.o)
-# environment
-GTK_PATH = /snap/code/193/usr/lib/x86_64-linux-gnu/gtk-3.0
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# environment
-CONDA_PREFIX = /home/khalfaoui-driss/miniconda3
 # makefile
 SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # environment
-XMODIFIERS = @im=ibus
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-SHLVL = 0
+SHLVL = 1
 # environment
 MAKELEVEL := 0
-# environment
-IM_CONFIG_CHECK_ENV = 1
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_COOKIE = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
-# environment
-PATH = /home/khalfaoui-driss/miniconda3/bin:/home/khalfaoui-driss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/khalfaoui47/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/khalfaoui47/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Program Files/cursor/resources/app/bin:/mnt/c/Users/C47/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/C47/AppData/Roaming/npm:/mnt/c/Users/C47/.lmstudio/bin:/snap/bin:/home/khalfaoui47/.local/bin:/home/khalfaoui47/.local/bin
 # default
 MAKEFILES := 
 # automatic
 ^F = $(notdir $^)
 # environment
-SNAP_USER_COMMON = /home/khalfaoui-driss/snap/code/common
-# environment
-CLUTTER_DISABLE_MIPMAPPED_TEXT = 1
-# environment
-SNAP = /snap/code/193
-# environment
-INVOCATION_ID = 6811643551434cd8808b5296780b74a8
-# environment
-SNAP_REVISION = 193
-# environment
-SNAP_REAL_HOME = /home/khalfaoui-driss
-# environment
-FONTCONFIG_FILE = /etc/fonts/fonts.conf
-# environment
-USERNAME = khalfaoui-driss
-# environment
-GNOME_SETUP_DISPLAY = :1
+APPLICATION_INSIGHTS_NO_STATSBEAT = true
 # makefile (from 'Makefile', line 3)
 MLX = -L/usr/include/minilibx-linux -lmlx -lXext -lX11 
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
-# environment
-GTK_IM_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/immodules/immodules.cache
 # makefile (from 'Makefile', line 1)
 NAME = so_long
 # environment
-XDG_CURRENT_DESKTOP = Unity
+HOSTTYPE = x86_64
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
 # automatic
 +F = $(notdir $+)
 # environment
-DESKTOP_SESSION = ubuntu
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# environment
-LOCPATH = /snap/code/193/usr/lib/locale
+WSL_INTEROP = /run/WSL/147801_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-CONDA_DEFAULT_ENV = base
+LOGNAME = khalfaoui47
 # environment
-XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-LOGNAME = khalfaoui-driss
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
-SNAP_ARCH = amd64
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/C47/.vscode/extensions/ms-vscode-remote.remote-wsl-0.104.3
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2169
-# environment
 DISPLAY = :0
 # environment
-USER = khalfaoui-driss
-# environment
-GTK_MODULES = gail:atk-bridge
+USER = khalfaoui47
 # default
 MAKE_VERSION := 4.3
 # environment
- 
-SNAP_DATA = /var/snap/code/193
-# environment
-SNAP_CONTEXT = BfB97l0t-jApHq8kJi77SwAB8ePjfjTRAnPotbTZO4X2Q4iglKEx
-# environment
-MANAGERPID = 1885
-# environment
 DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4538
+_ = /mnt/c/Users/C47/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-_ = /snap/code/193/usr/share/code/code
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
+XDG_RUNTIME_DIR = /run/user/1000/
 # makefile (from 'Makefile', line 6)
 CFLAGS = -Wall -Wextra -Werror
 # environment
-SNAP_UID = 1000
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-a0383316-aab2-4b62-93ca-715bdeb5b7d4.sock
 # environment
-XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu:/etc/xdg
-# environment
-GDK_PIXBUF_MODULE_FILE = /home/khalfaoui-driss/snap/code/common/.cache/gdk-pixbuf-loaders.cache
-# environment
-GIO_MODULE_DIR = /home/khalfaoui-driss/snap/code/common/.cache/gio-modules
-# environment
-JOURNAL_STREAM = 9:14935
-# environment
-XDG_SESSION_CLASS = user
-# environment
-GSM_SKIP_SSH_AGENT_WORKAROUND = true
-# environment
-HOME = /home/khalfaoui-driss
-# environment
-QT_IM_MODULE = ibus
+HOME = /home/khalfaoui47
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-6335123b-1.10-main.sock
-# environment
-GTK_EXE_PREFIX = /snap/code/193/usr
-# environment
-SNAP_NAME = code
-# environment
-GSETTINGS_SCHEMA_DIR = /home/khalfaoui-driss/snap/code/193/.local/share/glib-2.0/schemas
-# environment
-IM_CONFIG_PHASE = 1
+TERM = xterm-256color
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# environment
-SNAP_VERSION = 91fa95bc
 # default
 SUFFIXES := 
 # environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-SNAP_COMMON = /var/snap/code/common
+WSL_DISTRO_NAME = Ubuntu
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 2)
 CC = cc
 # environment
-SNAP_USER_DATA = /home/khalfaoui-driss/snap/code/193
-# environment
-XDG_MENU_PREFIX = gnome-
-# environment
 VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-CONDA_EXE = /home/khalfaoui-driss/miniconda3/bin/conda
-# environment
-GDMSESSION = ubuntu
-# environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=145/1024=14%, Rehash=0, Collisions=11/186=6%
+# Load=77/1024=8%, Rehash=0, Collisions=1/119=1%
 
 # Pattern-specific Variable Values
 
@@ -779,9 +505,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# src (device 66307, inode 4332793): 14 files, no impossibilities.
+# src (device 2096, inode 60851): 14 files, no impossibilities.
 # utils: could not be stat'd.
-# . (device 66307, inode 4332626): 12 files, no impossibilities.
+# . (device 2096, inode 60636): 12 files, no impossibilities.
 
 # 26 files, no impossibilities in 3 directories.
 
@@ -794,21 +520,21 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2025-04-27 16:09:15.654751916
+#  Last modified 2025-08-14 05:37:05.376655546
+ 
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
- 
 src/utils.o:
 #  Implicit rule search has been done.
-#  Last modified 2025-05-11 17:58:25.954602021
+#  Last modified 2025-10-18 12:51:28.36242181
 #  File has been updated.
 #  Successfully updated.
 
 so_long: src/check_map.o src/init_imgs.o src/init_map.o src/so_long.o src/start_game.o src/utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2025-05-11 17:58:26.052601
+#  Last modified 2025-10-18 12:51:28.474421792
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
@@ -826,7 +552,7 @@ clean:
 
 includes/libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2025-05-11 17:58:25.74460421
+#  Last modified 2025-09-05 05:42:23.536600576
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 18):
@@ -863,7 +589,7 @@ printf:
 # Not a target:
 src/check_map.o:
 #  Implicit rule search has been done.
-#  Last modified 2025-05-11 17:58:25.810603522
+#  Last modified 2025-10-18 12:51:28.226421833
 #  File has been updated.
 #  Successfully updated.
 
@@ -876,8 +602,7 @@ re: fclean all
 # Not a target:
 src/init_map.o:
 #  Implicit rule search has been done.
-#  Last modified 2025-05-11 17:58:25.866602938
- 
+#  Last modified 2025-10-18 12:51:28.278421824
 #  File has been updated.
 #  Successfully updated.
 
@@ -910,15 +635,14 @@ fclean: clean
 # Not a target:
 src/so_long.o:
 #  Implicit rule search has been done.
- 
-#  Last modified 2025-05-11 17:58:25.895602636
+#  Last modified 2025-10-18 12:51:28.310421819
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/start_game.o:
 #  Implicit rule search has been done.
-#  Last modified 2025-05-11 17:58:25.925602323
+#  Last modified 2025-10-18 12:51:28.334421815
 #  File has been updated.
 #  Successfully updated.
 
@@ -936,7 +660,7 @@ src/start_game.o:
 # Not a target:
 src/init_imgs.o:
 #  Implicit rule search has been done.
-#  Last modified 2025-05-11 17:58:25.83760324
+#  Last modified 2025-10-18 12:51:28.254421828
 #  File has been updated.
 #  Successfully updated.
 
@@ -954,6 +678,6 @@ src/init_imgs.o:
 # strcache performance: lookups = 71 / hit rate = 40%
 # hash-table stats:
 # Load=42/8192=1%, Rehash=0, Collisions=0/71=0%
-# Finished Make data base on Mon May 19 14:03:34 2025
+# Finished Make data base on Wed Oct 22 09:32:39 2025
 
  

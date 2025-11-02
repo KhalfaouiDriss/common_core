@@ -1,0 +1,57 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "vscode-excalidraw",
+  "elements": [
+    {
+      "id": "grid-outer",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 300,
+      "height": 300,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": null,
+      "seed": 1,
+      "version": 1,
+      "versionNonce": 1,
+      "isDeleted": false
+    },
+    
+    { "id": "v1", "type": "line", "x": 160, "y": 100, "width": 0, "height": 300, "points": [[0,0],[0,300]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 2, "version": 1, "versionNonce": 2, "isDeleted": false },
+    { "id": "v2", "type": "line", "x": 220, "y": 100, "width": 0, "height": 300, "points": [[0,0],[0,300]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 3, "version": 1, "versionNonce": 3, "isDeleted": false },
+    { "id": "v3", "type": "line", "x": 280, "y": 100, "width": 0, "height": 300, "points": [[0,0],[0,300]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 4, "version": 1, "versionNonce": 4, "isDeleted": false },
+    { "id": "v4", "type": "line", "x": 340, "y": 100, "width": 0, "height": 300, "points": [[0,0],[0,300]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 5, "version": 1, "versionNonce": 5, "isDeleted": false },
+
+    { "id": "h1", "type": "line", "x": 100, "y": 160, "width": 300, "height": 0, "points": [[0,0],[300,0]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 6, "version": 1, "versionNonce": 6, "isDeleted": false },
+    { "id": "h2", "type": "line", "x": 100, "y": 220, "width": 300, "height": 0, "points": [[0,0],[300,0]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 7, "version": 1, "versionNonce": 7, "isDeleted": false },
+    { "id": "h3", "type": "line", "x": 100, "y": 280, "width": 300, "height": 0, "points": [[0,0],[300,0]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 8, "version": 1, "versionNonce": 8, "isDeleted": false },
+    { "id": "h4", "type": "line", "x": 100, "y": 340, "width": 300, "height": 0, "points": [[0,0],[300,0]], "strokeColor": "#aaaaaa", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 9, "version": 1, "versionNonce": 9, "isDeleted": false },
+
+    { "id": "player", "type": "ellipse", "x": 244, "y": 244, "width": 12, "height": 12, "angle": 0, "strokeColor": "#087f5b", "backgroundColor": "#b2f2bb", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 10, "version": 1, "versionNonce": 10, "isDeleted": false },
+
+    { "id": "ray", "type": "arrow", "x": 250, "y": 250, "width": 150, "height": 0, "points": [[0,0],[150,0]], "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": {"type":"round"}, "seed": 11, "version": 1, "versionNonce": 11, "isDeleted": false },
+
+    { "id": "sidedist", "type": "line", "x": 250, "y": 260, "width": 30, "height": 0, "points": [[0,0],[30,0]], "strokeColor": "#fa5252", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 12, "version": 1, "versionNonce": 12, "isDeleted": false },
+    { "id": "sidedist-label", "type": "text", "x": 255, "y": 266, "width": 180, "height": 20, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 13, "version": 1, "versionNonce": 13, "isDeleted": false, "text": "sideDistX = (nextX - posX) * deltaDistX", "fontSize": 14, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top", "baseline": 18 },
+
+    { "id": "deltadist", "type": "line", "x": 280, "y": 300, "width": 60, "height": 0, "points": [[0,0],[60,0]], "strokeColor": "#e67700", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 14, "version": 1, "versionNonce": 14, "isDeleted": false },
+    { "id": "deltadist-label", "type": "text", "x": 285, "y": 306, "width": 140, "height": 20, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 15, "version": 1, "versionNonce": 15, "isDeleted": false, "text": "deltaDistX = |1/rayDirX|", "fontSize": 14, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top", "baseline": 18 },
+
+    { "id": "hit-cell", "type": "rectangle", "x": 340, "y": 220, "width": 60, "height": 60, "angle": 0, "strokeColor": "#fa5252", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 16, "version": 1, "versionNonce": 16, "isDeleted": false },
+    { "id": "hit-label", "type": "text", "x": 345, "y": 285, "width": 140, "height": 20, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 17, "version": 1, "versionNonce": 17, "isDeleted": false, "text": "Hit at (mapX=4,mapY=2)", "fontSize": 14, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top", "baseline": 18 },
+
+    { "id": "legend1", "type": "text", "x": 420, "y": 110, "width": 250, "height": 80, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100, "groupIds": [], "roundness": null, "seed": 18, "version": 1, "versionNonce": 18, "isDeleted": false, "text": "DDA (horizontal ray example)\npos=(2.5,2.5) in cell (2,2)\nrayDir=(1,0)  stepX=+1\nmapX steps: 2->3->4 (hit)", "fontSize": 16, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top", "baseline": 76 }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  }
+}

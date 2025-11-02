@@ -1,0 +1,75 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "vscode-excalidraw",
+  "elements": [
+    {"id":"title","type":"text","x":80,"y":40,"width":900,"height":28,"angle":0,"strokeColor":"#1e1e1e","backgroundColor":"transparent","fillStyle":"solid","strokeWidth":1,"roughness":0,"opacity":100,"text":"DDA storyboard (diagonal ray example) — pos=(2.5,2.5), rayDir=(1,0.5)","fontSize":24,"fontFamily":1,"textAlign":"left","verticalAlign":"top","baseline":24},
+
+    {"id":"f1-label","type":"text","x":80,"y":80,"width":260,"height":20,"text":"Frame 1 — start (compute init values)","fontSize":16,"fontFamily":1},
+    {"id":"f2-label","type":"text","x":520,"y":80,"width":320,"height":20,"text":"Frame 2 — step X (sideDistX < sideDistY)","fontSize":16,"fontFamily":1},
+    {"id":"f3-label","type":"text","x":960,"y":80,"width":320,"height":20,"text":"Frame 3 — step Y (now sideDistY < sideDistX)","fontSize":16,"fontFamily":1},
+    {"id":"f4-label","type":"text","x":1400,"y":80,"width":220,"height":20,"text":"Frame 4 — next step ...","fontSize":16,"fontFamily":1},
+
+    {"id":"f1","type":"rectangle","x":80,"y":100,"width":360,"height":360,"strokeColor":"#6c757d","fillStyle":"hachure","strokeWidth":2},
+    {"id":"f2","type":"rectangle","x":520,"y":100,"width":360,"height":360,"strokeColor":"#6c757d","fillStyle":"hachure","strokeWidth":2},
+    {"id":"f3","type":"rectangle","x":960,"y":100,"width":360,"height":360,"strokeColor":"#6c757d","fillStyle":"hachure","strokeWidth":2},
+    {"id":"f4","type":"rectangle","x":1400,"y":100,"width":360,"height":360,"strokeColor":"#6c757d","fillStyle":"hachure","strokeWidth":2},
+
+    {"id":"g1-outer","type":"rectangle","x":100,"y":120,"width":300,"height":300,"strokeColor":"#1e1e1e","fillStyle":"solid","strokeWidth":2},
+    {"id":"g1-v1","type":"line","x":160,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-v2","type":"line","x":220,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-v3","type":"line","x":280,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-v4","type":"line","x":340,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-h1","type":"line","x":100,"y":180,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-h2","type":"line","x":100,"y":240,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-h3","type":"line","x":100,"y":300,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g1-h4","type":"line","x":100,"y":360,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+
+    {"id":"p1","type":"ellipse","x":244,"y":244,"width":12,"height":12,"strokeColor":"#087f5b","backgroundColor":"#b2f2bb","fillStyle":"solid","strokeWidth":2},
+    {"id":"ray1","type":"arrow","x":250,"y":250,"width":140,"height":70,"points":[[0,0],[140,70]],"strokeColor":"#1971c2","strokeWidth":2,"roundness":{"type":"round"}},
+    {"id":"f1-anno","type":"text","x":110,"y":430,"width":280,"height":80,"text":"deltaDistX=|1/1|=1\ndeltaDistY=|1/0.5|=2\nsideDistX=(3-2.5)*1=0.5\nsideDistY=(3-2.5)*2=1.0","fontSize":14,"fontFamily":1},
+
+    {"id":"g2-outer","type":"rectangle","x":540,"y":120,"width":300,"height":300,"strokeColor":"#1e1e1e","fillStyle":"solid","strokeWidth":2},
+    {"id":"g2-v1","type":"line","x":600,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-v2","type":"line","x":660,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-v3","type":"line","x":720,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-v4","type":"line","x":780,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-h1","type":"line","x":540,"y":180,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-h2","type":"line","x":540,"y":240,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-h3","type":"line","x":540,"y":300,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g2-h4","type":"line","x":540,"y":360,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+
+    {"id":"p2","type":"ellipse","x":684,"y":244,"width":12,"height":12,"strokeColor":"#087f5b","backgroundColor":"#b2f2bb","fillStyle":"solid","strokeWidth":2},
+    {"id":"ray2","type":"arrow","x":690,"y":250,"width":100,"height":50,"points":[[0,0],[100,50]],"strokeColor":"#1971c2","strokeWidth":2,"roundness":{"type":"round"}},
+    {"id":"f2-anno","type":"text","x":560,"y":430,"width":270,"height":60,"text":"sideDistX += deltaDistX → 1.5\nmapX: 2 → 3 (empty)","fontSize":14,"fontFamily":1},
+
+    {"id":"g3-outer","type":"rectangle","x":980,"y":120,"width":300,"height":300,"strokeColor":"#1e1e1e","fillStyle":"solid","strokeWidth":2},
+    {"id":"g3-v1","type":"line","x":1040,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-v2","type":"line","x":1100,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-v3","type":"line","x":1160,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-v4","type":"line","x":1220,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-h1","type":"line","x":980,"y":180,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-h2","type":"line","x":980,"y":240,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-h3","type":"line","x":980,"y":300,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g3-h4","type":"line","x":980,"y":360,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+
+    {"id":"p3","type":"ellipse","x":1104,"y":304,"width":12,"height":12,"strokeColor":"#087f5b","backgroundColor":"#b2f2bb","fillStyle":"solid","strokeWidth":2},
+    {"id":"ray3","type":"arrow","x":1110,"y":310,"width":70,"height":35,"points":[[0,0],[70,35]],"strokeColor":"#1971c2","strokeWidth":2,"roundness":{"type":"round"}},
+    {"id":"f3-anno","type":"text","x":1000,"y":430,"width":300,"height":60,"text":"sideDistY += deltaDistY → 3.0\nmapY: 2 → 3 (after Y step)","fontSize":14,"fontFamily":1},
+
+    {"id":"g4-outer","type":"rectangle","x":1420,"y":120,"width":300,"height":300,"strokeColor":"#1e1e1e","fillStyle":"solid","strokeWidth":2},
+    {"id":"g4-v1","type":"line","x":1480,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-v2","type":"line","x":1540,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-v3","type":"line","x":1600,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-v4","type":"line","x":1660,"y":120,"width":0,"height":300,"points":[[0,0],[0,300]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-h1","type":"line","x":1420,"y":180,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-h2","type":"line","x":1420,"y":240,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-h3","type":"line","x":1420,"y":300,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+    {"id":"g4-h4","type":"line","x":1420,"y":360,"width":300,"height":0,"points":[[0,0],[300,0]],"strokeColor":"#aaaaaa","strokeWidth":1},
+
+    {"id":"p4","type":"ellipse","x":1524,"y":304,"width":12,"height":12,"strokeColor":"#087f5b","backgroundColor":"#b2f2bb","fillStyle":"solid","strokeWidth":2},
+    {"id":"ray4","type":"arrow","x":1530,"y":310,"width":70,"height":35,"points":[[0,0],[70,35]],"strokeColor":"#1971c2","strokeWidth":2,"roundness":{"type":"round"}},
+    {"id":"f4-anno","type":"text","x":1440,"y":430,"width":300,"height":80,"text":"Next compare: sideDistX=1.5 vs sideDistY=3.0 → step X\nmapX: 3 → 4 (check wall)\nStop when map[mapY][mapX] == 1","fontSize":14,"fontFamily":1}
+  ],
+  "appState": {"gridSize": null, "viewBackgroundColor": "#ffffff"}
+}

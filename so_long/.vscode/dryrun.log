@@ -1,16 +1,16 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/khalfaoui-driss/common_core/so_long'
+make: Entering directory '/home/khalfaoui47/common_core/so_long'
 make -C includes/ft_printf
-make[1]: Entering directory '/home/khalfaoui-driss/common_core/so_long/includes/ft_printf'
+make[1]: Entering directory '/home/khalfaoui47/common_core/so_long/includes/ft_printf'
 cc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o
 cc -Wall -Wextra -Werror -c ft_putnbr.c -o ft_putnbr.o
 cc -Wall -Wextra -Werror -c ft_puthexadecimal.c -o ft_puthexadecimal.o
 cc -Wall -Wextra -Werror -c ft_u_putnbr.c -o ft_u_putnbr.o
 cc -Wall -Wextra -Werror -c ft_putstr.c -o ft_putstr.o
 ar crs ft_printf.a ft_printf.o ft_putnbr.o ft_puthexadecimal.o ft_u_putnbr.o ft_putstr.o
-make[1]: Leaving directory '/home/khalfaoui-driss/common_core/so_long/includes/ft_printf'
+make[1]: Leaving directory '/home/khalfaoui47/common_core/so_long/includes/ft_printf'
 make -C ./includes/libft
-make[1]: Entering directory '/home/khalfaoui-driss/common_core/so_long/includes/libft'
+make[1]: Entering directory '/home/khalfaoui47/common_core/so_long/includes/libft'
 cc -Wall -Wextra -Werror   -c -o ft_isalpha.o ft_isalpha.c
 cc -Wall -Wextra -Werror   -c -o ft_isdigit.o ft_isdigit.c
 cc -Wall -Wextra -Werror   -c -o ft_isalnum.o ft_isalnum.c
@@ -46,7 +46,7 @@ cc -Wall -Wextra -Werror   -c -o ft_putstr_fd.o ft_putstr_fd.c
 cc -Wall -Wextra -Werror   -c -o ft_putendl_fd.o ft_putendl_fd.c
 cc -Wall -Wextra -Werror   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
 ar crs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_calloc.o ft_strdup.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_strrchr.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
-make[1]: Leaving directory '/home/khalfaoui-driss/common_core/so_long/includes/libft'
+make[1]: Leaving directory '/home/khalfaoui47/common_core/so_long/includes/libft'
 cc -Wall -Wextra -Werror   -c -o src/check_map.o src/check_map.c
 cc -Wall -Wextra -Werror   -c -o src/init_imgs.o src/init_imgs.c
 cc -Wall -Wextra -Werror   -c -o src/init_map.o src/init_map.c
@@ -54,5 +54,5 @@ cc -Wall -Wextra -Werror   -c -o src/so_long.o src/so_long.c
 cc -Wall -Wextra -Werror   -c -o src/start_game.o src/start_game.c
 cc -Wall -Wextra -Werror   -c -o src/utils.o src/utils.c
 cc -Wall -Wextra -Werror -o so_long src/check_map.o src/init_imgs.o src/init_map.o src/so_long.o src/start_game.o src/utils.o -L/usr/include/minilibx-linux -lmlx -lXext -lX11  includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c includes/libft/libft.a includes/ft_printf/ft_printf.a
-make: Leaving directory '/home/khalfaoui-driss/common_core/so_long'
+make: Leaving directory '/home/khalfaoui47/common_core/so_long'
  

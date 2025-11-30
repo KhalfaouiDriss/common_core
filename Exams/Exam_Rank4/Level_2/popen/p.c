@@ -6,29 +6,27 @@
 
 int ft_popen(const char *file, char *const argv[], char type)
 {
-	if (!file || !argv || (type != 'w' && type != 'r'))
-    	return -1;
-
 	int fd[2];
 
+	if (!file || !argv || (type != 'w' && type != 'r'))
+		return -1;
 	pipe(fd);
-
-	if(type == 'r')
+	if (type == 'r')
 	{
-		if(fork() == 0)
+		if (fork() == 0)
 		{
 			dup2(fd[1], 1);
-			close(fd[1]);
 			close(fd[0]);
+			close(fd[1]);
 			execvp(file, argv);
 			exit(-1);
 		}
 		close(fd[1]);
-		return fd[0];
+		return (fd[0]);
 	}
-	if(type == 'w')
+	if (type == 'w')
 	{
-		if(fork() == 0)
+		if (fork() == 0)
 		{
 			dup2(fd[0], 0);
 			close(fd[1]);
@@ -37,23 +35,30 @@ int ft_popen(const char *file, char *const argv[], char type)
 			exit(-1);
 		}
 		close(fd[0]);
-		return fd[1];
+		return (fd[1]);
 	}
-	return -1;
+	return (-1);
 }
 
 
-int main()
+int main(int ac, char **av)
 {
+    int fd = ft_popen(av[1], &av[1], 'w');
+    if (fd == -1)
+    {
+        perror("ft_popen");
+        return 1;
+    }
 
-	char cmd[] = {"ls"};
+    char buffer[256];
+    int n;
 
-	int fp = ft_popen("cat", (char *const[]){"ls", NULL}, 'r');
-	char buffer[1000];
-	int i = read(fp, buffer, 100);
-	buffer[i - 1] = '\0';
+    while ((n = read(fd, buffer, sizeof(buffer)-1)) > 0)
+    {
+        buffer[n] = '\0';
+        printf("%s", buffer);
+    }
 
-	printf("%s\n", buffer);
-
-	return 0;
+    close(fd);
+    return 0;
 }

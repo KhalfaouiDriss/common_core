@@ -1,27 +1,35 @@
 #include "Point.hpp"
+#include <cmath>
 
-static float sign(Point const p1, Point const p2, Point const p3)
+static float area(Point const &a, Point const &b, Point const &c)
 {
-    return (
-        (p1.getX().toFloat() - p3.getX().toFloat()) *
-        (p2.getY().toFloat() - p3.getY().toFloat()) -
-        (p2.getX().toFloat() - p3.getX().toFloat()) *
-        (p1.getY().toFloat() - p3.getY().toFloat())
-    );
+    float ax = a.getX().toFloat();
+    float ay = a.getY().toFloat();
+    float bx = b.getX().toFloat();
+    float by = b.getY().toFloat();
+    float cx = c.getX().toFloat();
+    float cy = c.getY().toFloat();
+
+    return fabs(
+        ax * (by - cy) +
+        bx * (cy - ay) +
+        cx * (ay - by)
+    ) / 2.0f;
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-    float d1 = sign(point, a, b);
-    float d2 = sign(point, b, c);
-    float d3 = sign(point, c, a);
+    Fixed A (area(a, b, c));
+    Fixed A1(area(point, a, b));
+    Fixed A2(area(point, b, c));
+    Fixed A3(area(point, c, a));
 
-    bool hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-    bool hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
-
-    // If any of the signs is zero → on edge → must return false
-    if (d1 == 0 || d2 == 0 || d3 == 0)
+    if (A1 == 0 || A2 == 0 || A3 == 0)
         return false;
 
-    return !(hasNeg && hasPos); // true if inside
+    Fixed sum(A1 + A2 + A3);
+    if (sum == A)
+        return true;
+    else
+        return false;
 }

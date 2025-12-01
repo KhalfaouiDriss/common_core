@@ -1,6 +1,6 @@
-NAME = Fixed
+NAME = bsp
 
-SRC = fixed.cpp main.cpp
+SRC = fixed.cpp Point.cpp bsp.cpp main.cpp 
 
 CXX = c++
 

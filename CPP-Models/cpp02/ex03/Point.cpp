@@ -1,28 +1,21 @@
 #include "Point.hpp"
+#include <iostream>
 
-Point::Point()
+Point::Point() : x(0), y(0) {}
+
+Point::Point(const float xVal, const float yVal) : x(xVal), y(yVal) {}
+
+Point::Point(const Point &other) : x(other.x), y(other.y) {}
+
+Point &Point::operator=(const Point &other)
 {
-    x.setRawBits(0);
-    y.setRawBits(0);
+    // Since x and y are const, they cannot be assigned
+    // So we do nothing and just return *this
+    (void)other;
+    return *this;
 }
 
-Point::Point(float a, float b)
-{
-    x.setRawBits(a);
-    y.setRawBits(b);
-}
+Point::~Point() {}
 
-Point::Point(Point& other)
-{
-    *this = other;
-}
-
-Point& Point::operator=(Point& other)
-{
-    this->x = other.x;
-    this->y = other.y;
-}
-
-Point::~Point()
-{
-}
+Fixed Point::getX() const { return x; }
+Fixed Point::getY() const { return y; }

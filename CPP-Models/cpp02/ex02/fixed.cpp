@@ -155,3 +155,4 @@ std::ostream& operator<<(std::ostream& os, const Fixed& value)
     os << value.toFloat();
     return os;
 }
+w

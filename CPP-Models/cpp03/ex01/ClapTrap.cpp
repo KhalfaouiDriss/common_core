@@ -48,7 +48,7 @@ int ClapTrap::GetAD()
 
 void ClapTrap::SetName(std::string Name)
 {
-    _name = Name;
+    this->_name = Name;
 }
 
 void ClapTrap::SetHP(int HP)

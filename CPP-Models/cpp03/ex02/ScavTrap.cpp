@@ -2,12 +2,10 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "ScavTrap unknown created\n";
 }
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
-    std::cout << Name << " created\n";
 }
 
 ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other)
@@ -25,7 +23,7 @@ ScavTrap& ScavTrap::operator=(ScavTrap& other)
 
 void ScavTrap::guardGate()
 {
-    std::cout <<  GetName() << " is now in Gate keeper mode.\n";
+    std::cout << "ScavTrap " << GetName() << " is now in Gate keeper mode.\n";
 }
 
 ScavTrap::~ScavTrap()

@@ -15,11 +15,12 @@ public:
     ClapTrap(std::string name);
     ClapTrap(ClapTrap& other);
     
+    // Getter
     std::string GetName();
     int GetHP();
     int GetEP();
     int GetAD();
-    
+    // Setter
     void SetName(std::string Name);
     void SetHP(int HP);
     void SetEP(int EP);

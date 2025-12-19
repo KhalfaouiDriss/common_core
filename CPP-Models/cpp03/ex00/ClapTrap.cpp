@@ -58,6 +58,28 @@ int ClapTrap::getAD()
     return (_AD);
 }
 
+void ClapTrap::attack(const std::string& target)
+{
+    if (this->getHP() <= 0)
+    {
+        std::cout << "ClapTrap " << getName() << " is dead\n";
+    }
+    if (this->getEP() <= 0)
+    {
+        std::cout << "ClapTrap " << getName() << " has no energy\n";
+    }
+    std::cout << "ClapTrap " << getName() << "attacks " << target << ", causing " << getAD() << " points of damage!\n";
+     
+}
+void ClapTrap::takeDamage(unsigned int amount)
+{
+
+}
+void ClapTrap::beRepaired(unsigned int amount)
+{
+
+}
+
 ClapTrap::~ClapTrap()
 {
 }

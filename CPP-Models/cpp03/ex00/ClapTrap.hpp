@@ -11,25 +11,23 @@ private:
     int _EP;
     int _AD;
 public:
-    ClapTrap();
     ClapTrap(std::string name);
+    ClapTrap();
+
+    void setName(std::string name);
+    void setHP(int HP);
+    void setEP(int EP);
+    void setAD(int AD);
+
+    std::string getName();
+    int getHP();
+    int getEP();
+    int getAD();
+
     ClapTrap(ClapTrap& other);
-
-    std::string GetName();
-    int GetHP();
-    int GetEP();
-    int GetAD();
-    
-    void SetName(std::string Name);
-    void SetHP(int HP);
-    void SetEP(int EP);
-    void SetAD(int AD);
-
     ClapTrap& operator=(ClapTrap& other);
-    void attack(const std::string& target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
     ~ClapTrap();
 };
+
 
 #endif

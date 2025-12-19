@@ -1,130 +1,63 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() 
-    : _name("unknown"), _HP(10), _EP(10), _AD(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _HP(10), _EP(10), _AD(0)
 {
-    std::cout << "ClapTrap unknown created\n";
+    std::cout << "ClapTrap " << _name << " Created\n";
 }
 
-ClapTrap::ClapTrap(std::string name) 
-    : _name(name), _HP(10), _EP(10), _AD(0)
+ClapTrap::ClapTrap() : _name("Default"), _HP(10), _EP(10), _AD(0)
 {
-    std::cout << "ClapTrap " << name << " created\n";
+    std::cout << "ClapTrap " << _name << " Created\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap& other)
 {
     *this = other;
 }
-
 ClapTrap& ClapTrap::operator=(ClapTrap& other)
 {
-    this->_name = other.GetName();
-    this->_HP = other.GetHP();
-    this->_AD = other.GetAD();
-    this->_EP = other.GetEP();
-    return (*this);
+    this->setName(other.getName());
+    this->setHP(other.getHP());
+    this->setEP(other.getEP());
+    this->setAD(other.getAD());
 }
 
-std::string ClapTrap::GetName()
+void ClapTrap::setName(std::string name)
 {
-    return (this->_name);
+    this->_name = name;
 }
-
-int ClapTrap::GetHP()
-{
-    return (this->_HP);
-}
-
-int ClapTrap::GetEP()
-{
-    return (this->_EP);
-}
-
-int ClapTrap::GetAD()
-{
-    return (this->_AD);
-}
-
-void ClapTrap::SetName(std::string Name)
-{
-    _name = Name;
-}
-
-void ClapTrap::SetHP(int HP)
+void ClapTrap::setHP(int HP)
 {
     this->_HP = HP;
 }
-
-void ClapTrap::SetEP(int EP)
+void ClapTrap::setEP(int EP)
 {
     this->_EP = EP;
+    
 }
-
-void ClapTrap::SetAD(int AD)
+void ClapTrap::setAD(int AD)
 {
     this->_AD = AD;
+    
 }
 
-void ClapTrap::attack(const std::string& target)
+std::string ClapTrap::getName()
 {
-    if (this->GetHP() <= 0)
-    {
-        std::cout << "ClapTrap " << this->GetName() << " is dead\n";
-        return ;
-    }
-    if (this->GetEP() <= 0)
-    {
-        std::cout << "ClapTrap " << this->GetName() << " has no energy\n";
-        return ;
-    }
-
-    std::cout << "ClapTrap " << this->GetName() 
-              << " attacks " << target 
-              << ", causing " << this->GetAD() << " points of damage!\n";
-
-    this->SetEP(this->GetEP() - 1);
+    return (_name);
 }
-
-void ClapTrap::takeDamage(unsigned int amount)
+int ClapTrap::getHP()
 {
-    if (this->GetHP() <= 0)
-    {
-        std::cout << "ClapTrap " << this->GetName() << " is dead\n";
-        return ;
-    }
-
-    std::cout << "ClapTrap " << this->GetName() 
-              << " takes " << amount << " points of damage!\n";
-
-    int newHP = this->GetHP() - amount;
-    if (newHP < 0)
-        newHP = 0;
-
-    this->SetHP(newHP);
+    return (_HP);
 }
-
-void ClapTrap::beRepaired(unsigned int amount)
+int ClapTrap::getEP()
 {
-    if (this->GetHP() <= 0)
-    {
-        std::cout << "ClapTrap " << this->GetName() << " is dead\n";
-        return ;
-    }
-    if (this->GetEP() <= 0)
-    {
-        std::cout << "ClapTrap " << this->GetName() << " has no energy\n";
-        return ;
-    }
-
-    std::cout << "ClapTrap " << this->GetName() 
-              << " is repaired for " << amount << " hit points!\n";
-
-    this->SetHP(this->GetHP() + amount);
-    this->SetEP(this->GetEP() - 1);
+    return (_EP);
+}
+int ClapTrap::getAD()
+{
+    return (_AD);
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << this->GetName() << " has exit\n";
 }

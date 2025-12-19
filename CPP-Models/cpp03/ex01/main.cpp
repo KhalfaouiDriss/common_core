@@ -13,5 +13,6 @@ int main()
     b.attack("Alpha");
     b.guardGate();
 
+
     return 0;
 }

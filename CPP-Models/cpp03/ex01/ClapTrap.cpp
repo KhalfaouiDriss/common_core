@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _HP(10), _EP(10), _AD(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _HP(100), _EP(50), _AD(20)
 {
-    std::cout << "ClapTrap " << _name << "Created\n";
+    std::cout << "ClapTrap " << _name << " Created\n";
 }
 
-ClapTrap::ClapTrap() : _name("Default"), _HP(10), _EP(10), _AD(0)
+ClapTrap::ClapTrap() : _name("Default"), _HP(100), _EP(50), _AD(20)
 {
-    std::cout << "ClapTrap " << _name << "Created\n";
+    std::cout << "ClapTrap " << _name << " Created\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap &other)
@@ -68,13 +68,13 @@ void ClapTrap::attack(const std::string &target)
 {
     if (this->getHP() <= 0)
     {
-        std::cout << "ClapTrap " << getName() << "is dead\n";
+        std::cout << "ClapTrap " << getName() << " is dead\n";
     }
     if (this->getEP() <= 0)
     {
-        std::cout << "ClapTrap " << getName() << "has no energy\n";
+        std::cout << "ClapTrap " << getName() << " has no energy\n";
     }
-    std::cout << "ClapTrap " << getName() << "attacks" << target << ", causing" << getAD() << " points of damage!\n";
+    std::cout << "ClapTrap " << getName() << " attacks " << target << ", causing " << getAD() << " points of damage!\n";
     setEP(getEP() - 1);
 }
 
@@ -83,19 +83,21 @@ void ClapTrap::takeDamage(unsigned int amount)
     setHP(getHP() - amount);
     if (this->getHP() <= 0)
     {
-        std::cout << "ClapTrap " << getName() << "is dead\n";
+        std::cout << "ClapTrap " << getName() << " is dead\n";
+        return ;
     }
+    std::cout << "ClapTrap " << getName() << " take damage\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->getHP() <= 0)
     {
-        std::cout << "ClapTrap " << getName() << "is dead\n";
+        std::cout << "ClapTrap " << getName() << " is dead\n";
     }
     if (this->getEP() <= 0)
     {
-        std::cout << "ClapTrap " << getName() << "has no energy\n";
+        std::cout << "ClapTrap " << getName() << " has no energy\n";
     }
     setHP(getHP() + amount);
     if (getHP() > 10)
@@ -104,5 +106,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << getName() << "exit\n";
+    std::cout << "ClapTrap " << getName() << " exit\n";
 }

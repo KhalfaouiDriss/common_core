@@ -2,11 +2,17 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+    setHP(100);
+    setEP(50);
+    setAD(20);
     std::cout << "ScavTrap " << getName() << " Created\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+    setHP(100);
+    setEP(50);
+    setAD(20);
     std::cout << "ScavTrap " << getName() << " Created\n";
 }
 

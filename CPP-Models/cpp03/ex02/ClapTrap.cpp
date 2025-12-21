@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _HP(100), _EP(100), _AD(30)
+ClapTrap::ClapTrap(std::string name) : _name(name), _HP(10), _EP(10), _AD(0)
 {
     std::cout << "ClapTrap " << _name << " Created\n";
 }

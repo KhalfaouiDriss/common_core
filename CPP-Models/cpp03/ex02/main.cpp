@@ -9,7 +9,6 @@ int main()
     scav.guardGate();
     FragTrap frag("Fraggy");
     frag.takeDamage(20);
-    std::cout << frag.getHP() << "\n";
     frag.attack("enemy");
     frag.highFivesGuys();
 

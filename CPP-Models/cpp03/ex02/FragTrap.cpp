@@ -31,6 +31,20 @@ void FragTrap::highFivesGuys(void)
     std::cout << "FragTrap " << getName() << " request a positive high-fives\n"; 
 }
 
+void FragTrap::attack(const std::string& target)
+{
+    if (this->getHP() <= 0)
+    {
+        std::cout << "FragTrap " << getName() << " is dead\n";
+    }
+    if (this->getEP() <= 0)
+    {
+        std::cout << "FragTrap " << getName() << " has no energy\n";
+    }
+    std::cout << "FragTrap " << getName() << " attacks " << target << ", causing " << getAD() << " points of damage!\n";
+    setEP(getEP() - 1);
+}
+
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap " << getName() << " exit\n";

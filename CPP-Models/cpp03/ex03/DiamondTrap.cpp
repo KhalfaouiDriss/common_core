@@ -11,15 +11,28 @@ DiamondTrap::DiamondTrap(std::string name)
       FragTrap(),
       _dname(name)
 {
-    _HP = FragTrap::_HP;   // 100
-    _EP = ScavTrap::_EP;  // 50
-    _AD = FragTrap::_AD;  // 30
-
+    this->_HP = 100;
+    this->_EP = 50;
+    this->_AD = 30;
     std::cout << "DiamondTrap " << _dname << " created\n";
 }
 
+DiamondTrap::DiamondTrap(DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
+{
+}
 
+DiamondTrap& DiamondTrap::operator=(DiamondTrap& other)
+{
+    ClapTrap::operator=(other);
+    return (*this);
+}
+
+void DiamondTrap::whoAmI()
+{
+    std::cout << "DiamondTrap name : " << this->_dname << " ClapTrap name : " << this->getName() << std::endl;
+}
 
 DiamondTrap::~DiamondTrap()
 {
+    std::cout << "DiamonTrap " << _dname << " exit\n";
 }

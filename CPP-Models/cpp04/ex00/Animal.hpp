@@ -11,9 +11,8 @@ public:
     Animal();
     Animal(Animal& other);
     Animal& operator=(Animal& other);
-    void makeSound();
-    ~Animal();
+    virtual void makeSound();
+    virtual ~Animal();
 };
-
 
 #endif

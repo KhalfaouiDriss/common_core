@@ -1,10 +1,10 @@
-NAME = Trap
+NAME = test
 
-SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
+SRC = main.cpp
 
 CXX = c++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 OBJ = $(SRC:.cpp=.o)
 

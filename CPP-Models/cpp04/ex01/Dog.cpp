@@ -3,6 +3,7 @@
 Dog::Dog() : Animal()
 {
     _type = "Dog";
+    _brn = new Brain();
     std::cout << "Dog created\n";
 }
 
@@ -23,5 +24,6 @@ void Dog::makeSound() const
 
 Dog::~Dog()
 {
+    delete _brn;
     std::cout << "Dog deleted\n";
 }

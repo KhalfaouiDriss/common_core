@@ -6,7 +6,17 @@ Cat::Cat() : Animal()
     std::cout << "Cat created\n";
 }
 
-void Cat::makeSound()
+Cat::Cat(Cat& other) : Animal(other)
+{
+}
+
+Cat& Cat::operator=(Cat& other)
+{
+    Animal::operator=(other);
+    return (*this);
+}
+
+void Cat::makeSound() const
 {
     std::cout << "meaw\n";
 }

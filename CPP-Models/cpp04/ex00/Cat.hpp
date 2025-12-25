@@ -7,11 +7,9 @@ class Cat : public Animal
 {
 public:
     Cat();
-    void makeSound();
-    void print()
-    {
-        std::cout << "hello";
-    }
+    Cat(Cat& other);
+    Cat& operator=(Cat& other);
+    void makeSound() const;
     ~Cat();
 };
 

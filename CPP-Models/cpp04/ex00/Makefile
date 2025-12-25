@@ -1,6 +1,6 @@
 NAME = test
 
-SRC = main.cpp Animal.cpp  Cat.cpp  Dog.cpp
+SRC = main.cpp Animal.cpp  Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
 
 CXX = c++
 

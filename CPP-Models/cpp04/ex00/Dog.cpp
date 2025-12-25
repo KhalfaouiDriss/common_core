@@ -6,7 +6,7 @@ Dog::Dog() : Animal()
     std::cout << "Dog created\n";
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
     std::cout << "woaf\n";
 }

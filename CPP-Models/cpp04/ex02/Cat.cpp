@@ -9,14 +9,14 @@ Cat::Cat() : Animal()
 
 Cat::Cat(Cat& other) : Animal(other)
 {
-    this->_brn = other._brn;
+    std::cout << "Copy Constractor: Cat created\n";
+    this->_brn = new Brain(*(other._brn));
 }
 
 Cat& Cat::operator=(Cat& other)
 {
     Animal::operator=(other);
-    delete this->_brn;
-    this->_brn = new Brain(*(other._brn));
+    *_brn = *other._brn;
     return (*this);
 }
 

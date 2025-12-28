@@ -3,16 +3,21 @@
 
 int main()
 {
-
-    Animal* j = new Dog();
-    Animal* i = new Cat();
-    Animal A[10];
+    Animal *A[10];
     int f = -1;
     while (++f < 10)
     {
-        A[f] = new Cat(); 
+        if(f < 5)
+            A[f] = new Cat();
+        else
+            A[f] = new Dog();
     }
-    
-    delete j;
-    delete i;
+    f = -1;
+    while (++f < 10)
+    {
+        if(f < 5)
+            delete A[f];
+        else
+            delete A[f];
+    }
 }   

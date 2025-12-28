@@ -10,11 +10,11 @@ void WrongAnimal::makeSound() const
     std::cout << "WrongAnimal default sound \n";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal& other)
+WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
     *this = other;
 }
-WrongAnimal& WrongAnimal::operator=(WrongAnimal& other) 
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) 
 {
     this->_type = other.getType();
     return (*this);

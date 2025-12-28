@@ -6,11 +6,11 @@ WrongCat::WrongCat() : WrongAnimal()
     std::cout << "WrongCat created\n";
 }
 
-WrongCat::WrongCat(WrongCat& other) : WrongAnimal(other)
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
 }
 
-WrongCat& WrongCat::operator=(WrongCat& other)
+WrongCat& WrongCat::operator=(const WrongCat& other)
 {
     WrongAnimal::operator=(other);
     return (*this);

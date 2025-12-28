@@ -6,11 +6,11 @@ Dog::Dog() : Animal()
     std::cout << "Dog created\n";
 }
 
-Dog::Dog(Dog& other) : Animal(other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
 }
 
-Dog& Dog::operator=(Dog& other)
+Dog& Dog::operator=(const Dog& other)
 {
     Animal::operator=(other);
     return (*this);

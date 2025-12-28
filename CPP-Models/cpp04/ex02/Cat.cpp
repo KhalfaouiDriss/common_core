@@ -7,13 +7,13 @@ Cat::Cat() : Animal()
     _brn = new Brain();
 }
 
-Cat::Cat(Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
     std::cout << "Copy Constractor: Cat created\n";
     this->_brn = new Brain(*(other._brn));
 }
 
-Cat& Cat::operator=(Cat& other)
+Cat& Cat::operator=(const Cat& other)
 {
     Animal::operator=(other);
     *_brn = *other._brn;

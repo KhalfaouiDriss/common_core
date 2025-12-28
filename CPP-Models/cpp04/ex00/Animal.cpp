@@ -10,11 +10,11 @@ void Animal::makeSound() const
     std::cout << "Animal default sound \n";
 }
 
-Animal::Animal(Animal& other)
+Animal::Animal(const Animal& other)
 {
     *this = other;
 }
-Animal& Animal::operator=(Animal& other) 
+Animal& Animal::operator=(const Animal& other) 
 {
     this->_type = other.getType();
     return (*this);

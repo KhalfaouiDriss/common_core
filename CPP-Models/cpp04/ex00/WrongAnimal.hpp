@@ -9,8 +9,8 @@ protected:
     std::string _type;
 public:
     WrongAnimal();
-    WrongAnimal(WrongAnimal& other);
-    WrongAnimal& operator=(WrongAnimal& other);
+    WrongAnimal(const WrongAnimal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
     std::string getType() const;
     void setType(std::string type);
     void makeSound() const;

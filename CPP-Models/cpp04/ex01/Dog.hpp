@@ -10,8 +10,8 @@ private:
     Brain* _brn;
 public:
     Dog();
-    Dog(Dog& other);
-    Dog& operator=(Dog& other);
+    Dog(const Dog& other);
+    Dog& operator=(const Dog& other);
     void makeSound() const;
     ~Dog();
 };

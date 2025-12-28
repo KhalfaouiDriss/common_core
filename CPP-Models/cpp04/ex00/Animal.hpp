@@ -9,8 +9,8 @@ protected:
     std::string _type;
 public:
     Animal();
-    Animal(Animal& other);
-    Animal& operator=(Animal& other);
+    Animal(const Animal& other);
+    Animal& operator=(const Animal& other);
     std::string getType() const;
     void setType(std::string type);
     virtual void makeSound() const;

@@ -6,11 +6,11 @@ Cat::Cat() : Animal()
     std::cout << "Cat created\n";
 }
 
-Cat::Cat(Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
 }
 
-Cat& Cat::operator=(Cat& other)
+Cat& Cat::operator=(const Cat& other)
 {
     Animal::operator=(other);
     return (*this);

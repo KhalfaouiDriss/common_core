@@ -5,7 +5,6 @@ int main()
 {
     Animal* j = new Dog();
     Animal* i = new Cat();
-    Animal K;
     delete j;
     delete i;
 }

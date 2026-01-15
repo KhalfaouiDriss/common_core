@@ -12,9 +12,9 @@ public:
 
 test::test(int a)
 {
-    std::cout << "class created\n";
     if (a > 5)
         throw a;
+    std::cout << "class created\n";
     g = new int;
     *g = a;
 }

@@ -4,7 +4,8 @@ int main()
 {
     try
     {
-        Bureaucrat p("saad" ,151);
+        Bureaucrat p("Driss" ,150);
+        std::cout << p << std::endl;
     }
     catch (std::exception &e)
     {

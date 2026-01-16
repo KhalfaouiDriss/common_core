@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
@@ -29,6 +30,18 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 }
 
 Bureaucrat::~Bureaucrat() {}
+
+void Bureaucrat::signForm(Form& F)
+{
+    try{
+        F.beSigned(*this);
+        std::cout << _name << " signed " << F.GetName();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << this->getName() << " couldn’t sign " << F.GetName() <<" because " << e.what() << std::endl;
+    }
+}
 
 std::string Bureaucrat::getName() const {
     return _name;

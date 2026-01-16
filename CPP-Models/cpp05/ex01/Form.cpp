@@ -49,24 +49,25 @@ void Form::beSigned(Bureaucrat& B)
         throw Form::GradeTooHighException();
     else
         _IsSigned = true;
+    std::cout << B.getName() << " signed " << this->GetName() << "\n";
 }
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-    return ("Form Grade too hight!");
+    return ("* Form Grade too hight!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return ("Form Grade too Low!");
+    return ("* Form Grade too Low!");
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& F)
 {
-    os << "Form \"" << F.GetName() << "\"\n"
-       << "  Signed: " << (F.GetIsSigned() ? "Yes" : "No") << '\n'
-       << "  Sign grade required: " << F.GetSgrade() << '\n'
-       << "  Execute grade required: " << F.GetEgrade();
+    os << "Form Name " << F.GetName() << "\n"
+       << " - Signed: " << (F.GetIsSigned() ? "Yes" : "No") << '\n'
+       << " - Sign grade required: " << F.GetSgrade() << '\n'
+       << " - Execute grade required: " << F.GetEgrade();
     return os;
 }
 

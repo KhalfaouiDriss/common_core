@@ -3,6 +3,12 @@
 
 class AForm;
 #include <iostream>
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
 
 class Intern
 {
@@ -11,25 +17,16 @@ private:
 public:
     Intern();
     AForm *makeForm(std::string AFormName, std::string target);
+    class FormNotFound : public std::exception
+    {
+        const char *what() const throw();
+    };
     ~Intern();
 };
 
-Intern::Intern()
-{
-}
 
-AForm *Intern::makeForm(std::string AFormName, std::string target)
-{
-    std::string targ[3] = {"robotomy request", "shrubberey request", "presidential request"};
-    AForm (*fct[3])() = 
-    {
-        
-    }; 
-}
-
-Intern::~Intern()
-{
-}
-
+AForm *makeRobotomy(std::string AFormName, std::string target);
+AForm *makeShrubberey(std::string AFormName, std::string target);
+AForm *makePresidential(std::string AFormName, std::string target);
 
 #endif

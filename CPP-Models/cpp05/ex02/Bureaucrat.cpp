@@ -29,7 +29,18 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+void Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.GetName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << "can't executed form " << form.GetName() << std::endl; 
+    }
+}
 
 void Bureaucrat::signAForm(AForm& F)
 {
@@ -67,3 +78,6 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& B)
     os << B.getName() << ", bureaucrat grade " << B.getGrade();
     return os;
 }
+
+
+Bureaucrat::~Bureaucrat() {}

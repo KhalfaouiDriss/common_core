@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 72, 45) {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 25, 5) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other) {}
 

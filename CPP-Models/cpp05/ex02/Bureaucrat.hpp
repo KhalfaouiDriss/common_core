@@ -31,7 +31,8 @@ public:
     ~Bureaucrat();
 
     void signAForm(AForm& F);
-
+    void executeForm(AForm const & form);
+    
     std::string getName() const;
     int getGrade() const;
 

@@ -9,6 +9,7 @@ int main()
         AForm* sign = jon.makeForm("robotomy request", "Sign");
 
         std::cout << *sign << std::endl;
+        alex.executeForm(*sign);
         alex.signAForm(*sign);
         std::cout << *sign << std::endl;
         delete (sign);

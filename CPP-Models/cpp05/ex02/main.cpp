@@ -14,8 +14,9 @@ int main()
         std::cout << p << std::endl;
         // std::cout << Per << std::endl;
         // Per.execute(p);
+        // Rob.execute(p);
         p.signAForm(Rob);
-        Rob.execute(p);
+        p.executeForm(Rob);
         // p.signAForm(shr);
         // shr.execute(p);
     }

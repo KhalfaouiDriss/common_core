@@ -1,17 +1,45 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(/* args */)
+ScalarConverter::ScalarConverter(void)
+{ }
+
+ScalarConverter::ScalarConverter(ScalarConverter const &src)
 {
+    *this = src;
 }
 
-void ScalarConverter::convert(std::string target)
+ScalarConverter::~ScalarConverter(void)
+{ }
+
+ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &rhs)
 {
-    std::cout << "char : " << static_cast<char>(std::stoi(target)) << std::endl;
-    std::cout << "int : " << static_cast<int>(std::stoi(target)) << std::endl;
-    std::cout << "float : " << static_cast<float>(std::stof(target)) << std::endl;
-    // std::cout << "" << target << std::endl;
+	(void)rhs;
+	return *this;
 }
 
-ScalarConverter::~ScalarConverter()
+void    ScalarConverter::convert(const std::string& str)
 {
+    size_t  len = str.length();
+    e_type  type = whichType(str, len);
+    switch(type)
+    {
+        case INVALID:
+            std::cout << "Invalid input" << std::endl;
+            break;
+        // case SPECIAL:
+        //     printSpecial(str);
+            break;
+        case CHAR:
+            convertChar(str, len);
+            break;
+        case INT:
+            convertInt(str);
+            break;
+        case FLOAT:
+            convertFloat(str);
+            break;
+        case DOUBLE:
+            convertDouble(str);
+            break;
+    }
 }

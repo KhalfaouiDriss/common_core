@@ -1,45 +1,43 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(void)
-{ }
-
-ScalarConverter::ScalarConverter(ScalarConverter const &src)
+void ScalarConverter::convert(const std::string &literal)
 {
-    *this = src;
-}
-
-ScalarConverter::~ScalarConverter(void)
-{ }
-
-ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &rhs)
-{
-	(void)rhs;
-	return *this;
-}
-
-void    ScalarConverter::convert(const std::string& str)
-{
-    size_t  len = str.length();
-    e_type  type = whichType(str, len);
-    switch(type)
+    if (literal == "nan" || literal == "nanf" || literal == "+inf" ||
+        literal == "+inff" || literal == "-inf" || literal == "-inff")
     {
-        case INVALID:
-            std::cout << "Invalid input" << std::endl;
-            break;
-        // case SPECIAL:
-        //     printSpecial(str);
-            break;
-        case CHAR:
-            convertChar(str, len);
-            break;
-        case INT:
-            convertInt(str);
-            break;
-        case FLOAT:
-            convertFloat(str);
-            break;
-        case DOUBLE:
-            convertDouble(str);
-            break;
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        if (literal.find("nan") != std::string::npos)
+        {
+            std::cout << "float: nanf" << std::endl;
+            std::cout << "double: nan" << std::endl;
+        }
+        else
+        {
+            std::cout << "float: " << (literal[0] == '+' ? "+inff" : "-inff") << std::endl;
+            std::cout << "double: " << (literal[0] == '+' ? "+inf" : "-inf") << std::endl;
+        }
+        return;
     }
+
+    char *endPtr;
+    double val = std::strtod(literal.c_str(), &endPtr);
+
+    std::cout << "char: ";
+    if (val < CHAR_MIN || val > CHAR_MAX || std::isnan(val))
+        std::cout << "impossible" << std::endl;
+    else if (!std::isprint(static_cast<char>(val)))
+        std::cout << "Non displayable" << std::endl;
+    else
+        std::cout << "'" << static_cast<char>(val) << "'" << std::endl;
+
+    std::cout << "int: ";
+    if (val < INT_MIN || val > INT_MAX || std::isnan(val))
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << static_cast<int>(val) << std::endl;
+
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(val) << "f" << std::endl;
+
+    std::cout << "double: " << std::fixed << std::setprecision(1) << val << std::endl;
 }

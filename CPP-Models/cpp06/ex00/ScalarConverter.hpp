@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <cstdlib>
 # include <climits>
 # include <cfloat>
 # include <iomanip>
@@ -15,5 +16,4 @@ private:
 public:
     static void convert(const std::string &literal);
 };
-
 #endif

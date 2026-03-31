@@ -36,8 +36,9 @@ void ScalarConverter::convert(const std::string &literal)
         std::cout << "impossible" << std::endl;
     else
         std::cout << static_cast<int>(val) << std::endl;
+    ssize_t len = literal.find(".");
+    len = literal.length() - len - 1;
+    std::cout << "float: " << std::fixed << std::setprecision(len) << static_cast<float>(val) << "f" << std::endl;
 
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(val) << "f" << std::endl;
-
-    std::cout << "double: " << std::fixed << std::setprecision(1) << val << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(len) << val << std::endl;
 }

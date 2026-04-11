@@ -29,6 +29,6 @@ int main()
     // st.push(t);
     // std::cout << st.top() << std::endl;
 
-    OtherData t;
-    t.iterator()
+    // OtherData t;
+    // t.iterator();
 }

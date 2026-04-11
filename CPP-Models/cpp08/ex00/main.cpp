@@ -16,5 +16,4 @@ int main()
     it = easyfind(flok, 20);
 
     std::cout << *it;
-
 }

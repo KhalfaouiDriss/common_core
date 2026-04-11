@@ -36,14 +36,4 @@ public:
     virtual ~MutantStack() {}
 };
 
-class OtherData {
-public:
-    int iterator(); // هنا iterator ليس "نوع بيانات" بل هو مجرد رقم!
-};
-
-int OtherData::iterator()
-{
-
-}
-
 #endif

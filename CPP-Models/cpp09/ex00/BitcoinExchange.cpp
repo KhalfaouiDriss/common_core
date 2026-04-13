@@ -2,17 +2,17 @@
 
 BitcoinExchange::BitcoinExchange(std::string fileName) : _fileName(fileName)
 {
-    if (fileName.length() < 4 || fileName.rfind(".csv") != (fileName.length() - 4)) 
-        throw std::runtime_error("Error: Invalid file extension. Expected .csv");
+    if (fileName.length() < 4 || fileName.rfind(".txt") != (fileName.length() - 4)) 
+        throw std::runtime_error("Error: Invalid file extension. Expected .txt");
 
-    // this->_Data = initData();
     this->_DataMap = initDataMap();
-
 }
+
+// Data file process :
 
 std::map<std::string, float> BitcoinExchange::initDataMap()
 {
-    std::ifstream file(this->_fileName);
+    std::ifstream file("../cpp_09/data.csv");
     
     if (!file.is_open()) {
         throw std::runtime_error("Error: could not open file.");
@@ -20,7 +20,7 @@ std::map<std::string, float> BitcoinExchange::initDataMap()
 
     std::string line;
     std::string header;
-    
+    std::map<std::string, float> tempMap;
     std::getline(file, header);
 
     while (std::getline(file, line))
@@ -33,53 +33,86 @@ std::map<std::string, float> BitcoinExchange::initDataMap()
         std::string date = line.substr(0, delPos);
         std::string strPrice = line.substr(delPos + 1);
 
-        processDate(date);
-
         float price = std::atof(strPrice.c_str());
         
-        _DataMap[date] = price;
+        tempMap[date] = price;
     }
-    return _DataMap;
+    file.close();
+    return tempMap;
 }
 
-int BitcoinExchange::processDate(std::string date)
+// Input file process :
+
+void BitcoinExchange::Result()
 {
-
-
-    // erase "-"
-    std::string newDate;
-    if((newDate = date.erase('-')) == date.end())
-        std::cout << newDate << "\n";
-    // newDate = newDate.erase('-');
-    // newDate = newDate.erase('-');
-
-    // std::string tok = date.substr(0, 3);
-    // std::cout << tok;
-    // tok = date.substr(5, 7);
-    // std::cout << tok;
-    // tok = date.substr(8, 10);
-    // std::cout << tok << std::endl;
-    // std::cout << "=========\n";
+    std::ifstream file(this->_fileName.c_str());
     
-    return 0;
+    if (!file.is_open()) {
+        std::cerr << "Error: could not open file." << std::endl;
+        return;
+    }
+
+    std::string line;
+    std::map<std::string, float>::iterator itData;
+
+    std::getline(file, line);
+
+    while (std::getline(file, line))
+    {
+        if (line.empty()) continue;
+
+        size_t delPos = line.find('|');
+        if (delPos == std::string::npos) {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        std::string date = line.substr(0, delPos);
+        date.erase(date.find_last_not_of(" \t") + 1); 
+        
+        std::string strPrice = line.substr(delPos + 1);
+        
+        float price = static_cast<float>(std::atof(strPrice.c_str()));
+        if (price < 0) {
+            std::cout << "Error: not a positive number." << std::endl;
+            continue;
+        }
+        if (price > 1000) {
+            std::cout << "Error: too large a number." << std::endl;
+            continue;
+        }
+
+        itData = _DataMap.lower_bound(date);
+
+        if (itData != _DataMap.begin() && (itData == _DataMap.end() || itData->first != date))
+            --itData;
+
+        if (itData != _DataMap.end() && itData->first <= date)
+        {
+            float result = price * itData->second;
+            std::cout << date << " => " << price << " = " << result << std::endl;
+        }
+        else
+        {
+            std::cout << "Error: bad input => " << date << std::endl;
+        }
+    }
 }
-// std::string BitcoinExchange::initData()
-// {
 
-// }
-
-
-
-void BitcoinExchange::DisplayBTCStatictic()
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
-    // std::map<std::string, float>::iterator it = _DataMap.begin();
-    // while (it != _DataMap.end())
-    // {
-    //     std::cout << it->first << " => " << it->second << std::endl;
-    //     it++;
-    // }
+    *this = other;
 }
 
-// BitcoinExchange::~BitcoinExchange()
-// {
-// }
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+    if (this != &other) {
+        this->_fileName = other._fileName;
+        this->_DataMap = other._DataMap;
+    }
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange()
+{
+}

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <string.h>
+#include <sstream>
 #include <map>
 #include <algorithm>
 #include <exception>
@@ -12,14 +12,21 @@ class BitcoinExchange
 {
 private:
     std::map<std::string, float> _DataMap;
-    std::string _Data;
     std::string _fileName;
+
 public:
+    // Constructor
     BitcoinExchange(std::string fileName);
-    // std::string initData();
+
+    // 2. Copy Constructor
+    BitcoinExchange(const BitcoinExchange &other);
+
+    // 3. Assignment Operator
+    BitcoinExchange &operator=(const BitcoinExchange &other);
+
+    // 4. Destructor
+    ~BitcoinExchange();
+
     std::map<std::string, float> initDataMap();
-    int processDate(std::string date);
-    int processPrice(std::string price);
-    void DisplayBTCStatictic(); 
-    // ~BitcoinExchange();
+    void Result();
 };

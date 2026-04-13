@@ -13,7 +13,9 @@ int main(int ac, char **av)
     try
     {
         BitcoinExchange Btc(av[1]);
-        Btc.DisplayBTCStatictic();  
+        BitcoinExchange Btc2("input3.txt");
+        Btc2 = Btc;
+        Btc2.Result();      
 
     } catch (std::exception &e)
     {

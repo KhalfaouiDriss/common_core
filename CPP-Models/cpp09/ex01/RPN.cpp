@@ -5,6 +5,10 @@ RPN::RPN() : _expression("") {
 
 RPN::RPN(std::string expression) : _expression(expression)
 {
+}
+
+void RPN::execute()
+{
     CheckExpr();
     ProcessStack();
 }

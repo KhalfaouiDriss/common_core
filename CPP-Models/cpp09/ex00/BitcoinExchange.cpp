@@ -43,7 +43,7 @@ std::map<std::string, float> BitcoinExchange::initDataMap()
 
 // Input file process :
 
-void BitcoinExchange::Result()
+void BitcoinExchange::execute()
 {
     std::ifstream file(this->_fileName.c_str());
     

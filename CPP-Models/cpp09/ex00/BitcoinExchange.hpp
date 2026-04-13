@@ -28,5 +28,5 @@ public:
     ~BitcoinExchange();
 
     std::map<std::string, float> initDataMap();
-    void Result();
+    void execute();
 };

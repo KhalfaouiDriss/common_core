@@ -26,6 +26,7 @@ public:
     RPN &operator=(const RPN &other);
 
     int CheckExpr();
+    void execute();
     void ProcessStack();
 
     // 4. Destructor

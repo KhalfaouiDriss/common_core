@@ -8,14 +8,12 @@ int main(int ac, char **av)
         std::cerr << "Error: The input should be : ./btc {file}.csv\n";
         return 1;
     }
-
-
     try
     {
         BitcoinExchange Btc(av[1]);
         BitcoinExchange Btc2("input3.txt");
         Btc2 = Btc;
-        Btc2.Result();      
+        Btc2.execute();      
 
     } catch (std::exception &e)
     {

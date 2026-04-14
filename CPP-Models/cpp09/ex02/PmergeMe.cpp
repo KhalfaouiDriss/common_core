@@ -42,74 +42,162 @@ void PmergeMe::SplitStr()
     std::cout << std::endl;
 }
 
-// A
+// ====================================
 
-std::vector<int> PmergeMe::Merge(std::vector<int> ArrOne, std::vector<int> ArrTwo)
+std::vector<int> generateJacobsthal(int n)
 {
-    std::vector<int> ArrContent;
-    int i = 0;
-    int j = 0;
-    while (i < ArrOne.size() && j < ArrTwo.size())
+    std::vector<int> jacob;
+    jacob.push_back(1);
+    jacob.push_back(3);
+    while (jacob.back() < n)
     {
-        if (ArrOne[i] < ArrTwo[j])
-        {
-            std::cout << "  pick [ " << ArrOne[i] << " ] from ArrOne\n";
-            ArrContent.push_back(ArrOne[i]);
-            i++;
-        }
-        else
-        {
-            std::cout << "  pick [ " << ArrTwo[j] << " ] from ArrTwo\n";
-            ArrContent.push_back(ArrTwo[j]);
-            j++;
-        }
+        int next = jacob.back() + 2 * jacob[jacob.size() - 2];
+        jacob.push_back(next);
     }
-
-    while (i < ArrOne.size())
-    {
-        std::cout << "  rest [ " << ArrOne[i] << " ] from ArrOne\n";
-        ArrContent.push_back(ArrOne[i]);
-        i++;
-    }
-    while (j < ArrTwo.size())
-    {
-        std::cout << "  rest [ " << ArrTwo[j] << " ] from ArrTwo\n";
-        ArrContent.push_back(ArrTwo[j]);
-        j++;
-    }
-    return ArrContent;
+    return jacob;
 }
 
 std::vector<int> PmergeMe::MergeSort(std::vector<int> Array)
 {
-    if (Array.size() == 1)
+    if (Array.size() <= 1)
         return Array;
-    std::vector<int> ArrOne(Array.begin(), (Array.begin() + (Array.size() / 2)));
-    std::vector<int> ArrTwo(Array.begin() + (Array.size() / 2), Array.end());
 
-    ArrOne = MergeSort(ArrOne);
-    ArrTwo = MergeSort(ArrTwo);
+    std::vector<int> winners, losers;
+    std::vector<std::pair<int, int>> pairs;
 
-    int i = 0;
-    std::cout << "ArrOne : ";
-    while (i < (int)ArrOne.size())
-        std::cout << "[ " << ArrOne[i++] << " ]";
-    i = 0;
-    std::cout << "\nArrTwo : ";
-    while (i < (int)ArrTwo.size())
-        std::cout << "[ " << ArrTwo[i++] << " ]";
-    std::cout << "\n";
+    for (size_t i = 0; i + 1 < Array.size(); i += 2)
+    {
+        if (Array[i] > Array[i + 1])
+        {
+            winners.push_back(Array[i]);
+            pairs.push_back({Array[i], Array[i + 1]});
+        }
+        else
+        {
+            winners.push_back(Array[i + 1]);
+            pairs.push_back({Array[i + 1], Array[i]});
+        }
+    }
 
-    std::vector<int> result = Merge(ArrOne, ArrTwo);
+    int stray = -1;
+    if (Array.size() % 2 != 0)
+        stray = Array.back();
 
-    i = 0;
-    std::cout << "Merged : ";
-    while (i < (int)result.size())
-        std::cout << "[ " << result[i++] << " ]";
-    std::cout << "\n---\n";
+    std::vector<int> sortedWinners = MergeSort(winners);
+    std::vector<int> result = sortedWinners;
+    std::vector<int> sortedLosers;
 
-    return (result);
+    for (int win : sortedWinners)
+    {
+        for (auto &p : pairs)
+        {
+            if (p.first == win)
+            {
+                sortedLosers.push_back(p.second);
+                break;
+            }
+        }
+    }
+    result.insert(result.begin(), sortedLosers[0]);
+    std::vector<int> jacobSeq = generateJacobsthal(sortedLosers.size());
+    std::vector<bool> inserted(sortedLosers.size(), false);
+    inserted[0] = true; 
+
+    for (size_t k = 0; k < jacobSeq.size(); k++)
+    {
+        int targetIdx = jacobSeq[k] - 1;
+        if (targetIdx >= (int)sortedLosers.size())
+            targetIdx = sortedLosers.size() - 1;
+
+        for (int i = targetIdx; i >= 0; i--)
+        {
+            if (!inserted[i])
+            {
+                auto it = std::lower_bound(result.begin(), result.end(), sortedLosers[i]);
+                result.insert(it, sortedLosers[i]);
+                inserted[i] = true;
+            }
+        }
+    }
+
+    if (stray != -1)
+    {
+        auto it = std::lower_bound(result.begin(), result.end(), stray);
+        result.insert(it, stray);
+    }
+
+    return result;
 }
+
+// A
+
+// std::vector<int> PmergeMe::Merge(std::vector<int> ArrOne, std::vector<int> ArrTwo)
+// {
+//     std::vector<int> ArrContent;
+//     int i = 0;
+//     int j = 0;
+//     while (i < ArrOne.size() && j < ArrTwo.size())
+//     {
+//         std::cout << "  cmp  [ " << ArrOne[i] << " ] vs [ " << ArrTwo[j] << " ]\n";
+//         if (ArrOne[i] < ArrTwo[j])
+//         {
+//             std::cout << "  pick [ " << ArrOne[i] << " ] from ArrOne\n";
+//             ArrContent.push_back(ArrOne[i]);
+//             i++;
+//         }
+//         else
+//         {
+//             std::cout << "  pick [ " << ArrTwo[j] << " ] from ArrTwo\n";
+//             ArrContent.push_back(ArrTwo[j]);
+//             j++;
+//         }
+//     }
+
+//     while (i < ArrOne.size())
+//     {
+//         std::cout << "  rest [ " << ArrOne[i] << " ] from ArrOne\n";
+//         ArrContent.push_back(ArrOne[i]);
+//         i++;
+//     }
+//     while (j < ArrTwo.size())
+//     {
+//         std::cout << "  rest [ " << ArrTwo[j] << " ] from ArrTwo\n";
+//         ArrContent.push_back(ArrTwo[j]);
+//         j++;
+//     }
+//     return ArrContent;
+// }
+
+// std::vector<int> PmergeMe::MergeSort(std::vector<int> Array)
+// {
+//     if (Array.size() == 1)
+//         return Array;
+//     std::vector<int> ArrOne(Array.begin(), (Array.begin() + (Array.size() / 2)));
+//     std::vector<int> ArrTwo(Array.begin() + (Array.size() / 2), Array.end());
+
+//     ArrOne = MergeSort(ArrOne);
+//     ArrTwo = MergeSort(ArrTwo);
+
+//     int i = 0;
+//     std::cout << "ArrOne : ";
+//     while (i < (int)ArrOne.size())
+//         std::cout << "[ " << ArrOne[i++] << " ]";
+//     i = 0;
+//     std::cout << "\nArrTwo : ";
+//     while (i < (int)ArrTwo.size())
+//         std::cout << "[ " << ArrTwo[i++] << " ]";
+//     std::cout << "\n";
+
+//     std::vector<int> result = Merge(ArrOne, ArrTwo);
+
+//     i = 0;
+//     std::cout << "Merged : ";
+//     while (i < (int)result.size())
+//         std::cout << "[ " << result[i++] << " ]";
+//     std::cout << "\n---\n";
+
+//     return (result);
+// }
 
 PmergeMe::~PmergeMe()
 {

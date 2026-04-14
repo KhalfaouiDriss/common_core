@@ -17,5 +17,7 @@ public:
     PmergeMe(char** args, int size);
     void execute();
     void SplitStr();
+    std::vector<int> MergeSort(std::vector<int> array);
+    static std::vector<int> Merge(std::vector<int> ArrOne, std::vector<int> ArrTwo);
     ~PmergeMe();
 };

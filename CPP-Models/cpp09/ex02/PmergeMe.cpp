@@ -59,35 +59,39 @@ std::vector<int> generateJacobsthal(int n)
 
 
 // A
-
 std::vector<int> PmergeMe::Merge(std::vector<int> ArrOne, std::vector<int> ArrTwo)
 {
-    std::vector<int> ArrContent;
-    int i = 0;
-    int j = 0;
-    // ArrContent.insert(ArrContent.begin(), ArrTwo[0]);
+    // ArrOne.insert(ArrOne.begin(), ArrTwo[0]);
     
     std::vector<int> jacobSeq = generateJacobsthal(ArrTwo.size());
-    std::vector<bool> isInserted(ArrTwo.size(), false);
-    
-    while (i < jacobSeq.size())
+    std::vector<bool> inserted(ArrTwo.size(), false);
+    // inserted[0] = true;
+
+    for (size_t i = 0; i < jacobSeq.size(); i++)
     {
-        size_t targetidx = jacobSeq[i] - 1;
-        if (targetidx > ArrTwo.size())
-            targetidx = ArrTwo.size() - 1;
+        int targetidx = std::min((int)jacobSeq[i] - 1, (int)ArrTwo.size() - 1);
         
-        int k = targetidx;
-        while (k >= 0)
+        for (int k = targetidx; k >= 0; k--)
         {
-            if (ArrTwo[k] <= ArrOne[k] && !isInserted[k])
+            if (!inserted[k])
             {
-                ArrOne.insert(ArrOne.begin() + k , ArrTwo[k]);
-                isInserted[k] = true;
+                auto it = std::lower_bound(ArrOne.begin(), ArrOne.end(), ArrTwo[k]);
+                ArrOne.insert(it, ArrTwo[k]);
+                inserted[k] = true;
             }
-            k--;
         }
-        i++;
     }
+
+    for (size_t k = 0; k < ArrTwo.size(); k++)
+    {
+        if (!inserted[k])
+        {
+            auto it = std::lower_bound(ArrOne.begin(), ArrOne.end(), ArrTwo[k]);
+            std::cout << "======\n";
+            ArrOne.insert(it, ArrTwo[k]);
+        }
+    }
+
     return ArrOne;
 }
 
@@ -97,7 +101,6 @@ std::vector<int> PmergeMe::MergeSort(std::vector<int> Array)
         return Array;
     std::vector<int> ArrOne(Array.begin(), (Array.begin() + (Array.size() / 2)));
     std::vector<int> ArrTwo(Array.begin() + (Array.size() / 2), Array.end());
-    std::cout << Array[0] << std::endl;
     std::vector<std::pair<int, int>> pair;
     
     int i = -1; 
@@ -106,7 +109,7 @@ std::vector<int> PmergeMe::MergeSort(std::vector<int> Array)
     while (++i < std::min(ArrOne.size(), ArrTwo.size()))
         pair.push_back({ArrOne[i], ArrTwo[i]});
 
-    ArrOne = MergeSort(ArrOne);
+    ArrOne = MergeSort(ArrOne); 
 
     i = 0;
     j = 0;

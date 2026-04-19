@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inception | 42 Project</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-bracket">[</span>
+            <span class="logo-text">INCEPTION</span>
+            <span class="logo-bracket">]</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="INCEPTION">INCEPTION</h1>
+                <p class="subtitle">A Docker Infrastructure Project</p>
+                <p class="tagline">Building dreams within dreams, containers within containers</p>
+                <div class="cta-buttons">
+                    <a href="#architecture" class="btn btn-primary">Explore Architecture</a>
+                    <a href="https://github.com/FukaiKoda/INCEPTION" class="btn btn-secondary" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <section id="architecture" class="architecture">
+            <h2 class="section-title">System Architecture</h2>
+            <div class="architecture-diagram">
+                <div class="layer layer-external">
+                    <span class="layer-label">External Access (Port 443)</span>
+                    <div class="container-box nginx">
+                        <div class="container-icon">🔒</div>
+                        <h3>NGINX</h3>
+                        <p>TLS Termination</p>
+                        <p>Reverse Proxy</p>
+                    </div>
+                </div>
+                <div class="arrow-down">▼</div>
+                <div class="layer layer-application">
+                    <span class="layer-label">Application Layer</span>
+                    <div class="container-box wordpress">
+                        <div class="container-icon">📝</div>
+                        <h3>WordPress</h3>
+                        <p>PHP-FPM 8.2</p>
+                        <p>Port 9000</p>
+                    </div>
+                </div>
+                <div class="arrow-down">▼</div>
+                <div class="layer layer-data">
+                    <span class="layer-label">Data Layer</span>
+                    <div class="container-box mariadb">
+                        <div class="container-icon">🗄️</div>
+                        <h3>MariaDB</h3>
+                        <p>Database Server</p>
+                        <p>Port 3306</p>
+                    </div>
+                </div>
+            </div>
+            <div class="network-info">
+                <div class="network-badge">
+                    <span class="network-icon">🌐</span>
+                    <span>Docker Network: inception</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="section-title">Services Dashboard</h2>
+            <div class="services-grid">
+                <div class="service-card" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">🌐</div>
+                    <h3>NGINX</h3>
+                    <p>Reverse Proxy & SSL</p>
+                    <span class="port">:443</span>
+                </div>
+                <div class="service-card" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">📝</div>
+                    <h3>WordPress</h3>
+                    <p>CMS Platform</p>
+                    <span class="port">:9000</span>
+                </div>
+                <div class="service-card" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">🗄️</div>
+                    <h3>MariaDB</h3>
+                    <p>Database Server</p>
+                    <span class="port">:3306</span>
+                </div>
+                <div class="service-card bonus" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">⚡</div>
+                    <h3>Redis</h3>
+                    <p>Cache Server</p>
+                    <span class="port">:6379</span>
+                </div>
+                <div class="service-card bonus" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">📊</div>
+                    <h3>Adminer</h3>
+                    <p>DB Management</p>
+                    <span class="port">:8080</span>
+                </div>
+                <div class="service-card bonus" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">📁</div>
+                    <h3>FTP</h3>
+                    <p>File Transfer</p>
+                    <span class="port">:21</span>
+                </div>
+                <div class="service-card bonus" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">📧</div>
+                    <h3>MailHog</h3>
+                    <p>Email Testing</p>
+                    <span class="port">:8025</span>
+                </div>
+                <div class="service-card bonus current" data-status="running">
+                    <div class="status-indicator"></div>
+                    <div class="service-icon">🚀</div>
+                    <h3>Static Site</h3>
+                    <p>You are here!</p>
+                    <span class="port">:9999</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">About This Project</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        <strong>Inception</strong> is a system administration project from the 42 curriculum 
+                        that challenges students to build a complete Docker-based infrastructure from scratch.
+                    </p>
+                    <p>
+                        The project demonstrates containerization principles, networking, volume management, 
+                        and security best practices using Docker and Docker Compose.
+                    </p>
+                    <div class="tech-stack">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Debian</span>
+                            <span class="tech-badge">NGINX</span>
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">PHP-FPM</span>
+                            <span class="tech-badge">MariaDB</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">OpenSSL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="containers-count">8</span>
+                        <span class="stat-label">Containers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Network</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Volumes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Created by <strong>habdella</strong> as part of the 42 curriculum</p>
+            <p class="copyright">© 2025 Inception Project</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

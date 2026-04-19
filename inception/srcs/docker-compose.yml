@@ -1,0 +1,119 @@
+services:
+  mariadb:
+    image: "mariadb:habdella"
+    build: ./requirements/mariadb
+    container_name: mariadb
+    env_file: .env
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - inception
+    restart: always
+
+  wordpress:
+    image: "wordpress:habdella"
+    build: ./requirements/wordpress
+    container_name: wordpress
+    env_file: .env
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
+
+  nginx:
+    image: "nginx:habdella"
+    build: ./requirements/nginx
+    container_name: nginx
+    env_file: .env
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    restart: always
+
+  adminer:
+    image: "adminer:habdella"
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    env_file: .env
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: always
+
+  ftp:
+    image: "ftps:habdella"
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    env_file: .env
+    ports:
+      - "20:20"
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - wordpress:/home/${FTP_USER}/wordpress
+    networks:
+      - inception
+    restart: always
+
+  mailhog:
+    image: "mailhog:habdella"
+    build: ./requirements/bonus/mailhog
+    container_name: mailhog
+    env_file: .env
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    networks:
+      - inception
+    restart: always
+
+  redis:
+    image: "redis:habdella"
+    build: ./requirements/bonus/redis
+    container_name: redis
+    env_file: .env
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+    restart: always
+
+  static_website:
+    image: "static_website:habdella"
+    build: ./requirements/bonus/static_website
+    container_name: static_website
+    env_file: .env
+    ports:
+      - "9999:9999"
+    networks:
+      - inception
+    restart: always
+
+volumes:
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/home/${USER}/data/mariadb"
+
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/home/${USER}/data/wordpress"
+
+networks:
+  inception:

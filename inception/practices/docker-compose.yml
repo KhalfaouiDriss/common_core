@@ -1,0 +1,7 @@
+services:
+  web_server:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - /home/drx-47/pnt/:/usr/share/nginx/html/

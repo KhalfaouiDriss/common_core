@@ -3,3 +3,5 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
   -out /etc/nginx/ssl/cert-out.crt \
   -subj "/C=MA/L=Khouribga/O=1337/CN=dkhalfao.42.fr"
 
+
+

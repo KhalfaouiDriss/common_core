@@ -1,43 +1,42 @@
-CMP_FILE=srcs/docker-compose.yml
+# Variables
+COMPOSE_FILE	= srcs/docker-compose.yml
+DATA_PATH		= $(HOME)/data
 
-DEF = \033[0m
-MAGENTA = \033[0;35m
-YELLOW = \033[1;33m
+# Colors
+GREEN			= \033[0;32m
+YELLOW			= \033[0;33m
+RED				= \033[0;31m
+RESET			= \033[0m
 
-
-all: data_depend
-	@echo "${YELLOW} Building and starting containers...${DEF}"
-	@docker compose -f ${CMP_FILE} up --build -d
-
-data_depend:
-	@echo "${MAGENTA}Creating data directories...${DEF}"
-	@mkdir -p /home/${USER}/data/mariadb
-	@mkdir -p /home/${USER}/data/wordpress
+all: up
 
 up:
-	@echo "${YELLOW}Containers Starting${DEF}"
-	@docker compose -f ${CMP_FILE} up -d
-
-stop:
-	@docker compose -f ${CMP_FILE} stop
-	@echo "${YELLOW}Containers Stopping${DEF}"
+	@echo "$(GREEN)Creating data directories...$(RESET)"
+	@mkdir -p $(DATA_PATH)/mariadb
+	@mkdir -p $(DATA_PATH)/wordpress
+	@echo "$(GREEN)Building and starting containers...$(RESET)"
+	@docker compose -f $(COMPOSE_FILE) up --build -d
 
 down:
-	@docker compose -f ${CMP_FILE} down
-	@echo "${YELLOW}Containers Down${DEF}"
+	@echo "$(YELLOW)Stopping containers...$(RESET)"
+	@docker compose -f $(COMPOSE_FILE) down
 
-clean:
-	@docker compose -f ${CMP_FILE} down --remove-orphans
-	@echo "${MAGENTA}Containers cleaned${DEF}"
+re: down up
 
-fclean:
-	@docker compose -f ${CMP_FILE} down --rmi all --volumes --remove-orphans
-	@echo "${MAGENTA}Containers and data volumes cleaned${DEF}"
+clean: down
+	@echo "$(RED)Removing volumes and data...$(RESET)"
+	@docker compose -f $(COMPOSE_FILE) down -v
+	@sudo rm -rf $(DATA_PATH)/mariadb/*
+	@sudo rm -rf $(DATA_PATH)/wordpress/*
 
-re: fclean all
+fclean: clean
+	@echo "$(RED)Removing all Docker images and system cache...$(RESET)"
+	@docker system prune -af
 
-status:
-	@echo "${MAGENTA}Containers Status${DEF}"
-	@docker compose -f ${CMP_FILE} ps -a --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
+logs:
+	@docker compose -f $(COMPOSE_FILE) logs -f
 
-.PHONY: all up down stop clean fclean re status data_depend
+ps:
+	@docker compose -f $(COMPOSE_FILE) ps
+
+.PHONY: all up down re clean fclean logs ps

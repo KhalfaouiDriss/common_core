@@ -1,5 +1,12 @@
 #!/bin/bash
 
+DB_PASSWORD=$(cat /run/secrets/db_password)
+
+# Parse credentials.txt
+WP_ADMIN=$(grep admin_user /run/secrets/credentials | cut -d= -f2)
+WP_ADMIN_PASSWORD=$(grep admin_password /run/secrets/credentials | cut -d= -f2)
+WP_ADMIN_EMAIL=$(grep admin_email /run/secrets/credentials | cut -d= -f2)
+
 # Wait for MariaDB to be ready
 echo "Waiting for MariaDB..."
 while ! mysqladmin ping -h mariadb --silent 2>/dev/null; do

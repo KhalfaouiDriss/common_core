@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y nginx openssl && \
 RUN mkdir -p /etc/nginx/ssl
 
 COPY conf/nginx.conf /etc/nginx/sites-available/default
+
 COPY tools/setup.sh /setup.sh
 
 RUN chmod +x /setup.sh

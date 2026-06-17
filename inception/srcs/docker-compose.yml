@@ -10,14 +10,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/drx-47/data/mariadb
+      device: ${DATA_PATH}/mariadb
 
   wp_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/drx-47/data/wordpress
+      device: ${DATA_PATH}/wordpress
 
 
 secrets:

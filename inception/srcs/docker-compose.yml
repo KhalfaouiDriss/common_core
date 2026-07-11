@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   inception:
     driver: bridge
@@ -41,7 +39,7 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - inception
-    restart: always
+    restart: unless-stopped
 
   wordpress:
     build: ./requirements/wordpress
@@ -56,7 +54,7 @@ services:
       - inception
     depends_on:
       - mariadb
-    restart: always
+    restart: unless-stopped
 
   nginx:
     build: ./requirements/nginx
@@ -69,4 +67,11 @@ services:
       - inception
     depends_on:
       - wordpress
-    restart: always
+    restart: unless-stopped
+
+  resume:
+    build: ./requirements/resume
+    container_name: resume
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

@@ -5,6 +5,7 @@ DB_PASSWORD=$(cat /run/secrets/db_password)
 # Parse credentials.txt
 # WP_ADMIN=$(grep admin_user /run/secrets/credentials | cut -d= -f2)
 WP_ADMIN_PASSWORD=$(cat /run/secrets/credentials)
+WP_USER_PASSWORD=$(cat /run/secrets/credentials) # Using same secret as there is no separate user password secret
 # WP_ADMIN_EMAIL=$(grep admin_email /run/secrets/credentials | cut -d= -f2)
 
 # Wait for MariaDB to be ready

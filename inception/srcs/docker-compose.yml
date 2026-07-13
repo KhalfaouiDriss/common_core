@@ -30,7 +30,6 @@ services:
 
   mariadb:
     build: ./requirements/mariadb
-    container_name: mariadb
     env_file: .env
     secrets:
       - db_password
@@ -43,7 +42,6 @@ services:
 
   wordpress:
     build: ./requirements/wordpress
-    container_name: wordpress
     env_file: .env
     secrets:
       - db_password
@@ -58,7 +56,6 @@ services:
 
   nginx:
     build: ./requirements/nginx
-    container_name: nginx
     ports:
       - "443:443"
     volumes:
@@ -71,7 +68,8 @@ services:
 
   resume:
     build: ./requirements/resume
-    container_name: resume
     ports:
       - "8080:8080"
+    networks:
+      - inception
     restart: unless-stopped

@@ -10,7 +10,7 @@ WP_USER_PASSWORD=$(cat /run/secrets/credentials) # Using same secret as there is
 
 # Wait for MariaDB to be ready
 echo "Waiting for MariaDB..."
-while ! mysqladmin ping -h mariadb --silent 2>/dev/null; do
+while ! mysqladmin ping -h mariadb -u "${DB_USER}" -p"${DB_PASSWORD}" --silent 2>/dev/null; do
     sleep 2
 done
 echo "MariaDB is ready!"
